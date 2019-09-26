@@ -14,3 +14,7 @@ Additional details:
 
 * the motivation behind breaking the line and placing the ampersand at the beginning of the line is given, e.g., [here](https://graphicdesign.stackexchange.com/questions/15783/is-ampersand-allowed-at-the-beginning-of-line)
 * see also this related [issue](https://github.com/scipy/scipy/issues/10875)
+
+Here is a sample guide:
+
+![sample](https://user-images.githubusercontent.com/26354268/65713823-4c3a8600-e09a-11e9-921d-4db6cfa729fd.jpg)
