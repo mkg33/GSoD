@@ -1,0 +1,126 @@
+
+\documentclass[tikz]{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{verbatim}
+
+\definecolor{primary_1}{HTML}{FFC553}
+\definecolor{primary_2}{HTML}{4DABCF}
+\definecolor{secondary_1}{HTML}{FF9153}
+\definecolor{secondary_2}{HTML}{4D77CF}
+\definecolor{tertiary}{HTML}{9866CF}
+
+\begin{document}
+\pagestyle{empty}
+
+
+
+\tikzstyle{block_main} = [rectangle, draw, fill=primary_1!85, 
+    text width=12em, text centered, rounded corners, minimum height=6em]
+\tikzstyle{block_category} = [rectangle, draw, fill=secondary_2!85, text width=8em, text centered, rounded corners]
+\tikzstyle{block_subcategory} = [rectangle, draw, fill=tertiary!85, text centered, rounded corners]
+\tikzstyle{line} = [draw, -latex']
+
+    
+\begin{tikzpicture}[node distance=2cm, auto]
+
+    \node [block_main] (hierarchical_clustering) {\textsc{Hierarchical Clustering}\\\footnotesize{\texttt{scipy.cluster.hierarchy}}};
+    
+    \node [block_category, xshift=-6cm] (flat_clustering) {flat clustering \& forest roots};
+    \node [block_subcategory, xshift=-4.25cm, yshift=1.25cm] (fcluster) {\footnotesize{\texttt{fcluster}}};
+    \node [block_subcategory, xshift=-7.5cm, yshift=1.5cm] (fclusterdata) {\footnotesize{\texttt{fclusterdata}}};
+    \node [block_subcategory, xshift=-7cm, yshift=-1.5cm] (leaders) {\footnotesize{\texttt{leaders}}};
+    
+    \node [block_category, xshift=-4cm, yshift=-2cm] (agglomerative_clustering) {agglomerative clustering};
+    \node [block_subcategory, xshift=-8cm, yshift=-3cm] (average) {\footnotesize{\texttt{average}}};
+    \node [block_subcategory, xshift=-8.25cm, yshift=-3.9cm] (centroid) {\footnotesize{\texttt{centroid}}};
+    \node [block_subcategory, xshift=-7.75cm, yshift=-4.75cm] (complete) {\footnotesize{\texttt{complete}}};
+    \node [block_subcategory, xshift=-5.9cm, yshift=-4.25cm] (linkage) {\footnotesize{\texttt{linkage}}};
+    \node [block_subcategory, xshift=-5.1cm, yshift=-5cm] (median) {\footnotesize{\texttt{median}}};
+    \node [block_subcategory, xshift=-4.1cm, yshift=-5.75cm] (single) {\footnotesize{\texttt{single}}};
+    \node [block_subcategory, xshift=-3.25cm, yshift=-4.75cm] (ward) {\footnotesize{\texttt{ward}}};
+    \node [block_subcategory, xshift=-2.5cm, yshift=-3.75cm] (weighted) {\footnotesize{\texttt{weighted}}};
+    
+    \node [block_category, xshift=1cm, yshift=-3cm] (statistics_hierarchies) {statistics on hierarchies};
+    \node [block_subcategory, xshift=-1cm, yshift=-4.75cm] (cophenet) {\footnotesize{\texttt{cophenet}}};
+    \node [block_subcategory, xshift=-0.5cm, yshift=-5.75cm] (from_mlab_linkage) {\footnotesize{\texttt{from\_mlab\_linkage}}};
+    \node [block_subcategory, xshift=1cm, yshift=-6.75cm] (inconsistent) {\footnotesize{\texttt{inconsistent}}};
+    \node [block_subcategory, xshift=2.75cm, yshift=-7.75cm] (maxdists) {\footnotesize{\texttt{maxdists}}};
+    \node [block_subcategory, xshift=3.25cm, yshift=-5.75cm] (maxinconsts) {\footnotesize{\texttt{maxinconsts}}};
+    \node [block_subcategory, xshift=3.75cm, yshift=-4.75cm] (maxRstat) {\footnotesize{\texttt{maxRstat}}};
+    \node [block_subcategory, xshift=4.75cm, yshift=-3.75cm] (to_mlab_linkage) {\footnotesize{\texttt{to\_mlab\_linkage}}};
+    
+    
+    \node [block_category, xshift=6cm, yshift=-2cm] (visualizing_clusters) {visualizing flat clusters};
+    \node [block_subcategory, xshift=7.5cm, yshift=-4.5cm] (dendrogram) {\footnotesize{\texttt{dendrogram}}};
+    
+    \node [block_category, xshift=7cm, yshift=2cm] (hierarchies_tree) {representing hierarchies as tree objects};
+    \node [block_subcategory, xshift=4cm, yshift=0.25cm] (ClusterNode) {\footnotesize{\texttt{ClusterNode}}};
+    \node [block_subcategory, xshift=4.85cm, yshift=-0.5cm] (cut_tree) {\footnotesize{\texttt{cut\_tree}}};
+    \node [block_subcategory, xshift=7cm, yshift=-0.75cm] (leaves_list) {\footnotesize{\texttt{leaves\_list}}};
+    \node [block_subcategory, xshift=9cm, yshift=0.25cm] (optimal_leaf_ordering) {\footnotesize{\texttt{optimal\_leaf\_ordering}}};
+     
+     \node [block_category, xshift=2cm, yshift=2.5cm] (validity) {validity\\\& isomorphism};
+     \node [block_subcategory, xshift=5.75cm, yshift=3.5cm] (correspond) {\footnotesize{\texttt{correspond}}};
+     \node [block_subcategory, xshift=4.25cm, yshift=4.25cm] (is_isomorphic) {\footnotesize{\texttt{is\_isomorphic}}};
+     \node [block_subcategory, xshift=1.75cm, yshift=4cm] (is_monotonic) {\footnotesize{\texttt{is\_monotonic}}};
+     \node [block_subcategory, xshift=-0.5cm, yshift=4cm] (is_valid_im) {\footnotesize{\texttt{is\_valid\_im}}};
+     \node [block_subcategory, xshift=-1.5cm, yshift=3.25cm] (is_valid_linkage) {\footnotesize{\texttt{is\_valid\_linkage}}};
+     \node [block_subcategory, xshift=-1.75cm, yshift=2cm] (num_obs_linkage) {\footnotesize{\texttt{num\_obs\_linkage}}};
+     
+     \node [block_category, text width=5em, xshift=-5.25cm, yshift=2.75cm] (plotting) {plotting};
+     \node [block_subcategory, xshift=-5.75cm, yshift=4.25cm] (set_link_color_palette) {\footnotesize{\texttt{set\_link\_color\_palette}}};
+     
+     
+     
+     \path [line] (hierarchical_clustering) -- (flat_clustering);
+     \path [line] (flat_clustering) -- (fcluster);
+     \path [line] (flat_clustering) -- (fclusterdata);
+     \path [line] (flat_clustering) -- (leaders);
+     
+     \path [line] (hierarchical_clustering) -- (agglomerative_clustering);
+     \path [line] (agglomerative_clustering) -- (average);
+     \path [line] (agglomerative_clustering) -- (centroid);
+     \path [line] (agglomerative_clustering) -- (complete);
+     \path [line] (agglomerative_clustering) -- (linkage);
+     \path [line] (agglomerative_clustering) -- (median);
+     \path [line] (agglomerative_clustering) -- (single);
+     \path [line] (agglomerative_clustering) -- (ward);
+     \path [line] (agglomerative_clustering) -- (weighted);
+     
+     \path [line] (hierarchical_clustering) -- (statistics_hierarchies);
+     \path [line] (statistics_hierarchies) -- (cophenet);
+     \path [line] (statistics_hierarchies) -- (from_mlab_linkage);
+     \path [line] (statistics_hierarchies) -- (inconsistent);
+     \path [line] (statistics_hierarchies) -- (maxdists);
+     \path [line] (statistics_hierarchies) -- (maxinconsts);
+     \path [line] (statistics_hierarchies) -- (maxRstat);
+     \path [line] (statistics_hierarchies) -- (to_mlab_linkage);
+     
+     \path [line] (hierarchical_clustering) -- (visualizing_clusters);
+     \path [line] (visualizing_clusters) -- (dendrogram);
+     
+     \path [line] (hierarchical_clustering) -- (hierarchies_tree);
+     \path [line] (hierarchies_tree) -- (ClusterNode);
+     \path [line] (hierarchies_tree) -- (cut_tree);
+     \path [line] (hierarchies_tree) -- (leaves_list);
+     \path [line] (hierarchies_tree) -- (optimal_leaf_ordering);
+     
+     \path [line] (hierarchical_clustering) -- (validity);
+     \path [line] (validity) -- (correspond);
+     \path [line] (validity) -- (is_isomorphic);
+     \path [line] (validity) -- (is_monotonic);
+     \path [line] (validity) -- (is_valid_im);
+     \path [line] (validity) -- (is_valid_linkage);
+     \path [line] (validity) -- (num_obs_linkage);
+     
+     \path [line] (hierarchical_clustering) -- (plotting);
+     \path [line] (plotting) -- (set_link_color_palette);
+   
+
+\end{tikzpicture}
+
+
+\end{document}

@@ -1,0 +1,89 @@
+\documentclass[tikz]{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{verbatim}
+
+\definecolor{primary_1}{HTML}{FFC553}
+\definecolor{primary_2}{HTML}{4DABCF}
+\definecolor{secondary_1}{HTML}{FF9153}
+\definecolor{secondary_2}{HTML}{4D77CF}
+\definecolor{tertiary}{HTML}{9866CF}
+
+\begin{document}
+\pagestyle{empty}
+
+
+\tikzstyle{block} = [rectangle, draw, fill=primary_1!80, 
+text width=9em, text centered, rounded corners, minimum height=4em, minimum width = 11em]
+\tikzstyle{block3} = [rectangle, draw, fill=secondary_2!80, 
+text width=9em, text centered, rounded corners, minimum height=5em]
+\tikzstyle{block2} = [rectangle, draw, fill=secondary_1!80, 
+text width=9em, text centered, rounded corners, minimum height=8em, minimum width=14em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=tertiary!80, node distance=3cm,
+minimum height=4em]
+
+
+  \begin{tikzpicture}[node distance = 2cm, auto]
+  
+    % nodes
+
+
+    \node [block2] (linalg) {\Large \textsc{Linear Algebra}\\\footnotesize\texttt{scipy.linalg}};
+    \node [cloud, node distance = 5cm, above of = linalg] (info) {\large general info};
+    \node [block, below of = linalg, node distance = 6cm] (routines) {\Large basic routines};
+    \node [block, below of = linalg, node distance = 3.75cm, xshift=-2.5cm] (special) {\large special matrices};
+    \node [block, right of = linalg, node distance = 6.5cm] (decompositions) {\Large decompositions};
+    \node [block3, below of = decompositions, node distance = 3cm, xshift=-3.25cm] (cholesky){\Small Cholesky \\decomposition\\\footnotesize\texttt{linalg.cholesky}};
+    \node [block3, below of = decompositions, node distance = 4.75cm, xshift=0.25cm] (eigen) {\Small eigenvalues \& eigenvectors\\\footnotesize\texttt{linalg.eig}\\\texttt{linalg.eigvals}};
+    \node [block3, below of = decompositions, node distance = 2.5cm, xshift=2.5cm] (inter) {\Small interpolative decomposition\\\footnotesize\texttt{linalg.interpolative}};
+    \node [block3, above of = decompositions, node distance = 2cm, xshift=4cm] (lu) {\Small LU decomposition\\\footnotesize\texttt{linalg.lu}};
+    \node [block3, above of = decompositions, node distance = 4cm, xshift = 2cm] (qr) {\Small QR decomposition\\\footnotesize\texttt{linalg.qr}};
+    \node [block3, above of = decompositions, node distance = 6cm, xshift=-1cm] (schur) {\Small Schur \\decomposition\\\footnotesize\texttt{linalg.schur}\\\texttt{linalg.rsf2csf}};
+    \node [block3, above of = decompositions, node distance = 3cm, xshift=-2.75cm] (singular) {\Small singular value decomposition\\\footnotesize\texttt{linalg.svd}\\\texttt{linalg.diagsvd}};
+    \node [block, left of = linalg, node distance = 6.5cm] (matrix_functions) {\Large matrix functions};
+    \node [block3, above of = matrix_functions, node distance = 3cm, xshift=1.5cm] (arbitrary) {\Small arbitrary functions\\\footnotesize\texttt{linalg.funm}};
+    \node [block3, above of = matrix_functions, node distance=5cm, xshift=-1cm] (expo) {\Small exponential \& logarithm functions\\\footnotesize\texttt{linalg.expm}\\\texttt{linalg.logm}};
+    \node [block3, below of =matrix_functions, node distance=2.5cm] (trig) {\Small trigonometric functions\\\footnotesize{\texttt{linalg.sinm}\\\texttt{linalg.cosm}\\\texttt{linalg.tanm}}};
+    \node [block3, below of = routines, node distance = 2cm, xshift=4.5cm] (norms) {\Small norms\\\footnotesize\texttt{linalg.norm}};
+    \node [block3, below of = trig, node distance=2.5cm] (hyperbolic) {\Small hyperbolic trigonometric functions\\\footnotesize\texttt{linalg.sinhm}\\\texttt{linalg.coshm}\\\texttt{linalg.tanhm}};
+    \node [block3, below of = routines, node distance = 3cm, xshift=-4cm] (determinant) {\Small determinants\\\footnotesize\texttt{linalg.det}};
+    \node [block3, below of=routines, node distance=5.5cm, xshift=-3cm] (inverse) {\Small inverse\\\footnotesize\texttt{linalg.inv}};
+    \node [block3, below of = inverse, node distance=2.5cm] (gen_inverse) {\Small generalized inverse\\\footnotesize\texttt{linalg.pinv}\\\texttt{linalg.pinv2}};
+    \node [block3, below of = routines, node distance=6cm, xshift=0.75cm] (least_squares) {\Small linear least-square problems \& pseudo-inverses\\\footnotesize\texttt{linalg.lstsq}};
+    \node [block3, below of = routines, node distance = 4cm, xshift=3cm] (linear) {\Small linear system\\\footnotesize\texttt{linalg.solve}};
+   
+
+    % edges
+
+
+    \path [line] (linalg) -- (info);
+    \path [line] (linalg) -- (routines);
+    \path [line] (routines) -- (norms);
+    \path [line] (linalg) -- (decompositions);
+    \path [line] (linalg) -- (matrix_functions);
+    \path [line] (routines) -- (determinant);
+    \path [line] (routines) -- (inverse);
+    \path [line] (inverse) -- (gen_inverse);
+    \path [line] (routines) -- (least_squares);
+    \path [line] (routines) -- (linear);
+    \path [line] (matrix_functions) -- (arbitrary);
+    \path [line] (matrix_functions) -- (expo);
+    \path [line] (matrix_functions) -- (trig);
+    \path [line] (trig) -- (hyperbolic);
+    \path [line] (decompositions) -- (cholesky);
+    \path [line] (decompositions) -- (eigen);
+    \path [line] (decompositions) -- (inter);
+    \path [line] (decompositions) -- (lu);
+    \path [line] (decompositions) -- (qr);
+    \path [line] (decompositions) -- (schur);
+    \path [line] (decompositions) -- (singular);
+    \path [line] (linalg) -- (special);
+    
+  \end{tikzpicture}
+
+
+
+\end{document}
