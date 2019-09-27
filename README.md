@@ -24,9 +24,13 @@ This repository contains the suggested graphical guides to be included in the Sc
 * based on the above issue, I'll now be redesigning the current prototype and use WBS diagrams instead
 
 
-Here is a sample guide:
+Here is a prototype:
 
 ![sample](https://user-images.githubusercontent.com/26354268/65713823-4c3a8600-e09a-11e9-921d-4db6cfa729fd.jpg)
+
+And here the current WBS version:
+
+![WBS](hierarchy_WBS2.jpg)
 
 
 ## Revision of the current documentation
