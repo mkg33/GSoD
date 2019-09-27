@@ -2,7 +2,6 @@
 
 ![](SeasonofDocs_Logo_SecondaryGrey_300ppi.png)
 
-*work in progress*
 
 ## User survey
 
@@ -39,5 +38,7 @@ Consult the related pull requests for more details:
 * [#10823](https://github.com/scipy/scipy/pull/10823)
 * [#10800](https://github.com/scipy/scipy/pull/10800)
 
+
+*work in progress*
 
 :octocat:
