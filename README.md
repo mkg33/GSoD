@@ -1,4 +1,4 @@
-# SciPy project 
+# SciPy project
 
 ![](SeasonofDocs_Logo_SecondaryGrey_300ppi.png)
 
