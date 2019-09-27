@@ -1,6 +1,6 @@
-# SciPy project
+# SciPy project 
 
-![](SeasonofDocs_Logo_SecondaryGrey_300ppi-2.png)
+![](SeasonofDocs_Logo_SecondaryGrey_300ppi.png)
 
 *work in progress*
 
