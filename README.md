@@ -1,6 +1,6 @@
 # SciPy project
 
-![](https://developers.google.com/season-of-docs/images/logo/SeasonofDocs_Logo_SecondaryGrey_300ppi.png)
+![](SeasonofDocs_Logo_SecondaryGrey_300ppi-2.png)
 
 *work in progress*
 
