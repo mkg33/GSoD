@@ -1,5 +1,7 @@
 # SciPy project (Google Season of Docs)
 
+Check out the current SciPy [user survey](https://forms.gle/vz4Hp8ayjLyYYgUL7) and tell us how we could improve the documentation.
+
 Work in progress.
 
 This repository contains the suggested graphical guides to be included in the SciPy documentation. The premise of the guides is to facilitate the navigation and exploration of the documentation. All comments welcome.  
