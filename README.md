@@ -28,7 +28,7 @@ Here is a prototype:
 
 ![sample](https://user-images.githubusercontent.com/26354268/65713823-4c3a8600-e09a-11e9-921d-4db6cfa729fd.jpg)
 
-And here the current WBS version:
+And here, the current WBS version:
 
 ![WBS](hierarchy_WBS2.jpg)
 
