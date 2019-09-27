@@ -21,7 +21,7 @@ This repository contains the suggested graphical guides to be included in the Sc
 
 * the motivation behind breaking the line and placing the ampersand at the beginning of the line is given, e.g., [here](https://graphicdesign.stackexchange.com/questions/15783/is-ampersand-allowed-at-the-beginning-of-line)
 * see also this related [issue](https://github.com/scipy/scipy/issues/10875)
-* based on the above issue, I'll now be redesigning the current prototype and use WBS diagrams instead
+* based on the above issue, I'll now be redesigning the current prototype and I'll use WBS diagrams instead
 
 
 Here is a prototype:
