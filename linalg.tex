@@ -1,0 +1,202 @@
+\documentclass[tikz]{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,trees}
+\usepackage{verbatim}
+
+\definecolor{primary_1}{HTML}{FFC553}
+\definecolor{primary_2}{HTML}{4DABCF}
+\definecolor{secondary_1}{HTML}{FF9153}
+\definecolor{secondary_2}{HTML}{4D77CF}
+\definecolor{tertiary}{HTML}{9866CF}
+
+\begin{document}
+\pagestyle{empty}
+
+\tikzstyle{block_main} = [rectangle, draw, fill=primary_1!65, 
+    text width=12em, text centered, rounded corners, minimum height=5em]
+\tikzstyle{block_category} = [rectangle, draw, fill=secondary_2!65, text width=8em, text centered, rounded corners, align=center, minimum height=3em]
+\tikzstyle{block_subcategory} = [rectangle, draw, fill=tertiary!65, rounded corners, align=center, thin, text width=6.5em]
+\tikzstyle{block_function} = [rectangle, draw, fill=secondary_1!65, rounded corners, align=center, thin, text width=3.5em]
+\tikzstyle{block_info} = [rectangle, draw, fil=secondary_1!65, align=center]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{line2} = [draw, densely dotted]
+    
+\begin{tikzpicture}[node distance=1.5cm, auto]
+
+\node [block_main] (linear_algebra) {\textsc{Linear Algebra}\\\footnotesize{\texttt{scipy.linalg}}};
+ 
+\begin{scope}[every node/.style={block_category, yshift=-3cm}]
+\node [xshift=-10.5cm] (basic_routines) {basic routines};
+\node [xshift=-3.5cm] (decompositions) {decompositions};
+\node [xshift=4.5cm] (matrix_functions) {matrix functions};
+\node [xshift=10.5cm] (special_matrices) {special matrices};
+\end{scope}
+
+\begin{scope}[every node/.style={block_subcategory}]
+
+\node [below of=basic_routines, yshift=-0.25cm] (inverse) {\footnotesize inverse};
+\node [below of=inverse] (linear_system) {\footnotesize linear system};
+\node [below of=linear_system] (determinants) {\footnotesize determinants};
+\node [below of=determinants] (norms) {\footnotesize norms};
+\node [below of=norms, yshift=-0.25cm] (least_square) {\footnotesize least-square problems};
+\node [below of=least_square, yshift=-0.5cm] (gen_inverse) {\footnotesize generalized inverse};
+
+\node [below of=decompositions, yshift=-0.5cm] (eigen) {\footnotesize eigenvalues\\\& eigenvectors};
+\node [below of=eigen, yshift=-1.25cm] (singular) {\footnotesize singular value decomposition};
+\node [below of=singular, yshift=-1.25cm] (LU) {\footnotesize LU\\decomposition};
+\node [below of=LU, yshift=-2.5cm] (Cholesky) {\footnotesize Cholesky decomposition};
+\node [below of=Cholesky, yshift=-2.5cm] (QR) {\footnotesize QR\\decomposition};
+\node [below of=QR, yshift=-1cm] (Schur) {\footnotesize Schur\\decomposition};
+\node [below of=Schur, yshift=-1.5cm] (interpolative_decomposition) {\footnotesize interpolative decomposition};
+
+\node [below of=matrix_functions, yshift=-0.75cm] (exp_log) {\footnotesize exponential \& logarithm functions};
+\node [below of=exp_log, yshift=-1.5cm] (trigonometric_functions) {\footnotesize trigonometric functions};
+\node [below of=trigonometric_functions, yshift=-2.75cm] (hyperbolic_trigonometric_functions) {\footnotesize hyperbolic trigonometric functions};
+\node [below of=hyperbolic_trigonometric_functions, yshift=-2.5cm] (arbitrary) {\footnotesize arbitrary function};
+
+\node [below of=special_matrices, yshift=-0.25cm] (block_diagonal) {\footnotesize block diagonal};
+\node [below of=block_diagonal] (circulant1) {\footnotesize circulant};
+\node [below of=circulant1] (companion1) {\footnotesize companion};
+\node [below of=companion1] (Hadamard) {\footnotesize Hadamard};
+\node [below of=Hadamard] (Hankel) {\footnotesize Hankel};
+\node [below of=Hankel] (inverse_Hilbert) {\footnotesize inverse Hilbert};
+\node [below of=inverse_Hilbert] (Leslie) {\footnotesize Leslie};
+\node [below of=Leslie] (Pascal) {\footnotesize Pascal};
+\node [below of=Pascal] (Toeplitz) {\footnotesize Toeplitz};
+\node [below of=Toeplitz] (Van_der_Monde) {\footnotesize Van der Monde};
+
+\end{scope}
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [right of=inverse, xshift=0.65cm, yshift=-0.5cm] (inv) {\footnotesize {\texttt{inv}}};
+
+\node [right of=linear_system, xshift=0.65cm, yshift=-0.5cm] (solve) {\footnotesize {\texttt{solve}}};
+
+\node [right of=determinants, xshift=0.65cm, yshift=-0.5cm] (det) {\footnotesize {\texttt{det}}};
+
+\node [right of=norms, xshift=0.65cm, yshift=-0.5cm] (norm) {\footnotesize {\texttt{norm}}};
+
+\node [right of=least_square, xshift=0.65cm, yshift=-0.75cm] (lstsq) {\footnotesize {\texttt{lstsq}}};
+
+\node [right of=gen_inverse, xshift=0.65cm, yshift=-0.75cm] (pinv) {\footnotesize {\texttt{pinv}}};
+\node [below of=pinv, yshift=0.5cm] (pinv2) {\footnotesize {\texttt{pinv2}}};
+
+\node [right of=eigen, xshift=0.75cm, yshift=-0.75cm] (eig) {\footnotesize{\texttt{eig}}};
+\node [below of=eig, yshift=0.5cm] (eigvals) {\footnotesize {\texttt{eigvals}}};
+
+\node [right of=singular, xshift=0.75cm, yshift=-0.75cm] (svd) {\footnotesize {\texttt{svd}}};
+\node [below of=svd, yshift=0.5cm] (diagsvd) {\footnotesize {\texttt{diagsvd}}};
+
+\node [right of=LU, xshift=0.75cm, yshift=-0.75cm] (lu) {\footnotesize {\texttt{lu}}};
+\node [below of=lu, yshift=0.5cm] (lu_factor) {\footnotesize {\texttt{lu\_factor}}};
+\node [below of=lu_factor, yshift=0.5cm] (lu_solve) {\footnotesize {\texttt{lu\_solve}}};
+
+\node [right of=Cholesky, xshift=0.75cm, yshift=-0.75cm] (cholesky) {\footnotesize {\texttt{cholesky}}};
+\node [below of=cholesky, xshift=0.05cm, yshift=0.5cm, text width=4em] (cho_factor) {\footnotesize {\texttt{cho\_factor}}};
+\node [below of=cho_factor, xshift=-0.05cm, yshift=0.5cm] (cho_solve) {\footnotesize {\texttt{cho\_solve}}};
+
+\node [right of=QR, xshift=0.75cm, yshift=-0.75cm] (qr) {\footnotesize {\texttt{qr}}};
+
+\node [right of=Schur, xshift=0.75cm, yshift=-0.75cm] (schur) {\footnotesize {\texttt{schur}}};
+\node [below of=schur, yshift=0.5cm] (rsf2csf) {\footnotesize {\texttt{rsf2csf}}};
+
+\node [right of=interpolative_decomposition, xshift=1.05cm, yshift=-0.75cm, text width=5.3em] (interpolative) {\footnotesize {\texttt{interpolative}}};
+
+\node [right of=exp_log, xshift=1cm, yshift=-1cm] (expm) {\footnotesize {\texttt{expm}}};
+\node [below of=expm, yshift=0.5cm] (logm) {\footnotesize {\texttt{logm}}};
+
+\node [right of=trigonometric_functions, xshift=1cm, yshift=-0.75cm] (sinm) {\footnotesize {\texttt{sinm}}};
+\node [below of=sinm, yshift=0.5cm] (cosm) {\footnotesize {\texttt{cosm}}};
+\node [below of=cosm, yshift=0.5cm] (tanm) {\footnotesize {\texttt{tanm}}};
+
+\node [right of=hyperbolic_trigonometric_functions, xshift=1cm, yshift=-1cm] (sinhm) {\footnotesize {\texttt{sinhm}}};
+\node [below of=sinhm, yshift=0.5cm] (coshm) {\footnotesize {\texttt{coshm}}};
+\node [below of=coshm, yshift=0.5cm] (tanhm) {\footnotesize {\texttt{tanhm}}};
+
+\node [right of=arbitrary, xshift=1cm, yshift=-0.75cm] (funm) {\footnotesize {\texttt{funm}}};
+
+\node [right of=block_diagonal, xshift=0.85cm, yshift=-0.75cm, text width=4em] (block_diag) {\footnotesize {\texttt{block\_diag}}};
+
+\node [right of=circulant1, xshift=0.8cm, yshift=-0.75cm] (circulant2) {\footnotesize {\texttt{circulant}}};
+
+\node [right of=companion1, xshift=0.83cm, yshift=-0.75cm, text width=3.8em] (companion2) {\footnotesize {\texttt{companion}}};
+
+\node [right of=Hadamard, xshift=0.8cm, yshift=-0.75cm] (hadamard) {\footnotesize {\texttt{hadamard}}};
+
+\node [right of=Hankel, xshift=0.8cm, yshift=-0.75cm] (hankel) {\footnotesize {\texttt{hankel}}};
+
+\node [right of=inverse_Hilbert, xshift=0.8cm, yshift=-0.75cm, text width=3.9em] (invhilbert) {\footnotesize {\texttt{invhilbert}}};
+
+\node [right of=Leslie, xshift=0.8cm, yshift=-0.75cm] (leslie) {\footnotesize {\texttt{leslie}}};
+
+\node [right of=Pascal, xshift=0.8cm, yshift=-0.75cm] (pascal) {\footnotesize {\texttt{pascal}}};
+
+\node [right of=Toeplitz, xshift=0.8cm, yshift=-0.75cm] (toeplitz) {\footnotesize {\texttt{toeplitz}}};
+
+\node [right of=Van_der_Monde, xshift=1cm, yshift=-0.75cm, text width=4.8em] (vander) {\footnotesize {\texttt{numpy.vander}}};
+
+\end{scope}
+
+\path [line] (linear_algebra) -| (basic_routines);
+\path [line] (linear_algebra) -- (decompositions);
+\path [line] (linear_algebra) -- (matrix_functions);
+\path [line] (linear_algebra) -| (special_matrices);
+
+\foreach \value in {inverse, linear_system, determinants, norms, least_square, gen_inverse}
+\path [line] (basic_routines.195) |- (\value);
+
+\foreach \value in {eigen, singular, LU, Cholesky, QR, Schur, interpolative_decomposition}
+\path [line] (decompositions.195) |- (\value);
+
+\foreach \value in {exp_log, trigonometric_functions, hyperbolic_trigonometric_functions, arbitrary}
+\path [line] (matrix_functions.195) |- (\value);
+
+\foreach \value in {block_diagonal, circulant1, companion1, Hadamard, Hankel, inverse_Hilbert, Leslie, Pascal, Toeplitz, Van_der_Monde}
+\path [line] (special_matrices.195) |- (\value);
+
+\path [line2] (inverse.250) |- (inv);
+\path [line2] (linear_system.250) |- (solve);
+\path [line2] (determinants.250) |- (det);
+\path [line2] (norms.250) |- (norm);
+\path [line2] (least_square.250) |- (lstsq);
+\path [line2] (gen_inverse.250) |- (pinv);
+\path [line2] (gen_inverse.250) |- (pinv2);
+\path [line2] (eigen.250) |- (eig);
+\path [line2] (eigen.250) |- (eigvals);
+\path [line2] (singular.250) |- (svd);
+\path [line2] (singular.250) |- (diagsvd);
+\path [line2] (LU.250) |- (lu);
+\path [line2] (LU.250) |- (lu_factor);
+\path [line2] (LU.250) |- (lu_solve);
+\path [line2] (Cholesky.250) |- (cholesky);
+\path [line2] (Cholesky.250) |- (cho_factor);
+\path [line2] (Cholesky.250) |- (cho_solve);
+\path [line2] (QR.250) |- (qr);
+\path [line2] (Schur.250) |- (schur);
+\path [line2] (Schur.250) |- (rsf2csf);
+\path [line2] (interpolative_decomposition.250) |- (interpolative);
+\path [line2] (exp_log) |- (expm);
+\path [line2] (exp_log) |- (logm);
+\path [line2] (trigonometric_functions.250) |- (sinm);
+\path [line2] (trigonometric_functions.250) |- (cosm);
+\path [line2] (trigonometric_functions.250) |- (tanm);
+\path [line2] (hyperbolic_trigonometric_functions.250) |- (sinhm);
+\path [line2] (hyperbolic_trigonometric_functions.250) |- (coshm);
+\path [line2] (hyperbolic_trigonometric_functions.250) |- (tanhm);
+\path [line2] (arbitrary.250) |- (funm);
+\path [line2] (block_diagonal.250) |- (block_diag);
+\path [line2] (circulant1.250) |- (circulant2);
+\path [line2] (companion1.250) |- (companion2);
+\path [line2] (Hadamard.250) |- (hadamard);
+\path [line2] (Hankel.250) |- (hankel);
+\path [line2] (inverse_Hilbert.250) |- (invhilbert);
+\path [line2] (Leslie.250) |- (leslie);
+\path [line2] (Pascal.250) |- (pascal);
+\path [line2] (Toeplitz.250) |- (toeplitz);
+\path [line2] (Van_der_Monde.250) |- (vander);
+
+\end{tikzpicture}
+\end{document}
