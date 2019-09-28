@@ -1,6 +1,6 @@
 # SciPy project
 
-![](SeasonofDocs_Logo_SecondaryGrey_300ppi.png)
+![](images/SeasonofDocs_Logo_SecondaryGrey_300ppi.png)
 
 
 ## User survey
