@@ -45,5 +45,6 @@ Consult the related pull requests for more details:
 * [#10800](https://github.com/scipy/scipy/pull/10800)
 
 
+In case you're interested in the full project proposal, consult [this file](other/proposal.pdf).
 
 :octocat: *work in progress*
