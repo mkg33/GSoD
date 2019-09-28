@@ -32,6 +32,8 @@ And here, the current WBS version:
 
 ![WBS](hierarchy_WBS2.jpg)
 
+![linalg](linalg.jpg)
+
 
 ## Revision of the current documentation
 
