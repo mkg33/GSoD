@@ -30,9 +30,9 @@ Here is a prototype:
 
 And here, the current WBS version:
 
-![WBS](hierarchy_WBS2.jpg)
+![WBS](API/hierarchy_WBS.jpg)
 
-![linalg](linalg.jpg)
+![linalg](tutorials/linalg.jpg)
 
 
 ## Revision of the current documentation
