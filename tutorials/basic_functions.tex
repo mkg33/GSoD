@@ -1,0 +1,86 @@
+\documentclass[tikz]{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,trees}
+\usepackage{verbatim}
+
+\definecolor{primary_1}{HTML}{FFC553}
+\definecolor{primary_2}{HTML}{4DABCF}
+\definecolor{secondary_1}{HTML}{FF9153}
+\definecolor{secondary_2}{HTML}{4D77CF}
+\definecolor{tertiary}{HTML}{9866CF}
+
+\begin{document}
+\pagestyle{empty}
+
+\tikzstyle{block_main} = [rectangle, draw, fill=primary_1!65, 
+    text width=12em, text centered, rounded corners, minimum height=6em]
+\tikzstyle{block_category} = [rectangle, draw, fill=secondary_2!65, text width=8em, text centered, rounded corners, align=center, minimum height=4em]
+\tikzstyle{block_subcategory} = [rectangle, draw, fill=secondary_1!65, rounded corners, align=center, thin, text width=6.25em]
+\tikzstyle{line} = [draw, -latex']
+    
+\begin{tikzpicture}[node distance=1.25cm, auto]
+
+\node [block_main] (basic_functions) {\textsc{Basic functions}\\\footnotesize{Interaction with NumPy}};
+ 
+\begin{scope}[every node/.style={block_category, yshift=-3cm}]
+
+\node [xshift=-10cm] (index_tricks) {index tricks};
+\node [xshift=-5cm] (polynomials) {polynomials};    
+\node [xshift=0cm] (vectorizing_functions) {vectorizing functions};
+\node [xshift=5cm] (type_handling) {type handling};
+\node [xshift=10cm] (other_useful_functions) {other useful functions};
+
+\end{scope}
+
+\begin{scope}[every node/.style={block_subcategory}]
+
+\node [below of=index_tricks, yshift=-0.25cm] (mgrid) {\footnotesize{\texttt{numpy.mgrid}}};
+\node [below of=mgrid] (ogrid) {\footnotesize{\texttt{numpy.ogrid}}};
+\node [below of=ogrid] (r) {\footnotesize{\texttt{numpy.r\_}}};
+\node [below of=r] (c) {\footnotesize{\texttt{numpy.c\_}}};
+
+\node [below of=polynomials, yshift=-0.25cm] (poly1d) {\footnotesize{\texttt{numpy.poly1d}}};
+
+\node [below of=vectorizing_functions, yshift=-0.25cm] (vectorize) {\footnotesize{\texttt{numpy.vectorize}}};
+
+\node [below of=type_handling, yshift=-0.25cm] (iscomplex) {\footnotesize{\texttt{numpy.iscomplex}}};
+\node [below of=iscomplex] (isreal) {\footnotesize{\texttt{numpy.isreal}}};
+\node [below of=isreal, text width=8em, xshift=0.3cm] (iscomplexobj) {\footnotesize{\texttt{numpy.iscomplexobj}}};
+\node [below of=iscomplexobj, xshift=-0.3cm] (isrealobj) {\footnotesize{\texttt{numpy.isrealobj}}};
+\node [below of=isrealobj] (real) {\footnotesize{\texttt{numpy.real}}};
+\node [below of=real] (imag) {\footnotesize{\texttt{numpy.imag}}};
+\node [below of=imag, text width=7.75em, xshift=0.25cm] (real_if_close) {\footnotesize{\texttt{numpy.real\_if\_close}}};
+\node [below of=real_if_close, xshift=-0.25cm] (isscalar) {\footnotesize{\texttt{numpy.isscalar}}};
+
+\node [below of=other_useful_functions, yshift=-0.25cm] (angle) {\footnotesize{\texttt{numpy.angle}}};
+\node [below of=angle] (unwrap) {\footnotesize{\texttt{numpy.unwrap}}};
+\node [below of=unwrap] (linspace) {\footnotesize{\texttt{numpy.linspace}}};
+\node [below of=linspace] (logspace) {\footnotesize{\texttt{numpy.logspace}}};
+\node [below of=logspace] (select) {\footnotesize{\texttt{numpy.select}}};
+\node [below of=select] (special) {\footnotesize{\texttt{scipy.special}}};
+
+\end{scope}
+
+\path [line] (basic_functions) -| (index_tricks);
+\path [line] (basic_functions) -- (polynomials);
+\path [line] (basic_functions) -- (vectorizing_functions);
+\path [line] (basic_functions) -- (type_handling);
+\path [line] (basic_functions) -| (other_useful_functions);
+     
+\foreach \value in {mgrid, ogrid, r, c} 
+\path [line] (index_tricks.195) |- (\value);
+
+\path [line] (polynomials.195) |- (poly1d);
+
+\path [line] (vectorizing_functions.195) |- (vectorize);
+
+\foreach \value in {iscomplex, isreal, iscomplexobj, isrealobj, real, imag, real_if_close, isscalar}
+\path [line] (type_handling.195) |- (\value);
+
+\foreach \value in {angle, unwrap, linspace, logspace, select, special}
+\path [line] (other_useful_functions.195) |- (\value);
+
+\end{tikzpicture}
+\end{document}
