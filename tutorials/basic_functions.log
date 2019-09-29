@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.12.21)  29 SEP 2019 17:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.12.21)  29 SEP 2019 17:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -573,7 +573,7 @@ Overfull \hbox (0.87099pt too wide) in paragraph at lines 54--54
 Here is how much of TeX's memory you used:
  14471 strings out of 492995
  317174 string characters out of 6132703
- 398192 words of memory out of 5000000
+ 398196 words of memory out of 5000000
  17755 multiletter control sequences out of 15000+600000
  4408 words of font info for 17 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -583,7 +583,7 @@ Here is how much of TeX's memory you used:
 /amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmtt8.pfb>
-Output written on basic_functions.pdf (1 page, 44411 bytes).
+Output written on basic_functions.pdf (1 page, 44416 bytes).
 PDF statistics:
  27 PDF objects out of 1000 (max. 8388607)
  19 compressed objects within 1 object stream
