@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.12.21)  29 SEP 2019 16:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.12.21)  29 SEP 2019 21:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -476,8 +476,7 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks30
 \verbatim@line=\toks31
 \verbatim@in@stream=\read2
-)
-No file linalg.aux.
+) (./linalg.aux)
 \openout1 = `linalg.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
@@ -492,7 +491,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
-ABD: EveryShipout initializing macros
+ ABD: EveryShipout initializing macros
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count110
@@ -582,7 +581,7 @@ Overfull \hbox (3.50063pt too wide) in paragraph at lines 131--131
  []
 
 
-Overfull \hbox (3.00064pt too wide) in paragraph at lines 139--139
+Overfull \hbox (2.50061pt too wide) in paragraph at lines 139--139
  [][][][]\OT1/cmtt/m/n/8 numpy.vander 
  []
 
@@ -591,9 +590,9 @@ Overfull \hbox (3.00064pt too wide) in paragraph at lines 139--139
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 (./linalg.aux) ) 
 Here is how much of TeX's memory you used:
- 14754 strings out of 492995
- 322335 string characters out of 6132703
- 457739 words of memory out of 5000000
+ 14756 strings out of 492995
+ 322357 string characters out of 6132703
+ 457741 words of memory out of 5000000
  18040 multiletter control sequences out of 15000+600000
  4408 words of font info for 17 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -603,7 +602,7 @@ Here is how much of TeX's memory you used:
 /cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mtt8.pfb>
-Output written on linalg.pdf (1 page, 55519 bytes).
+Output written on linalg.pdf (1 page, 55521 bytes).
 PDF statistics:
  27 PDF objects out of 1000 (max. 8388607)
  19 compressed objects within 1 object stream
