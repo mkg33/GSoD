@@ -1,0 +1,107 @@
+\documentclass[tikz]{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,trees}
+\usepackage{verbatim}
+
+\definecolor{primary_1}{HTML}{FFC553}
+\definecolor{primary_2}{HTML}{4DABCF}
+\definecolor{secondary_1}{HTML}{FF9153}
+\definecolor{secondary_2}{HTML}{4D77CF}
+\definecolor{tertiary}{HTML}{9866CF}
+
+\begin{document}
+\pagestyle{empty}
+
+\tikzstyle{block_main} = [rectangle, draw, fill=primary_1!65, 
+    text width=10em, text centered, rounded corners, minimum height=5em]
+\tikzstyle{block_category} = [rectangle, draw, fill=secondary_2!65, text width=8em, text centered, rounded corners, align=center, minimum height=3em]
+\tikzstyle{block_subcategory} = [rectangle, draw, fill=tertiary!65, rounded corners, align=center, thin, text width=6.5em]
+\tikzstyle{block_function} = [rectangle, draw, fill=secondary_1!65, rounded corners, align=center, thin, text width=3.5em]
+\tikzstyle{block_info} = [rectangle, draw, fil=secondary_1!65, align=center]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{line2} = [draw, densely dotted]
+    
+\begin{tikzpicture}[node distance=1.5cm, auto]
+
+\node [block_main] (constants) {\textsc{Constants}\\\footnotesize{\texttt{scipy.constants}}};
+ 
+\begin{scope}[every node/.style={block_category, yshift=-3cm}]
+
+\node [xshift=-7cm] (mathematical_constants) {mathematical constants};
+\node [xshift=0cm] (physical_constants) {physical\\constants};
+\node [xshift=7cm] (units) {units};
+
+\end{scope}
+
+\node [block_function, below of=mathematical_constants, xshift=-0.5cm, yshift=-0.25cm] (pi) {\footnotesize{\texttt{pi}}};
+
+\begin{scope}[every node/.style={block_subcategory}]
+
+\node [below of=pi, xshift=0.5cm, yshift=-0.25cm] (golden_ratio1) {\footnotesize golden ratio};
+
+\node [below of=physical_constants, yshift=-0.25cm] (database) {\footnotesize constants database};
+
+\node [below of=units, yshift=-0.25cm] (SI_prefixes) {\footnotesize SI prefixes};
+\node [below of=SI_prefixes] (binary_prefixes) {\footnotesize binary prefixes};
+\node [below of=binary_prefixes] (mass) {\footnotesize mass};
+\node [below of=mass] (angle) {\footnotesize angle};
+\node [below of=angle] (time) {\footnotesize time};
+\node [below of=time] (length) {\footnotesize length};
+\node [below of=length] (pressure) {\footnotesize pressure};
+\node [below of=pressure] (area) {\footnotesize area};
+\node [below of=area] (volume) {\footnotesize volume};
+\node [below of=volume] (speed) {\footnotesize speed};
+\node [below of=speed] (temperature) {\footnotesize temperature};
+\node [below of=temperature] (energy) {\footnotesize energy};
+\node [below of=energy] (power) {\footnotesize power};
+\node [below of=power] (force) {\footnotesize force};
+\node [below of=force] (optics) {\footnotesize optics};
+
+\end{scope}
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [right of=golden_ratio1, xshift=0.75cm, yshift=-0.75cm] (golden) {\footnotesize{\texttt{golden}}};
+\node [below of=golden, text width=4.85em, xshift=0.24cm, yshift=0.25cm] (golden_ratio2) {\footnotesize{\texttt{golden\_ratio}}};
+
+\node [right of=database, xshift=0.75cm, yshift=-0.75cm] (value) {\footnotesize{\texttt{value}}};
+\node [below of=value, yshift=0.25cm] (unit) {\footnotesize{\texttt{unit}}};
+\node [below of=unit, text width=3.75em, xshift=0.04cm, yshift=0.25cm] (precision) {\footnotesize{\texttt{precision}}};
+\node [below of=precision, xshift=-0.045cm, yshift=0.25cm] (find) {\footnotesize{\texttt{find}}};
+\node [below of=find, text width=6.25em, xshift=0.485cm, yshift=0.25cm] (ConstantWarning) {\footnotesize{\texttt{ConstantWarning}}};
+\node [below of=ConstantWarning, text width=7.3em, xshift=0.19cm, yshift=0.25cm] (physical_constants2){\footnotesize{\texttt{physical\_constants}}};
+
+\node [right of=temperature, text width=7.75em, xshift=1.5cm, yshift=-0.75cm] (convert_temperature) {\footnotesize{\texttt{convert\_temperature}}};
+
+\node [right of=optics, text width=3.75em, xshift=0.8cm, yshift=-0.75cm] (lambda2nu) {\footnotesize{\texttt{lambda2nu}}};
+\node [below of=lambda2nu, text width=3.75em, yshift=0.25cm] (nu2lambda) {\footnotesize{\texttt{nu2lambda}}};
+
+\end{scope}
+
+\path [line] (constants) -| (mathematical_constants);
+\path [line] (constants) -- (physical_constants);
+\path [line] (constants) -| (units);
+
+\foreach \value in {pi, golden_ratio1}
+\path [line] (mathematical_constants.195) |- (\value);
+
+\path [line] (physical_constants.195) |- (database);
+
+\foreach \value in {SI_prefixes, binary_prefixes, mass, angle, time, length, pressure, area, volume, speed, temperature, energy, power, force, optics}
+\path [line] (units.195) |- (\value);
+
+\foreach \value in {golden, golden_ratio2}
+\path [line2] (golden_ratio1.250) |- (\value);
+
+\foreach \value in {value, unit, precision, find, ConstantWarning, physical_constants2}
+\path [line2] (database.250) |- (\value);
+
+\path [line2] (temperature.250) |- (convert_temperature);
+
+\foreach \value in {lambda2nu, nu2lambda}
+\path [line2] (optics.250) |- (\value);
+
+\end{tikzpicture}
+\end{document}
