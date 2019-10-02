@@ -1,0 +1,101 @@
+\documentclass[tikz]{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,trees}
+\usepackage{verbatim}
+
+\definecolor{primary_1}{HTML}{FFC553}
+\definecolor{primary_2}{HTML}{4DABCF}
+\definecolor{secondary_1}{HTML}{FF9153}
+\definecolor{secondary_2}{HTML}{4D77CF}
+\definecolor{tertiary}{HTML}{9866CF}
+
+\begin{document}
+\pagestyle{empty}
+
+\tikzstyle{block_main} = [rectangle, draw, fill=primary_1!65, 
+    text width=10em, text centered, rounded corners, minimum height=5em]
+\tikzstyle{block_category} = [rectangle, draw, fill=secondary_2!65, text width=8em, text centered, rounded corners, align=center, minimum height=3em]
+\tikzstyle{block_subcategory} = [rectangle, draw, fill=tertiary!65, rounded corners, align=center, thin, text width=6.5em]
+\tikzstyle{block_function} = [rectangle, draw, fill=secondary_1!65, rounded corners, align=center, thin, text width=3.5em]
+\tikzstyle{block_info} = [rectangle, draw, fil=secondary_1!65, align=center]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{line2} = [draw, densely dotted]
+    
+\begin{tikzpicture}[node distance=1.25cm, auto]
+
+\node [block_main] (fftpack) {\textsc{Discrete Fourier transforms}\\\footnotesize{\texttt{scipy.fftpack}}};
+ 
+\begin{scope}[every node/.style={block_category, yshift=-3cm}]
+
+\node [xshift=-9cm] (ffts) {fast Fourier transforms};
+\node [xshift=-3cm, yshift=-0.375cm] (differential) {differential \& pseudo-differential operators};
+\node [xshift=3cm] (helper) {helper functions};
+\node [xshift=9cm]  (convolutions) {convolutions};
+
+\end{scope}
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [below of=ffts, yshift=-0.25cm] (fft) {\footnotesize \texttt{fft}};
+\node [below of=fft] (ifft) {\footnotesize \texttt{ifft}};
+\node [below of=ifft] (fft2) {\footnotesize \texttt{fft2}};
+\node [below of=fft2] (ifft2) {\footnotesize \texttt{ifft2}};
+\node [below of=ifft2] (fftn) {\footnotesize \texttt{fftn}};
+\node [below of=fftn] (ifftn) {\footnotesize \texttt{ifftn}};
+\node [below of=ifftn] (rfft) {\footnotesize \texttt{rfft}};
+\node [below of=rfft] (irfft) {\footnotesize \texttt{irfft}};
+\node [below of=irfft] (dct) {\footnotesize \texttt{dct}};
+\node [below of=dct] (idct) {\footnotesize \texttt{idct}};
+\node [below of=idct] (dctn) {\footnotesize \texttt{dctn}};
+\node [below of=dctn] (idctn) {\footnotesize \texttt{idctn}};
+\node [below of=idctn] (dst) {\footnotesize \texttt{dst}};
+\node [below of=dst] (idst) {\footnotesize \texttt{idst}};
+\node [below of=idst] (dstn) {\footnotesize \texttt{dstn}};
+\node [below of=dstn] (idstn) {\footnotesize \texttt{idstn}};
+
+\node [below of=differential, yshift=-0.6cm] (diff) {\footnotesize \texttt{diff}};
+\node [below of=diff] (tilbert) {\footnotesize \texttt{tilbert}};
+\node [below of=tilbert] (itilbert) {\footnotesize \texttt{itilbert}};
+\node [below of=itilbert] (hilbert) {\footnotesize \texttt{hilbert}};
+\node [below of=hilbert] (ihilbert) {\footnotesize \texttt{ihilbert}};
+\node [below of=ihilbert] (cs_diff) {\footnotesize \texttt{cs\_diff}};
+\node [below of=cs_diff] (sc_diff) {\footnotesize \texttt{sc\_diff}};
+\node [below of=sc_diff] (ss_diff) {\footnotesize \texttt{ss\_diff}};
+\node [below of=ss_diff] (cc_diff) {\footnotesize \texttt{cc\_diff}};
+\node [below of=cc_diff] (shift) {\footnotesize \texttt{shift}};
+
+\node [below of=helper, yshift=-0.25cm] (fftshift) {\footnotesize \texttt{fftshift}};
+\node [below of=fftshift] (ifftshift) {\footnotesize \texttt{ifftshift}};
+\node [below of=ifftshift] (fftfreq) {\footnotesize \texttt{fftfreq}};
+\node [below of=fftfreq] (rfftfreq) {\footnotesize \texttt{rfftfreq}};
+\node [below of=rfftfreq, text width=5.25em, xshift=0.31cm] (next_fast_len) {\footnotesize \texttt{next\_fast\_len}};
+
+\node [below of=convolutions, yshift=-0.25cm] (convolve) {\footnotesize \texttt{convolve}};
+\node [below of=convolve, text width=4.1em, xshift=0.11cm] (convolve_z) {\footnotesize \texttt{convolve\_z}};
+\node [below of=convolve_z, text width=9.4em, xshift=0.93cm] (init_convolution_kernel) {\footnotesize \texttt{init\_convolution\_kernel}};
+\node [below of=init_convolution_kernel, text width=9.2em, xshift=-0.036cm] (destroy_convolve_cache) {\footnotesize \texttt{destroy\_convolve\_cache}};
+
+\end{scope}
+
+\path [line] (fftpack) -| (ffts);
+\path [line] (fftpack) -| (convolutions);
+
+\foreach \value in {differential, helper}
+\path [line] (fftpack) -- (\value);
+
+\foreach \value in {fft, ifft, fft2, ifft2, fftn, ifftn, rfft, irfft, dct, idct, dctn, idctn, dst, idst, dstn, idstn}
+\path [line] (ffts.195) |- (\value);
+
+\foreach \value in {diff, tilbert, itilbert, hilbert, ihilbert, cs_diff, sc_diff, ss_diff, cc_diff, shift}
+\path [line] (differential.195) |- (\value);
+
+\foreach \value in {fftshift, ifftshift, fftfreq, rfftfreq, next_fast_len}
+\path [line] (helper.195) |- (\value);
+
+\foreach \value in {convolve, convolve_z, init_convolution_kernel, destroy_convolve_cache}
+\path [line] (convolutions.195) |- (\value);
+
+\end{tikzpicture}
+\end{document}
