@@ -1,0 +1,109 @@
+\documentclass[tikz]{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,trees}
+\usepackage{verbatim}
+
+\definecolor{primary_1}{HTML}{FFC553}
+\definecolor{primary_2}{HTML}{4DABCF}
+\definecolor{secondary_1}{HTML}{FF9153}
+\definecolor{secondary_2}{HTML}{4D77CF}
+\definecolor{tertiary}{HTML}{9866CF}
+
+\begin{document}
+\pagestyle{empty}
+
+\tikzstyle{block_main} = [rectangle, draw, fill=primary_1!65, 
+    text width=10em, text centered, rounded corners, minimum height=5em]
+\tikzstyle{block_category} = [rectangle, draw, fill=secondary_2!65, text width=8em, text centered, rounded corners, align=center, minimum height=3em]
+\tikzstyle{block_subcategory} = [rectangle, draw, fill=tertiary!65, rounded corners, align=center, thin, text width=6.5em]
+\tikzstyle{block_function} = [rectangle, draw, fill=secondary_1!65, rounded corners, align=center, thin, text width=3.5em]
+\tikzstyle{block_info} = [rectangle, draw, fil=secondary_1!65, align=center]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{line2} = [draw, densely dotted]
+    
+\begin{tikzpicture}[node distance=1.25cm, auto]
+
+\node [block_main] (integrate) {\textsc{Integration \& ODEs}\\\footnotesize{\texttt{scipy.integrate}}};
+ 
+\begin{scope}[every node/.style={block_category, yshift=-3cm}]
+
+\node [xshift=-8cm, yshift=0.17cm] (integrating) {integrating functions};
+\node [xshift=0cm] (initial_value) {initial-value problems for ODE systems};
+\node [xshift=8cm] (boundary_value) {boundary-value problems for ODE systems};
+
+\end{scope}
+
+\begin{scope}[every node/.style={block_subcategory}]
+
+\node [below of=integrating, yshift=-0.25cm] (function_object) {\footnotesize{function object}};
+\node [below of=function_object, yshift=-9.5cm] (fixed_samples) {\footnotesize{fixed sample}};
+
+\node [below of=initial_value, yshift=-0.25cm] (solvers) {\footnotesize{solvers}};
+\node [below of=solvers, yshift=-8.5cm] (old_API) {\footnotesize{old API}};
+
+\end{scope}
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [right of=function_object, xshift=1cm, yshift=-0.75cm] (quad) {\footnotesize{\texttt{quad}}};
+\node [below of=quad, yshift=0.25cm] (dblquad) {\footnotesize{\texttt{dblquad}}};
+\node [below of=dblquad, yshift=0.25cm] (tplquad) {\footnotesize{\texttt{tplquad}}};
+\node [below of=tplquad, yshift=0.25cm] (nquad) {\footnotesize{\texttt{nquad}}};
+\node [below of=nquad, text width=4.25em, xshift=0.13cm, yshift=0.25cm] (fixed_quad) {\footnotesize{\texttt{fixed\_quad}}};
+\node [below of=fixed_quad, text width=4.25em, xshift=0.005cm, yshift=0.25cm] (quadrature) {\footnotesize{\texttt{quadrature}}};
+\node [below of=quadrature, xshift=-0.13cm, yshift=0.25cm] (romberg) {\footnotesize{\texttt{romberg}}};
+\node [below of=romberg, text width=4.95em, xshift=0.25cm, yshift=0.25cm] (quad_explain) {\footnotesize{\texttt{quad\_explain}}};
+\node [below of=quad_explain, text width=5em, xshift=0.01cm, yshift=0.25cm] (newton_cotes) {\footnotesize{\texttt{newton\_cotes}}};
+\node [below of=newton_cotes, text width=7.75em, xshift=0.48cm, yshift=0.25cm] (IntegrationWarning) {\footnotesize{\texttt{IntegrationWarning}}};
+
+\node [right of=fixed_samples, xshift=1cm, yshift=-0.75cm] (trapz) {\footnotesize{\texttt {trapz}}};
+\node [below of=trapz, yshift=0.25cm] (cumtrapz) {\footnotesize{\texttt {cumtrapz}}};
+\node [below of=cumtrapz, yshift=0.25cm] (simps) {\footnotesize{\texttt {simps}}};
+\node [below of=simps, yshift=0.25cm] (romb) {\footnotesize{\texttt {romb}}};
+
+\node [right of=solvers, text width=4em, xshift=1cm, yshift=-0.75cm] (solve_ivp) {\footnotesize{\texttt {solve\_ivp}}};
+\node [below of=solve_ivp, xshift=-0.089cm, yshift=0.25cm] (RK23) {\footnotesize{\texttt {RK23}}};
+\node [below of=RK23, yshift=0.25cm] (RK45) {\footnotesize{\texttt {RK45}}};
+\node [below of=RK45, yshift=0.25cm] (Radau) {\footnotesize{\texttt {Radau}}};
+\node [below of=Radau, yshift=0.25cm] (BDF) {\footnotesize{\texttt {BDF}}};
+\node [below of=BDF, yshift=0.25cm] (LSODA) {\footnotesize{\texttt {LSODA}}};
+\node [below of=LSODA, text width=4em, xshift=0.09cm, yshift=0.25cm] (OdeSolver) {\footnotesize{\texttt {OdeSolver}}};
+\node [below of=OdeSolver, text width=4.5em, xshift=0.09cm, yshift=0.25cm] (DenseOutput) {\footnotesize{\texttt {DenseOutput}}};
+\node [below of=DenseOutput, text width=5em, xshift=0.09cm, yshift=0.25cm] (OdeSolutions) {\footnotesize{\texttt {OdeSolutions}}};
+
+\node [right of=old_API, xshift=0.92cm, yshift=-0.75cm] (odeint) {\footnotesize{\texttt {odeint}}};
+\node [below of=odeint, yshift=0.25cm] (ode) {\footnotesize{\texttt {ode}}};
+\node [below of=ode, text width=4.75em, xshift=0.22cm, yshift=0.25cm] (complex_ode) {\footnotesize{\texttt {complex\_ode}}};
+
+\node [below of=boundary_value, text width=3.75em, yshift=-0.25cm] (solve_bvp) {\footnotesize{\texttt {solve\_bvp}}};
+
+\end{scope}
+
+\path [line] (integrate) -| (integrating);
+\path [line] (integrate) -- (initial_value);
+\path [line] (integrate) -| (boundary_value);
+
+\foreach \value in {function_object, fixed_samples}
+\path [line] (integrating.195) |- (\value);
+
+\foreach \value in {quad, dblquad, tplquad, nquad, fixed_quad, quadrature, romberg, quad_explain, newton_cotes, IntegrationWarning}
+\path [line2] (function_object.250) |- (\value); 
+
+\foreach \value in {trapz, cumtrapz, simps, romb}
+\path [line2] (fixed_samples.250) |- (\value);
+
+\foreach \value in {solvers, old_API}
+\path [line] (initial_value.195) |- (\value);
+
+\foreach \value in {solve_ivp, RK23, RK45, Radau, BDF, LSODA, OdeSolver, DenseOutput, OdeSolutions}
+\path [line2] (solvers.250) |- (\value);
+
+\foreach \value in {odeint, ode, complex_ode}
+\path [line2] (old_API.250) |- (\value);
+
+\path [line] (boundary_value.195) |- (solve_bvp);
+
+\end{tikzpicture}
+\end{document}
