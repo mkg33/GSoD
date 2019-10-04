@@ -1,0 +1,123 @@
+\documentclass[tikz]{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,trees}
+\usepackage{verbatim}
+
+\definecolor{primary_1}{HTML}{FFC553}
+\definecolor{primary_2}{HTML}{4DABCF}
+\definecolor{secondary_1}{HTML}{FF9153}
+\definecolor{secondary_2}{HTML}{4D77CF}
+\definecolor{tertiary}{HTML}{9866CF}
+
+\begin{document}
+\pagestyle{empty}
+
+\tikzstyle{block_main} = [rectangle, draw, fill=primary_1!65, 
+    text width=10em, text centered, rounded corners, minimum height=5em]
+\tikzstyle{block_category} = [rectangle, draw, fill=secondary_2!65, text width=8em, text centered, rounded corners, align=center, minimum height=3em]
+\tikzstyle{block_subcategory} = [rectangle, draw, fill=tertiary!65, rounded corners, align=center, thin, text width=6.5em]
+\tikzstyle{block_function} = [rectangle, draw, fill=secondary_1!65, rounded corners, align=center, thin, text width=3.5em]
+\tikzstyle{block_info} = [rectangle, draw, fil=secondary_1!65, align=center]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{line2} = [draw, densely dotted]
+    
+\begin{tikzpicture}[node distance=1.5cm, auto]
+
+\node [block_main] (interpolation) {\textsc{Interpolation}\\\footnotesize{\texttt{scipy.interpolate}}};
+ 
+\begin{scope}[every node/.style={block_category, yshift=-3cm}]
+
+\node [xshift=-12cm] (univariate_interpolation) {univariate interpolation};
+\node [xshift=-6cm] (multivariate_interpolation) {multivariate interpolation};
+\node [xshift=0cm] (1-D_splines) {1-D splines};
+\node [xshift=6cm] (2-D_splines) {2-D splines};
+\node [xshift=12cm] (additional_tools) {additional tools};
+
+\end{scope}
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [below of=univariate_interpolation, yshift=-0.25cm] (interp1d) {\footnotesize{\texttt {interp1d}}};
+\node [below of=interp1d, text width=10em, xshift=3.25em, yshift=0.25cm] (BarycentricInterpolator) {\footnotesize{\texttt {BarycentricInterpolator}}};
+\node [below of=BarycentricInterpolator, text width=7.5em, xshift=-1.25em, yshift=0.25cm] (KroghInterpolator) {\footnotesize{\texttt {KroghInterpolator}}};
+\node [below of=KroghInterpolator, text width=10em, xshift=1.25em, yshift=0.25cm] (barycentric) {\footnotesize{\texttt {barycentric\_interpolate}}};
+\node [below of=barycentric, text width=7.5em, xshift=-1.25em, yshift=0.25cm] (krogh) {\footnotesize{\texttt {krogh\_interpolate}}};
+\node [below of=krogh, text width=7.5em, yshift=0.25cm] (pchip) {\footnotesize{\texttt {pchip\_interpolate}}};
+\node [below of=pchip, text width=7.75em, xshift=0.125em, yshift=0.25cm] (CubicHermite) {\footnotesize{\texttt {CubicHermiteSpline}}};
+\node [below of=CubicHermite, text width=7.5em, xshift=-0.125em, yshift=0.25cm] (PchipInterpolator) {\footnotesize{\texttt {PchipInterpolator}}};
+\node [below of=PchipInterpolator, text width=8em, xshift=0.25em, yshift=0.25cm] (Akima) {\footnotesize{\texttt {Akima1Dinterpolator}}};
+\node [below of=Akima, text width=4.75em, xshift=-1.625em, yshift=0.25cm] (CubicSpline) {\footnotesize{\texttt {CubicSpline}}};
+\node [below of=CubicSpline, xshift=-0.625em, yshift=0.25cm] (PPoly) {\footnotesize{\texttt {PPoly}}};
+\node [below of=PPoly, yshift=0.25cm] (BPoly) {\footnotesize{\texttt {BPoly}}};
+
+
+\node [below of=multivariate_interpolation, yshift=-0.25cm] (griddata) {\footnotesize{\texttt {griddata}}};
+\node [below of=griddata, text width=8.5em, xshift=2.5em, yshift=0.25cm] (LinearNDInterpolator) {\footnotesize{\texttt {LinearNDInterpolator}}};
+\node [below of=LinearNDInterpolator, text width=9em, xshift=0.25em, yshift=0.25cm] (NearestNDInterpolator) {\footnotesize{\texttt {NearestNDInterpolator}}};
+\node [below of=NearestNDInterpolator, text width=11em, xshift=1em, yshift=0.25cm] (CloughTocher2DInterpolator) {\footnotesize{\texttt {CloughTocher2DInterpolator}}};
+\node [below of=CloughTocher2DInterpolator, xshift=-3.75em, yshift=0.25cm] (Rbf) {\footnotesize{\texttt {Rbf}}};
+\node [below of=Rbf, yshift=0.25cm] (interp2d) {\footnotesize{\texttt {interp2d}}};
+\node [below of=interp2d, yshift=0.25cm] (interpn) {\footnotesize{\texttt {interpn}}};
+\node [below of=interpn, text width=9.75em, xshift=3.125em, yshift=0.25cm] (RegularGridInterpolator) {\footnotesize{\texttt {RegularGridInterpolator}}};
+\node [below of=RegularGridInterpolator, text width=8em, xshift=-0.875em, yshift=0.25cm] (RectBivariateSpline) {\footnotesize{\texttt {RectBivariateSpline}}};
+\node [below of=RectBivariateSpline, xshift=-2.25em, yshift=0.25cm] (NdPPoly) {\footnotesize{\texttt {NdPPoly}}};
+
+\node [below of=1-D_splines, yshift=-0.25cm] (BSpline) {\footnotesize{\texttt {BSpline}}};
+\node [below of=BSpline, text width=7.5em, xshift=2em, yshift=0.25cm] (make_interp_spline) {\footnotesize{\texttt {make\_interp\_spline}}};
+\node [below of=make_interp_spline, text width=6em, xshift=-0.75em, yshift=0.25cm] (make_lsq_spline) {\footnotesize{\texttt {make\_lsq\_spline}}};
+\node [below of=make_lsq_spline, xshift=-1.25em, yshift=0.25cm] (splrep) {\footnotesize{\texttt {splrep}}};
+\node [below of=splrep, yshift=0.25cm] (splprep) {\footnotesize{\texttt {splprep}}};
+\node [below of=splprep, yshift=0.25cm] (splev) {\footnotesize{\texttt {splev}}};
+\node [below of=splev, yshift=0.25cm] (splint) {\footnotesize{\texttt {splint}}};
+\node [below of=splint, yshift=0.25cm] (sproot) {\footnotesize{\texttt {sproot}}};
+\node [below of=sproot, yshift=0.25cm] (spalde) {\footnotesize{\texttt {spalde}}};
+\node [below of=spalde, yshift=0.25cm] (splder) {\footnotesize{\texttt {splder}}};
+\node [below of=splder, text width=4.25em, xshift=0.375em, yshift=0.25cm] (splantider) {\footnotesize{\texttt {splantider}}};
+\node [below of=splantider, xshift=-0.375em, yshift=0.25cm] (insert) {\footnotesize{\texttt {insert}}};
+\node [below of=insert, text width=7em, xshift=1.75em, yshift=0.25cm] (UnivariateSpline) {\footnotesize{\texttt {UnivariateSpline}}};
+\node [below of=UnivariateSpline, text width=12em, xshift=2.5em, yshift=0.25cm] (InterpolatedUnivariateSpline) {\footnotesize{\texttt {InterpolatedUnivariateSpline}}};
+\node [below of=InterpolatedUnivariateSpline, text width=8em, xshift=-2em, yshift=0.25cm] (LSQUnivariateSpline) {\footnotesize{\texttt {LSQUnivariateSpline}}};
+
+\node [below of=2-D_splines, text width=8em, xshift=2.25em, yshift=-0.25cm] (RectBivariateSpline2) {\footnotesize{\texttt {RectBivariateSpline}}};
+\node [below of=RectBivariateSpline2, text width=11em, xshift=1.5em, yshift=0.25cm] (RectSphereBivariateSpline) {\footnotesize{\texttt {RectSphereBivariateSpline}}};
+\node [below of=RectSphereBivariateSpline, text width=6.5em, xshift=-2.25em, yshift=0.25cm] (BivariateSpline) {\footnotesize{\texttt {BivariateSpline}}};
+\node [below of=BivariateSpline, text width=9em, xshift=1.25em, yshift=0.25cm] (SmoothBivariateSpline) {\footnotesize{\texttt {SmoothBivariateSpline}}};
+\node [below of=SmoothBivariateSpline, text width=11.5em, xshift=1.25em, yshift=0.25cm] (SmoothSphereBivariateSpline) {\footnotesize{\texttt {SmoothSphereBivariateSpline}}};
+\node [below of=SmoothSphereBivariateSpline, text width=8em, xshift=-1.75em, yshift=0.25cm] (LSQBivariateSpline) {\footnotesize{\texttt {LSQBivariateSpline}}};
+\node [below of=LSQBivariateSpline, text width=10em, xshift=1em, yshift=0.25cm] (LSQSphereBivariateSpline) {\footnotesize{\texttt {LSQSphereBivariateSpline}}};
+\node [below of=LSQSphereBivariateSpline, xshift=-3.25em, yshift=0.25cm] (bisplrep) {\footnotesize{\texttt {bisplrep}}};
+\node [below of=bisplrep, yshift=0.25cm] (bisplev) {\footnotesize{\texttt {bisplev}}};
+
+\node [below of=additional_tools, yshift=-0.25cm] (lagrange) {\footnotesize{\texttt {lagrange}}};
+\node [below of=lagrange, text width=12em, xshift=4.25em, yshift=0.25cm] (approximate_taylor_polynomial) {\footnotesize{\texttt {approximate\_taylor\_polynomial}}};
+\node [below of=approximate_taylor_polynomial, xshift=-4.25em, yshift=0.25cm] (pade) {\footnotesize{\texttt {pade}}};
+
+\end{scope}
+
+\path [line] (interpolation) -| (univariate_interpolation);
+\path [line] (interpolation) -- (multivariate_interpolation);
+\path [line] (interpolation) -- (1-D_splines);
+\path [line] (interpolation) -- (2-D_splines);
+\path [line] (interpolation) -| (additional_tools);
+
+\foreach \value in {interp1d, BarycentricInterpolator, KroghInterpolator, barycentric, krogh, pchip, CubicHermite, PchipInterpolator, Akima, CubicSpline, PPoly, BPoly}
+\path [line] (univariate_interpolation.195) |- (\value);
+
+\foreach \value in {griddata, LinearNDInterpolator, NearestNDInterpolator, CloughTocher2DInterpolator, Rbf, interp2d, interpn, RegularGridInterpolator, RectBivariateSpline, NdPPoly}
+\path [line] (multivariate_interpolation.195) |- (\value);
+
+\foreach \value in {BSpline, make_interp_spline, make_lsq_spline, splrep, splprep, splev, splint, sproot, spalde, splder, splantider, insert, UnivariateSpline, InterpolatedUnivariateSpline, LSQUnivariateSpline}
+\path [line] (1-D_splines.195) |- (\value);
+
+\foreach \value in {RectBivariateSpline2, RectSphereBivariateSpline, BivariateSpline, SmoothBivariateSpline, SmoothSphereBivariateSpline, LSQBivariateSpline, LSQSphereBivariateSpline, bisplrep, bisplev}
+\path [line] (2-D_splines.195) |- (\value);
+
+\foreach \value in {lagrange, approximate_taylor_polynomial, pade}
+\path [line] (additional_tools.195) |- (\value);
+
+
+
+\end{tikzpicture}
+\end{document}
