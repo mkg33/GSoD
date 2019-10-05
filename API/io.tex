@@ -1,0 +1,103 @@
+\documentclass[tikz]{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,trees}
+\usepackage{verbatim}
+
+\definecolor{primary_1}{HTML}{FFC553}
+\definecolor{primary_2}{HTML}{4DABCF}
+\definecolor{secondary_1}{HTML}{FF9153}
+\definecolor{secondary_2}{HTML}{4D77CF}
+\definecolor{tertiary}{HTML}{9866CF}
+
+\begin{document}
+\pagestyle{empty}
+
+\tikzstyle{block_main} = [rectangle, draw, fill=primary_1!65, 
+    text width=9em, text centered, rounded corners, minimum height=5em]
+\tikzstyle{block_category} = [rectangle, draw, fill=secondary_2!65, text width=8em, text centered, rounded corners, align=center, minimum height=3em]
+\tikzstyle{block_subcategory} = [rectangle, draw, fill=tertiary!65, rounded corners, align=center, thin, text width=6.5em]
+\tikzstyle{block_function} = [rectangle, draw, fill=secondary_1!65, rounded corners, align=center, thin, text width=3.5em]
+\tikzstyle{block_info} = [rectangle, draw, fil=secondary_1!65, align=center]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{line2} = [draw, densely dotted]
+    
+\begin{tikzpicture}[node distance=1.5cm, auto]
+
+\node [block_main] (io) {\textsc{Input \& output}\\\footnotesize{\texttt{scipy.io}}};
+ 
+\begin{scope}[every node/.style={block_category, yshift=-3cm}]
+
+\node [xshift=-21cm] (MATLAB) {MATLAB\textsuperscript \textregistered files};
+\node [xshift=-15cm] (IDL) {IDL\textsuperscript \textregistered files};
+\node [xshift=-9cm] (matrix) {Matrix\\Market files};
+\node [xshift=-3cm] (Fortran) {unformatted Fortran files};
+\node [xshift=3cm] (netcdf) {NetCDF};
+\node [xshift=9cm] (Harwell-Boeing) {Harwell-Boeing files};
+\node [xshift=15cm] (wav) {WAV sound files};
+\node [xshift=21cm] (arff) {ARFF files};
+
+\end{scope}
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [below of=MATLAB, yshift=-0.25cm] (loadmat) {\footnotesize{\texttt{loadmat}}};
+\node [below of=loadmat, yshift=0.25cm] (savemat) {\footnotesize{\texttt{savemat}}};
+\node [below of=savemat, yshift=0.25cm] (whosmat) {\footnotesize{\texttt{whosmat}}};
+
+\node [below of=IDL, yshift=-0.25cm] (readsav) {\footnotesize{\texttt{readsav}}};
+
+\node [below of=matrix, yshift=-0.25cm] (mminfo) {\footnotesize{\texttt{mminfo}}};
+\node [below of=mminfo, yshift=0.25cm] (mmread) {\footnotesize{\texttt{mmread}}};
+\node [below of=mmread, yshift=0.25cm] (mmwrite) {\footnotesize{\texttt{mmwrite}}};
+
+\node [below of=Fortran, text width=4.5em, xshift=0.5em, yshift=-0.25cm] (FortranFile) {\footnotesize{\texttt{FortranFile}}};
+
+\node [below of=netcdf, text width=4.5em, xshift=0.5em, yshift=-0.25cm] (netcdf_file) {\footnotesize{\texttt{netcdf\_file}}};
+\node [below of=netcdf_file, text width=6.25em, xshift=0.875em, yshift=0.25cm] (netcdf_variable) {\footnotesize{\texttt{netcdf\_variable}}};
+
+\node [below of=Harwell-Boeing, yshift=-0.25cm] (hb_read) {\footnotesize{\texttt{hb\_read}}};
+\node [below of=hb_read, yshift=0.25cm] (hb_write) {\footnotesize{\texttt{hb\_write}}};
+
+\node [below of=wav, yshift=-0.25cm] (read) {\footnotesize{\texttt{read}}};
+\node [below of=read, yshift=0.25cm] (write) {\footnotesize{\texttt{write}}};
+\node [below of=write, text width=6em, xshift=1.25em, yshift=0.25cm] (WavFileWarning) {\footnotesize{\texttt{WavFileWarning}}};
+
+\node [below of=arff, yshift=-0.25cm] (loadarff) {\footnotesize{\texttt{loadarff}}};
+\node [below of=loadarff, yshift=0.25cm] (MetaData) {\footnotesize{\texttt{MetaData}}};
+\node [below of=MetaData, text width=3.75em, xshift=0.125em, yshift=0.25cm] (ArffError) {\footnotesize{\texttt{ArffError}}};
+\node [below of=ArffError, text width=6em, xshift=1.125em, yshift=0.25cm] (ParseArffError) {\footnotesize{\texttt{ParseArffError}}};
+
+\end{scope}
+
+\path [line] (io) -| (MATLAB);
+\path [line] (io) -| (arff);
+
+\foreach \value in {IDL, matrix, Fortran, netcdf, Harwell-Boeing, wav}
+\path [line] (io) -- (\value);
+
+\foreach \value in {loadmat, savemat, whosmat}
+\path [line] (MATLAB.195) |- (\value);
+
+\path [line] (IDL.195) |- (readsav);
+
+\foreach \value in {mminfo, mmread, mmwrite}
+\path [line] (matrix.195) |- (\value);
+
+\path [line] (Fortran.195) |- (FortranFile);
+
+\foreach \value in {netcdf_file, netcdf_variable}
+\path [line] (netcdf.195) |- (\value);
+
+\foreach \value in {hb_read, hb_write}
+\path [line] (Harwell-Boeing.195) |- (\value);
+
+\foreach \value in {read, write, WavFileWarning}
+\path [line] (wav.195) |- (\value);
+
+\foreach \value in {loadarff, MetaData, ArffError, ParseArffError}
+\path [line] (arff.195) |- (\value);
+
+\end{tikzpicture}
+\end{document}
