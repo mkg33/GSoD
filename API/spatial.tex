@@ -1,0 +1,89 @@
+\documentclass[tikz]{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,trees}
+\usepackage{verbatim}
+
+\definecolor{primary_1}{HTML}{FFC553}
+\definecolor{primary_2}{HTML}{4DABCF}
+\definecolor{secondary_1}{HTML}{FF9153}
+\definecolor{secondary_2}{HTML}{4D77CF}
+\definecolor{tertiary}{HTML}{9866CF}
+
+\begin{document}
+\pagestyle{empty}
+
+\tikzstyle{block_main} = [rectangle, draw, fill=primary_1!65, 
+    text width=10em, text centered, rounded corners, minimum height=5em]
+\tikzstyle{block_category} = [rectangle, draw, fill=secondary_2!65, text width=9em, text centered, rounded corners, align=center, minimum height=3em]
+\tikzstyle{block_subcategory} = [rectangle, draw, fill=tertiary!65, rounded corners, align=center, thin, text width=6.5em]
+\tikzstyle{block_function} = [rectangle, draw, fill=secondary_1!65, rounded corners, align=center, thin, text width=3.5em]
+\tikzstyle{block_info} = [rectangle, draw, fil=secondary_1!65, align=center]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{line2} = [draw, densely dotted]
+    
+\begin{tikzpicture}[node distance=1.5cm, auto]
+
+\node [block_main] (spatial) {\textsc{Spatial algorithms \& data structures}\\\footnotesize{\texttt{scipy.spatial}}};
+ 
+\begin{scope}[every node/.style={block_category, yshift=-3cm}]
+
+\node [xshift=-10cm] (spatial_transformations) {spatial\\transformations};
+\node [xshift=-5cm] (nearest-neighbor) {nearest-neighbor queries};
+\node [xshift=0cm, yshift=-0.48em] (delaunay_triangulation) {Delaunay triangulation, convex hulls\\\& Voronoi diagrams};
+\node [xshift=5cm] (plotting) {plotting helpers};
+\node [xshift=10cm] (simplex) {simplex\\respresentation};
+
+
+\end{scope}
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [below of=spatial_transformations, text width=4em, xshift=0.25em, yshift=-0.25cm] (transform) {\footnotesize{\texttt{transform}}};
+
+\node [below of=nearest-neighbor, yshift=-0.25cm] (KD) {\footnotesize{\texttt{KDTree}}};
+\node [below of=KD, yshift=0.25cm] (cKDTree) {\footnotesize{\texttt{cKDTree}}};
+\node [below of=cKDTree, text width=3.75em, xshift=0.125em, yshift=0.25cm] (Rectangle) {\footnotesize{\texttt{Rectangle}}};
+\node [below of=Rectangle, xshift=-0.125em, yshift=0.25cm] (distance) {\footnotesize{\texttt{distance}}};
+
+\node [below of=delaunay_triangulation, yshift=-0.25cm] (Delaunay) {\footnotesize{\texttt{Delaunay}}};
+\node [below of=Delaunay, text width=4.25em, xshift=0.375em, yshift=0.25cm] (ConvexHull) {\footnotesize{\texttt{ConvexHull}}};
+\node [below of=ConvexHull, xshift=-0.375em, yshift=0.25cm] (Voronoi) {\footnotesize{\texttt{Voronoi}}};
+\node [below of=Voronoi, text width=7em, xshift=1.75em, yshift=0.25cm] (SphericalVoronoi) {\footnotesize{\texttt{SphericalVoronoi}}};
+\node [below of=SphericalVoronoi, text width=9em, xshift=1em, yshift=0.25cm] (Halfspace) {\footnotesize{\texttt{HalfspaceIntersection}}};
+
+\node [below of=plotting, text width=6.75em, xshift=1.625em, yshift=-0.25cm] (delaunay_plot_2d) {\footnotesize{\texttt{delaunay\_plot\_2d}}};
+\node [below of=delaunay_plot_2d, text width=7.75em, xshift=0.5em, yshift=0.25cm] (convex_hull_plot_2d) {\footnotesize{\texttt{convex\_hull\_plot\_2d}}};
+\node [below of=convex_hull_plot_2d, text width=5.75em, xshift=-1em, yshift=0.25cm] (voronoi_plot_2d) {\footnotesize{\texttt{vornoi\_plot\_2d}}};
+
+\node [below of=simplex, yshift=-0.25cm] (tsearch) {\footnotesize{\texttt{tsearch}}};
+\node [below of=tsearch, text width=6.25em, xshift=1.375em, yshift=0.25cm] (distance_matrix) {\footnotesize{\texttt{distance\_matrix}}};
+\node [below of=distance_matrix, text width=7.5em, xshift=0.625em, yshift=0.25cm] (minkowski_distance) {\footnotesize{\texttt{minkowski\_distance}}};
+\node [below of=minkowski_distance, text width=8.25em, xshift=0.375em, yshift=0.25cm] (minkowski_distance_p) {\footnotesize{\texttt{minkowski\_distance\_p}}};
+\node [below of=minkowski_distance_p, text width=4.15em, xshift=-2.01em, yshift=0.25cm] (procrustes) {\footnotesize{\texttt{procrustes}}};
+
+\end{scope}
+
+\path [line] (spatial) -| (spatial_transformations);
+\path [line] (spatial) -| (simplex);
+
+\foreach \value in {nearest-neighbor, delaunay_triangulation, plotting}
+\path [line] (spatial) -- (\value);
+
+\path [line] (spatial_transformations.195) |- (transform);
+
+\foreach \value in {KD, cKDTree, Rectangle, distance}
+\path [line] (nearest-neighbor.195) |- (\value);
+
+\foreach \value in {Delaunay, ConvexHull, Voronoi, SphericalVoronoi, Halfspace}
+\path [line] (delaunay_triangulation.195) |- (\value);
+
+\foreach \value in {delaunay_plot_2d, convex_hull_plot_2d, voronoi_plot_2d}
+\path [line] (plotting.195) |- (\value);
+
+\foreach \value in {tsearch, distance_matrix, minkowski_distance, minkowski_distance_p, procrustes}
+\path [line] (simplex.195) |- (\value);
+
+\end{tikzpicture}
+\end{document}
