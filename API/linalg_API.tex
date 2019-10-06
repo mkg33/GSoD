@@ -1,0 +1,180 @@
+\documentclass[tikz]{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,trees}
+\usepackage{verbatim}
+
+\definecolor{primary_1}{HTML}{FFC553}
+\definecolor{primary_2}{HTML}{4DABCF}
+\definecolor{secondary_1}{HTML}{FF9153}
+\definecolor{secondary_2}{HTML}{4D77CF}
+\definecolor{tertiary}{HTML}{9866CF}
+
+\begin{document}
+\pagestyle{empty}
+
+\tikzstyle{block_main} = [rectangle, draw, fill=primary_1!65, 
+    text width=9em, text centered, rounded corners, minimum height=5em]
+\tikzstyle{block_category} = [rectangle, draw, fill=secondary_2!65, text width=8em, text centered, rounded corners, align=center, minimum height=3em]
+\tikzstyle{block_subcategory} = [rectangle, draw, fill=tertiary!65, rounded corners, align=center, thin, text width=6.5em]
+\tikzstyle{block_function} = [rectangle, draw, fill=secondary_1!65, rounded corners, align=center, thin, text width=3.5em]
+\tikzstyle{block_info} = [rectangle, draw, fil=secondary_1!65, align=center]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{line2} = [draw, densely dotted]
+    
+\begin{tikzpicture}[node distance=1.5cm, auto]
+
+\node [block_main] (linalg) {\textsc{Linear algebra}\\\footnotesize{\texttt{scipy.linalg}}};
+ 
+\begin{scope}[every node/.style={block_category, yshift=-3cm}]
+
+\node [xshift=-21cm] (basics) {basics};
+\node [xshift=-15cm] (eigenvalue) {eigenvalue problems};
+\node [xshift=-9cm] (decompositions) {decompositions};
+\node [xshift=-3cm] (matrix) {matrix functions};
+\node [xshift=3cm] (matrix_eq) {matrix\\equation solvers};
+\node [xshift=9cm, yshift=-0.45em] (sketches) {sketches\\\& random projections};
+\node [xshift=15cm] (special_matrices) {special matrices};
+\node [xshift=21cm] (low) {low-level routines};
+
+\end{scope}
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [below of=basics, yshift=-0.25cm] (inv) {\footnotesize{\texttt{inv}}};
+\node [below of=inv, yshift=0.25cm] (solve) {\footnotesize{\texttt{solve}}};
+\node [below of=solve, text width=5em, xshift=0.75em, yshift=0.25cm] (solve_banded) {\footnotesize{\texttt{solve\_banded}}};
+\node [below of=solve_banded, text width=5.5em, xshift=0.25em, yshift=0.25cm] (solveh_banded) {\footnotesize{\texttt{solveh\_banded}}};
+\node [below of=solveh_banded, text width=6.25em, xshift=0.375em, yshift=0.25cm] (solve_circulant) {\footnotesize{\texttt{solve\_circulant}}};
+\node [below of=solve_circulant, text width=6.5em, xshift=0.125em, yshift=0.25cm] (solve_triangular) {\footnotesize{\texttt{solve\_triangular}}};
+\node [below of=solve_triangular, text width=5.75em, xshift=-0.375em, yshift=0.25cm] (solve_toeplitz) {\footnotesize{\texttt{solve\_toeplitz}}};
+\node [below of=solve_toeplitz, xshift=-1.125em, yshift=0.25cm] (det) {\footnotesize{\texttt{det}}};
+\node [below of=det, yshift=0.25cm] (norm) {\footnotesize{\texttt{norm}}};
+\node [below of=norm, yshift=0.25cm] (lstsq) {\footnotesize{\texttt{lstsq}}};
+\node [below of=lstsq, yshift=0.25cm] (pinv) {\footnotesize{\texttt{pinv}}};
+\node [below of=pinv, yshift=0.25cm] (pinv2) {\footnotesize{\texttt{pinv2}}};
+\node [below of=pinv2, yshift=0.25cm] (pinvh) {\footnotesize{\texttt{pinvh}}};
+\node [below of=pinvh, yshift=0.25cm] (kron) {\footnotesize{\texttt{kron}}};
+\node [below of=kron, yshift=0.25cm] (tril) {\footnotesize{\texttt{tril}}};
+\node [below of=tril, yshift=0.25cm] (triu) {\footnotesize{\texttt{triu}}};
+\node [below of=triu, text width=9em, xshift=2.75em, yshift=0.25cm] (orthogonal_procrustes) {\footnotesize{\texttt{orthogonal\_procrustes}}};
+\node [below of=orthogonal_procrustes, text width=6em, xshift=-1.5em, yshift=0.25cm] (matrix_balance) {\footnotesize{\texttt{matrix\_balance}}};
+\node [below of=matrix_balance, text width=6.5em, xshift=0.25em, yshift=0.25cm] (subspace_angles) {\footnotesize{\texttt{subspace\_angles}}};
+\node [below of=subspace_angles, text width=4.5em, xshift=-1em, yshift=0.25cm] (LinAlgError) {\footnotesize{\texttt{LinAlgError}}};
+\node [below of=LinAlgError, text width=5.5em, xshift=0.5em, yshift=0.25cm] (LinAlgWarning) {\footnotesize{\texttt{LinAlgWarning}}};
+
+\node [below of=eigenvalue, yshift=-0.25cm] (eig) {\footnotesize{\texttt{eig}}};
+\node [below of=eig, yshift=0.25cm] (eigvals) {\footnotesize{\texttt{eigvals}}};
+\node [below of=eigvals, yshift=0.25cm] (eigh) {\footnotesize{\texttt{eigh}}};
+\node [below of=eigh, yshift=0.25cm] (eigvalsh) {\footnotesize{\texttt{eigvalsh}}};
+\node [below of=eigvalsh, text width=4em, xshift=0.25em, yshift=0.25cm] (eig_banded) {\footnotesize{\texttt{eig\_banded}}};
+\node [below of=eig_banded, text width=6em, xshift=1em, yshift=0.25cm] (eigvals_banded) {\footnotesize{\texttt{eigvals\_banded}}};
+\node [below of=eigvals_banded, text width=6.5em, xshift=0.25em, yshift=0.25cm] (eigh_tridiagonal) {\footnotesize{\texttt{eigh\_tridiagonal}}};
+\node [below of=eigh_tridiagonal, text width=8.25em, xshift=0.875em, yshift=0.25cm] (eigvalsh_tridiagonal) {\footnotesize{\texttt{eigvalsh\_tridiagonal}}};
+
+\node [below of=decompositions, yshift=-0.25cm] (lu) {\footnotesize{\texttt{lu}}};
+\node [below of=lu, text width=3.75em, xshift=0.125em, yshift=0.25cm] (lu_factor) {\footnotesize{\texttt{lu\_factor}}};
+\node [below of=lu_factor, xshift=-0.125em, yshift=0.25cm] (lu_solve) {\footnotesize{\texttt{lu\_solve}}};
+\node [below of=lu_solve, yshift=0.25cm] (svd) {\footnotesize{\texttt{svd}}};
+\node [below of=svd, yshift=0.25cm] (svdvals) {\footnotesize{\texttt{svdvals}}};
+\node [below of=svdvals, yshift=0.25cm] (diagsvd) {\footnotesize{\texttt{diagsvd}}};
+\node [below of=diagsvd, yshift=0.25cm] (orth) {\footnotesize{\texttt{orth}}};
+\node [below of=orth, text width=4em, xshift=0.25em, yshift=0.25cm] (null_space) {\footnotesize{\texttt{null\_space}}};
+\node [below of=null_space, xshift=-0.25em, yshift=0.25cm] (ldl) {\footnotesize{\texttt{ldl}}};
+\node [below of=ldl, yshift=0.25cm] (cholesky) {\footnotesize{\texttt{cholesky}}};
+\node [below of=cholesky, text width=6.25em, xshift=1.375em, yshift=0.25cm] (cholesky_banded) {\footnotesize{\texttt{cholesky\_banded}}};
+\node [below of=cholesky_banded, text width=4em, xshift=-1.125em, yshift=0.25cm] (cho_factor) {\footnotesize{\texttt{cho\_factor}}};
+\node [below of=cho_factor, xshift=-0.25em, yshift=0.25cm] (cho_solve) {\footnotesize{\texttt{cho\_solve}}};
+\node [below of=cho_solve, text width=6.5em, xshift=1.5em, yshift=0.25cm] (cho_solve_banded) {\footnotesize{\texttt{cho\_solve\_banded}}};
+\node [below of=cho_solve_banded, xshift=-1.5em, yshift=0.25cm] (polar) {\footnotesize{\texttt{polar}}};
+\node [below of=polar, yshift=0.25cm] (qr) {\footnotesize{\texttt{qr}}};
+\node [below of=qr, text width=4.5em, xshift=0.5em, yshift=0.25cm] (qr_multiply) {\footnotesize{\texttt{qr\_multiply}}};
+\node [below of=qr_multiply, text width=3.75em, xshift=-0.375em, yshift=0.25cm] (qr_update) {\footnotesize{\texttt{qr\_update}}};
+\node [below of=qr_update, text width=3.75em, yshift=0.25cm] (qr_delete) {\footnotesize{\texttt{qr\_delete}}};
+\node [below of=qr_delete, text width=3.75em, yshift=0.25cm] (qr_insert) {\footnotesize{\texttt{qr\_insert}}};
+\node [below of=qr_insert, xshift=-0.125em, yshift=0.25cm] (rq) {\footnotesize{\texttt{rq}}};
+\node [below of=rq, yshift=0.25cm] (qz) {\footnotesize{\texttt{qz}}};
+\node [below of=qz, yshift=0.25cm] (ordqz) {\footnotesize{\texttt{ordqz}}};
+\node [below of=ordqz, yshift=0.25cm] (schur) {\footnotesize{\texttt{schur}}};
+\node [below of=schur, yshift=0.25cm] (rsf2csf) {\footnotesize{\texttt{rsf2csf}}};
+\node [below of=rsf2csf, text width=4.25em, xshift=0.375em, yshift=0.25cm] (hessenberg) {\footnotesize{\texttt{hessenberg}}};
+\node [below of=hessenberg, xshift=-0.375em, yshift=0.25cm] (cdf2rdf) {\footnotesize{\texttt{cdf2rdf}}};
+
+\node [below of=matrix, yshift=-0.25cm] (expm) {\footnotesize{\texttt{expm}}};
+\node [below of=expm, yshift=0.25cm] (logm) {\footnotesize{\texttt{logm}}};
+\node [below of=logm, yshift=0.25cm] (cosm) {\footnotesize{\texttt{cosm}}};
+\node [below of=cosm, yshift=0.25cm] (sinm) {\footnotesize{\texttt{sinm}}};
+\node [below of=sinm, yshift=0.25cm] (tanm) {\footnotesize{\texttt{tanm}}};
+\node [below of=tanm, yshift=0.25cm] (coshm) {\footnotesize{\texttt{coshm}}};
+\node [below of=cosm, yshift=0.25cm] (sinhm) {\footnotesize{\texttt{sinhm}}};
+\node [below of=sinhm, yshift=0.25cm] (tanhm) {\footnotesize{\texttt{tanhm}}};
+\node [below of=tanhm, yshift=0.25cm] (signm) {\footnotesize{\texttt{signm}}};
+\node [below of=signm, yshift=0.25cm] (sqrtm) {\footnotesize{\texttt{sqrtm}}};
+\node [below of=sqrtm, yshift=0.25cm] (funm) {\footnotesize{\texttt{funm}}};
+\node [below of=funm, text width=5em, xshift=0.75em, yshift=0.25cm] (expm_frechet) {\footnotesize{\texttt{expm\_frechet}}};
+\node [below of=expm_frechet, text width=4em, xshift=-0.5em, yshift=0.25cm] (expm_cond) {\footnotesize{\texttt{expm\_cond}}};
+\node [below of=expm_cond, text width=9.5em, xshift=2.75em, yshift=0.25cm] (fractional_matrix_power) {\footnotesize{\texttt{fractional\_matrix\_power}}};
+
+\node [below of=matrix_eq, text width=6.5em, xshift=1.5em, yshift=-0.25cm] (solve_sylvester) {\footnotesize{\texttt{solve\_sylvester}}};
+\node [below of=solve_sylvester, text width=8.25em, xshift=0.875em, yshift=0.25cm] (solve_continuous_are) {\footnotesize{\texttt{solve\_continuous\_are}}};
+\node [below of=solve_continuous_are, text width=7.75em, xshift=-0.25em, yshift=0.25cm] (solve_discrete_are) {\footnotesize{\texttt{solve\_discrete\_are}}};
+\node [below of=solve_discrete_are, text width=10.5em, xshift=1.375em, yshift=0.25cm] (solve_continuous_lyapunov) {\footnotesize{\texttt{solve\_continuous\_lyapunov}}};
+\node [below of=solve_continuous_lyapunov, text width=9.5em, xshift=-0.5em, yshift=0.25cm] (solve_discrete_lyapunov) {\footnotesize{\texttt{solve\_discrete\_lyapunov}}};
+
+\node [below of=sketches, text width=11.5em, xshift=4em, yshift=-0.25cm] (clarkson) {\footnotesize{\texttt{clarkson\_woodruff\_transform}}};
+
+\node [below of=special_matrices, text width=4.25em, xshift=0.375em, yshift=-0.25cm] (block_diag) {\footnotesize{\texttt{block\_diag}}};
+\node [below of=block_diag, text width=4em, xshift=-0.125em, yshift=0.25cm] (circulant) {\footnotesize{\texttt{circulant}}};
+\node [below of=circulant, text width=4em, yshift=0.25cm] (companion) {\footnotesize{\texttt{companion}}};
+\node [below of=companion, xshift=-0.25em, yshift=0.25cm] (dft) {\footnotesize{\texttt{dft}}};
+\node [below of=dft, yshift=0.25cm] (fiedler) {\footnotesize{\texttt{fiedler}}};
+\node [below of=fiedler, text width=7em, xshift=1.75em, yshift=0.25cm] (fiedler_companion) {\footnotesize{\texttt{fiedler\_companion}}};
+\node [below of=fiedler_companion, xshift=-1.75em, yshift=0.25cm] (hadamard) {\footnotesize{\texttt{hadamard}}};
+\node [below of=hadamard, yshift=0.25cm] (hankel) {\footnotesize{\texttt{hankel}}};
+\node [below of=hankel, yshift=0.25cm] (helmert) {\footnotesize{\texttt{helmert}}};
+\node [below of=helmert, yshift=0.25cm] (hilbert) {\footnotesize{\texttt{hilbert}}};
+\node [below of=hilbert, text width=4.25em, xshift=0.375em, yshift=0.25cm] (invhilbert) {\footnotesize{\texttt{invhilbert}}};
+\node [below of=invhilbert, xshift=-0.375em, yshift=0.25cm] (leslie) {\footnotesize{\texttt{leslie}}};
+\node [below of=leslie, yshift=0.25cm] (pascal) {\footnotesize{\texttt{pascal}}};
+\node [below of=pascal, text width=3.75em, xshift=0.125em, yshift=0.25cm] (invpascal) {\footnotesize{\texttt{invpascal}}};
+\node [below of=invpascal, xshift=-0.125em, yshift=0.25cm] (toeplitz) {\footnotesize{\texttt{toeplitz}}};
+\node [below of=toeplitz, yshift=0.25cm] (tri) {\footnotesize{\texttt{tri}}};
+
+\node [below of=low, text width=6em, xshift=1.25em, yshift=-0.25cm] (get_blas_funcs) {\footnotesize{\texttt{get\_blas\_funcs}}};
+\node [below of=get_blas_funcs, text width=6.5em, xshift=0.25em, yshift=0.25cm] (get_lapack_funcs) {\footnotesize{\texttt{get\_lapack\_funcs}}};
+\node [below of=get_lapack_funcs, text width=7.75em, xshift=0.625em, yshift=0.25cm] (find_best_blas_type) {\footnotesize{\texttt{find\_best\_blas\_type}}};
+
+\end{scope}
+
+\path [line] (linalg) -| (basics);
+\path [line] (linalg) -| (low);
+
+\foreach \value in {eigenvalue, decompositions, matrix, matrix_eq, sketches, special_matrices}
+\path [line] (linalg) -- (\value);
+
+\foreach \value in {inv, solve, solve_banded, solveh_banded, solve_circulant, solve_triangular, solve_toeplitz, det, norm, lstsq, pinv, pinv2, pinvh, kron, tril, triu, orthogonal_procrustes, matrix_balance, subspace_angles, LinAlgError, LinAlgWarning}
+\path [line] (basics.195) |- (\value);
+
+\foreach \value in {eig, eigvals, eigh, eigvalsh, eig_banded, eigvals_banded, eigh_tridiagonal, eigvalsh_tridiagonal}
+\path [line] (eigenvalue.195) |- (\value);
+
+\foreach \value in {lu, lu_factor, lu_solve, svd, svdvals, diagsvd, orth, null_space, ldl, cholesky, cholesky_banded, cho_factor, cho_solve, cho_solve_banded, polar, qr, qr_multiply, qr_update, qr_delete, qr_insert, rq, qz, ordqz, schur, rsf2csf, hessenberg, cdf2rdf}
+\path [line] (decompositions.195) |- (\value);
+
+\foreach \value in {expm, logm, cosm, sinm, tanm, coshm, sinhm, tanhm, signm, sqrtm, funm, expm_frechet, expm_cond, fractional_matrix_power}
+\path [line] (matrix.195) |- (\value);
+
+\foreach \value in {solve_sylvester, solve_continuous_are, solve_discrete_are, solve_continuous_lyapunov, solve_discrete_lyapunov}
+\path [line] (matrix_eq.195) |- (\value);
+
+\path [line] (sketches.195) |- (clarkson);
+
+\foreach \value in {block_diag, circulant, companion, dft, fiedler, fiedler_companion, hadamard, hankel, helmert, hilbert, invhilbert, leslie, pascal, invpascal, toeplitz, tri}
+\path [line] (special_matrices.195) |- (\value);
+
+\foreach \value in {get_blas_funcs, get_lapack_funcs, find_best_blas_type}
+\path [line] (low.195) |- (\value);
+
+\end{tikzpicture}
+\end{document}
