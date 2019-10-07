@@ -1,0 +1,153 @@
+\documentclass[tikz]{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,trees}
+\usepackage{verbatim}
+
+\definecolor{primary_1}{HTML}{FFC553}
+\definecolor{primary_2}{HTML}{4DABCF}
+\definecolor{secondary_1}{HTML}{FF9153}
+\definecolor{secondary_2}{HTML}{4D77CF}
+\definecolor{tertiary}{HTML}{9866CF}
+
+\begin{document}
+\pagestyle{empty}
+
+\tikzstyle{block_main} = [rectangle, draw, fill=primary_1!65, 
+    text width=10em, text centered, rounded corners, minimum height=5em]
+\tikzstyle{block_category} = [rectangle, draw, fill=secondary_2!65, text width=8em, text centered, rounded corners, align=center, minimum height=3em]
+\tikzstyle{block_subcategory} = [rectangle, draw, fill=tertiary!65, rounded corners, align=center, thin, text width=6.5em]
+\tikzstyle{block_subsubcategory} = [rectangle, draw, fill=primary_2!65, rounded corners, align=center, thin, text width=6.5em]
+\tikzstyle{block_function} = [rectangle, draw, fill=secondary_1!65, rounded corners, align=center, thin, text width=3.5em]
+\tikzstyle{block_info} = [rectangle, draw, fil=secondary_1!65, align=center]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{line2} = [draw, densely dotted]
+\tikzstyle{line3} = [draw, dotted]
+    
+\begin{tikzpicture}[node distance=1.5cm, auto]
+
+\node [block_main] (sparse) {\textsc{Sparse\\linear algebra}\\\footnotesize{\texttt{scipy.sparse.linalg}}};
+ 
+\begin{scope}[every node/.style={block_category, yshift=-3cm}]
+
+\node [xshift=-25cm] (abstract) {abstract linear operators};
+\node [xshift=-15cm] (matrix_operations) {matrix operations};
+\node [xshift=-5cm] (matrix_norms) {matrix norms};
+\node [xshift=5cm] (linear_problems) {solving\\linear problems};
+\node [xshift=15cm] (factorizations) {matrix\\factorizations};
+\node [xshift=25cm] (exceptions) {exceptions};
+
+\end{scope}
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [below of=abstract, text width=6em, xshift=1.25em, yshift=-0.25cm] (LinearOperator) {\footnotesize{\texttt{LinearOperator}}};
+\node [below of=LinearOperator, text width=6.75em, xshift=0.375em, yshift=0.25cm] (aslinearoperator) {\footnotesize{\texttt{aslinearoperator}}};
+
+\node [below of=matrix_operations, yshift=-0.25cm] (inv) {\footnotesize{\texttt{inv}}};
+\node [below of=inv, yshift=0.25cm] (expm) {\footnotesize{\texttt{expm}}};
+\node [below of=expm, text width=5.5em, xshift=1em, yshift=0.25cm] (expm_multiply) {\footnotesize{\texttt{expm\_multiply}}};
+
+\node [below of=matrix_norms, yshift=-0.25cm] (norm) {\footnotesize{\texttt{norm}}};
+\node [below of=norm, text width=4.5em, xshift=0.5em, yshift=0.25cm] (onenormest) {\footnotesize{\texttt{onenormest}}};
+
+\node [below of=exceptions, text width=8em, xshift=2.25em, yshift=-0.25cm] (arpack) {\footnotesize{\texttt{ArpackNoConvergence}}};
+\node [below of=arpack, text width=4.5em, xshift=-1.75em, yshift=0.25cm] (arpack_error) {\footnotesize{\texttt{ArpackError}}};
+
+\end{scope}
+
+\node [block_subcategory, below of=linear_problems, xshift=1.5em, yshift=-0.5cm] (linear_systems) {\footnotesize{linear equation systems}};
+\node [block_subsubcategory, right of=linear_systems, xshift=1.25cm, yshift=-1cm] (direct_methods) {\footnotesize{direct methods}};
+\node [block_subsubcategory, below of=direct_methods, yshift=-6.25cm] (iterative_methods) {\footnotesize{iterative methods}};
+\node [block_subcategory, below of=linear_systems, yshift=-20.5cm] (least-squares) {\footnotesize{least-squares problems}};
+
+\node [block_subcategory, below of=factorizations, xshift=1.5em, yshift=-0.5cm] (eigenvalue) {\footnotesize{eigenvalue problems}};
+
+\node [block_subcategory, below of=eigenvalue, yshift=-4cm] (singular_values) {\footnotesize{singular value problems}};
+
+\node [block_subcategory, below of=singular_values, yshift=-1.25cm] (LU) {\footnotesize{LU factorizations}};
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [below of=direct_methods, xshift=0.5cm, yshift=0.25cm] (spsolve) {\footnotesize{\texttt{spsolve}}};
+\node [below of=spsolve, text width=7.5em, xshift=2em, yshift=0.25cm] (spsolve_triangular) {\footnotesize{\texttt{spsolve\_triangular}}};
+\node [below of=spsolve_triangular, text width=4.25em, xshift=-1.625em, yshift=0.25cm] (factorized) {\footnotesize{\texttt{factorized}}};
+\node [below of=factorized, text width=7.25em, xshift=1.5em, yshift=0.25cm] (MatrixRankWarning) {\footnotesize{\texttt{MatrixRankWarning}}};
+\node [below of=MatrixRankWarning, text width=4em, xshift=-1.625em, yshift=0.25cm] (use_solver) {\footnotesize{\texttt{use\_solver}}};
+
+\node [below of=iterative_methods, xshift=0.5cm] (bicg) {\footnotesize{\texttt{bicg}}};
+\node [below of=bicg, yshift=0.25cm] (bicgstab) {\footnotesize{\texttt{bicgstab}}};
+\node [below of=bicgstab, yshift=0.25cm] (cg) {\footnotesize{\texttt{cg}}};
+\node [below of=cg, yshift=0.25cm] (cgs) {\footnotesize{\texttt{cgs}}};
+\node [below of=cgs, yshift=0.25cm] (gmres) {\footnotesize{\texttt{gmres}}};
+\node [below of=gmres, yshift=0.25cm] (lgmres) {\footnotesize{\texttt{lgmres}}};
+\node [below of=lgmres, yshift=0.25cm] (minres) {\footnotesize{\texttt{minres}}};
+\node [below of=minres, yshift=0.25cm] (qmr) {\footnotesize{\texttt{qmr}}};
+\node [below of=qmr, yshift=0.25cm] (gcrotmk) {\footnotesize{\texttt{gcrotmk}}};
+
+\node [right of=least-squares, xshift=0.75cm, yshift=-1cm] (lsqr) {\footnotesize{\texttt{lsqr}}};
+\node [below of=lsqr, yshift=0.25cm] (lsmr) {\footnotesize{\texttt{lsmr}}};
+
+\node [right of=eigenvalue, xshift=0.75cm, yshift=-1cm] (eigs) {\footnotesize{\texttt{eigs}}};
+\node [below of=eigs, yshift=0.25cm] (eigsh) {\footnotesize{\texttt{eigsh}}};
+\node [below of=eigsh, yshift=0.25cm] (lobpcg) {\footnotesize{\texttt{lobpcg}}};
+
+\node [right of=singular_values, xshift=0.75cm, yshift=-1cm] (svds) {\footnotesize{\texttt{svds}}};
+
+\node [right of=LU, xshift=0.75cm, yshift=-1cm] (splu) {\footnotesize{\texttt{splu}}};
+\node [below of=splu, yshift=0.25cm] (spilu) {\footnotesize{\texttt{spilu}}};
+\node [below of=spilu, yshift=0.25cm] (SuperLU) {\footnotesize{\texttt{SuperLU}}};
+
+
+\end{scope}
+
+
+
+\path [line] (sparse) -| (abstract);
+\path [line] (sparse) -| (exceptions);
+
+\foreach \value in {matrix_operations, matrix_norms, linear_problems, factorizations}
+\path [line] (sparse) -- (\value);
+
+\foreach \value in {LinearOperator, aslinearoperator}
+\path [line] (abstract.195) |- (\value);
+
+\foreach \value in {inv, expm, expm_multiply}
+\path [line] (matrix_operations.195) |- (\value);
+
+\foreach \value in {norm, onenormest}
+\path [line] (matrix_norms.195) |- (\value);
+
+\foreach \value in {linear_systems, least-squares}
+\path [line] (linear_problems.195) |- (\value);
+
+\foreach \value in {direct_methods, iterative_methods}
+\path [line2] (linear_systems.250) |- (\value);
+
+\foreach \value in {spsolve, spsolve_triangular, factorized, MatrixRankWarning, use_solver}
+\path [line3] (direct_methods.195) |- (\value);
+
+\foreach \value in {bicg, bicgstab, cg, cgs, gmres, lgmres, minres, qmr, gcrotmk}
+\path [line3] (iterative_methods.207.5) |- (\value);
+
+\foreach \value in {lsqr, lsmr}
+\path [line2] (least-squares.250) |- (\value);
+
+\foreach \value in {eigenvalue, singular_values, LU}
+\path [line] (factorizations.195) |- (\value);
+
+\foreach \value in {eigs, eigsh, lobpcg}
+\path [line2] (eigenvalue.250) |- (\value);
+
+\path [line2] (singular_values.250) |- (svds);
+
+\foreach \value in {splu, spilu, SuperLU}
+\path [line2] (LU.250) |- (\value);
+
+\foreach \value in {arpack, arpack_error}
+\path [line] (exceptions.195) |- (\value);
+
+
+\end{tikzpicture}
+\end{document}
