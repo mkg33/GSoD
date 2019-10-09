@@ -1,0 +1,134 @@
+\documentclass[tikz]{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,trees}
+\usepackage{verbatim}
+
+\definecolor{primary_1}{HTML}{FFC553}
+\definecolor{primary_2}{HTML}{4DABCF}
+\definecolor{secondary_1}{HTML}{FF9153}
+\definecolor{secondary_2}{HTML}{4D77CF}
+\definecolor{tertiary}{HTML}{9866CF}
+
+\begin{document}
+\pagestyle{empty}
+
+\tikzstyle{block_main} = [rectangle, draw, fill=primary_1!65, 
+    text width=10em, text centered, rounded corners, minimum height=5em]
+\tikzstyle{block_category} = [rectangle, draw, fill=secondary_2!65, text width=9em, text centered, rounded corners, align=center, minimum height=3em]
+\tikzstyle{block_subcategory} = [rectangle, draw, fill=tertiary!65, rounded corners, align=center, thin, text width=6.5em]
+\tikzstyle{block_function} = [rectangle, draw, fill=secondary_1!65, rounded corners, align=center, thin, text width=3.5em]
+\tikzstyle{block_info} = [rectangle, draw, fil=secondary_1!65, align=center]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{line2} = [draw, densely dotted]
+    
+\begin{tikzpicture}[node distance=1.5cm, auto]
+
+\node [block_main] (sparse) {\textsc{Sparse matrices}\\\footnotesize{\texttt{scipy.sparse}}};
+ 
+\begin{scope}[every node/.style={block_category, yshift=-3cm}]
+
+\node [xshift=-12cm] (sparse_matrix) {sparse\\matrix classes};
+\node [xshift=-4cm] (functions) {functions};
+\node [xshift=4cm] (submodules) {submodules};
+\node [xshift=12cm] (exceptions) {exceptions};
+
+\end{scope}
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [below of=sparse_matrix, text width=4em, xshift=0.25em, yshift=-0.25cm] (bsr) {\footnotesize{\texttt{bsr\_matrix}}};
+\node [below of=bsr, text width=4em, yshift=0.25cm] (coo) {\footnotesize{\texttt{coo\_matrix}}};
+\node [below of=coo, text width=4em, yshift=0.25cm] (csc) {\footnotesize{\texttt{csc\_matrix}}};
+\node [below of=csc, text width=4em, yshift=0.25cm] (csr) {\footnotesize{\texttt{csr\_matrix}}};
+\node [below of=csr, text width=4em, yshift=0.25cm] (dia) {\footnotesize{\texttt{dia\_matrix}}};
+\node [below of=dia, text width=4em, yshift=0.25cm] (dok) {\footnotesize{\texttt{dok\_matrix}}};
+\node [below of=dok, text width=4em, yshift=0.25cm] (lil) {\footnotesize{\texttt{lil\_matrix}}};
+\node [below of=lil, xshift=-0.25em, yshift=0.25cm] (sp) {\footnotesize{\texttt{spmatrix}}};
+
+\node [below of=submodules, yshift=-0.25cm] (csgraph) {\footnotesize{\texttt{csgraph}}};
+\node [below of=csgraph, yshift=0.25cm] (linalg) {\footnotesize{\texttt{linalg}}};
+
+\node [below of=exceptions, text width=9.75em, xshift=3.125em, yshift=-0.25cm] (efficiency) {\footnotesize{\texttt{SparseEfficiencyWarning}}};
+\node [below of=efficiency, text width=5.5em, xshift=-2.125em, yshift=0.25cm] (warning) {\footnotesize{\texttt{SparseWarning}}};
+
+\end{scope}
+
+\begin{scope}[every node/.style={block_subcategory}]
+
+\node [below of=functions, yshift=-0.25cm] (building) {\footnotesize {building\\sparse matrices}};
+
+\node [below of=building, yshift=-13.5cm] (save) {\footnotesize {save and load sparse matrices}};
+
+\node [below of=save, yshift=-1.5cm] (tools) {\footnotesize{sparse\\matrix tools}};
+
+\node [below of=tools, yshift=-0.5cm] (identifying) {\footnotesize{identifying sparse matrices}};
+
+\end{scope}
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [right of=building, xshift=0.75cm, yshift=-0.75cm] (eye) {\footnotesize{\texttt{eye}}};
+\node [below of=eye, yshift=0.5cm] (identity) {\footnotesize{\texttt{identity}}};
+\node [below of=identity, yshift=0.5cm] (kron) {\footnotesize{\texttt{kron}}};
+\node [below of=kron, yshift=0.5cm] (kronsum) {\footnotesize{\texttt{kronsum}}};
+\node [below of=kronsum, yshift=0.5cm] (diags) {\footnotesize{\texttt{diags}}};
+\node [below of=diags, yshift=0.5cm] (spdiags) {\footnotesize{\texttt{spdiags}}};
+\node [below of=spdiags, text width=4.25em, xshift=0.375em, yshift=0.5cm] (block_diag) {\footnotesize{\texttt{block\_diag}}};
+\node [below of=block_diag, xshift=-0.375em, yshift=0.5cm] (tril) {\footnotesize{\texttt{tril}}};
+\node [below of=tril, yshift=0.5cm] (triu) {\footnotesize{\texttt{triu}}};
+\node [below of=triu, yshift=0.5cm] (bmat) {\footnotesize{\texttt{bmat}}};
+\node [below of=bmat, yshift=0.5cm] (hstack) {\footnotesize{\texttt{hstack}}};
+\node [below of=hstack, yshift=0.5cm] (vstack) {\footnotesize{\texttt{vstack}}};
+\node [below of=vstack, yshift=0.5cm] (rand) {\footnotesize{\texttt{rand}}};
+\node [below of=rand, yshift=0.5cm] (random) {\footnotesize{\texttt{random}}};
+
+\node [right of=save, xshift=0.75cm, yshift=-0.75cm] (save_npz) {\footnotesize{\texttt{save\_npz}}};
+\node [below of=save_npz, yshift=0.5cm] (load_npz) {\footnotesize{\texttt{load\_npz}}};
+
+\node [right of=tools, xshift=0.75cm, yshift=-0.75cm] (find) {\footnotesize{\texttt{find}}};
+
+\node [right of=identifying, xshift=0.75cm, yshift=-0.75cm] (issparse) {\footnotesize{\texttt{issparse}}};
+\node [below of=issparse, text width=4.25em, xshift=0.375em, yshift=0.5cm] (isspmatrix) {\footnotesize{\texttt{isspmatrix}}};
+\node [below of=isspmatrix, text width=5.75em, xshift=0.75em, yshift=0.5cm] (isspmatrix_csc) {\footnotesize{\texttt{isspmatrix\_csc}}};
+\node [below of=isspmatrix_csc, text width=5.75em, yshift=0.5cm] (isspmatrix_csr) {\footnotesize{\texttt{isspmatrix\_csr}}};
+\node [below of=isspmatrix_csr, text width=5.75em, yshift=0.5cm] (isspmatrix_bsr) {\footnotesize{\texttt{isspmatrix\_bsr}}};
+\node [below of=isspmatrix_bsr, text width=5.75em, yshift=0.5cm] (isspmatrix_lil) {\footnotesize{\texttt{isspmatrix\_lil}}};
+\node [below of=isspmatrix_lil, text width=5.75em, yshift=0.5cm] (isspmatrix_dok) {\footnotesize{\texttt{isspmatrix\_dok}}};
+\node [below of=isspmatrix_dok, text width=5.75em, yshift=0.5cm] (isspmatrix_coo) {\footnotesize{\texttt{isspmatrix\_coo}}};
+\node [below of=isspmatrix_coo, text width=5.75em, yshift=0.5cm] (isspmatrix_dia) {\footnotesize{\texttt{isspmatrix\_dia}}};
+
+\end{scope}
+
+\path [line] (sparse) -| (sparse_matrix);
+\path [line] (sparse) -| (exceptions);
+
+\foreach \value in {functions, submodules}
+\path [line] (sparse) -- (\value);
+
+\foreach \value in {bsr, coo, csc, csr, dia, dok, lil, sp}
+\path [line] (sparse_matrix.195) |- (\value);
+
+\foreach \value in {building, save, tools, identifying}
+\path [line] (functions.195) |- (\value);
+
+\foreach \value in {eye, identity, kron, kronsum, diags, spdiags, block_diag, tril, triu, bmat, hstack, vstack, rand, random}
+\path [line2] (building.250) |- (\value);
+
+\foreach \value in {save_npz, load_npz}
+\path [line2] (save.250) |- (\value);
+
+\path [line2] (tools.250) |- (find);
+
+\foreach \value in {issparse, isspmatrix, isspmatrix_csc, isspmatrix_csr, isspmatrix_bsr, isspmatrix_lil, isspmatrix_dok, isspmatrix_dok, isspmatrix_coo, isspmatrix_dia}
+\path [line2] (identifying.250) |- (\value);
+
+\foreach \value in {csgraph, linalg}
+\path [line] (submodules.195) |- (\value);
+
+\foreach \value in {efficiency, warning}
+\path [line] (exceptions.195) |- (\value);
+
+\end{tikzpicture}
+\end{document}
