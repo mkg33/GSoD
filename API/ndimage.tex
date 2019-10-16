@@ -1,0 +1,145 @@
+\documentclass[tikz]{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,trees}
+\usepackage{verbatim}
+
+\definecolor{primary_1}{HTML}{FFC553}
+\definecolor{primary_2}{HTML}{4DABCF}
+\definecolor{secondary_1}{HTML}{FF9153}
+\definecolor{secondary_2}{HTML}{4D77CF}
+\definecolor{tertiary}{HTML}{9866CF}
+
+\begin{document}
+\pagestyle{empty}
+
+\tikzstyle{block_main} = [rectangle, draw, fill=primary_1!65, 
+    text width=10em, text centered, rounded corners, minimum height=5.5em]
+\tikzstyle{block_category} = [rectangle, draw, fill=secondary_2!65, text width=9em, text centered, rounded corners, align=center, minimum height=3em]
+\tikzstyle{block_subcategory} = [rectangle, draw, fill=tertiary!65, rounded corners, align=center, thin, text width=6.5em]
+\tikzstyle{block_function} = [rectangle, draw, fill=secondary_1!65, rounded corners, align=center, thin, text width=3.5em]
+\tikzstyle{block_info} = [rectangle, draw, fil=secondary_1!65, align=center]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{line2} = [draw, densely dotted]
+    
+\begin{tikzpicture}[node distance=1.5cm, auto]
+
+\node [block_main] (spatial) {\textsc{Multi-dimensional image processing}\\\footnotesize{\texttt{scipy.ndimage}}};
+ 
+\begin{scope}[every node/.style={block_category, yshift=-3cm}]
+
+\node [xshift=-14cm] (filters) {filters};
+\node [xshift=-7cm] (Fourier_filters) {Fourier filters};
+\node [xshift=0cm] (interpolation) {interpolation};
+\node [xshift=7cm] (measurements) {measurements};
+\node [xshift=14cm] (morphology) {morphology};
+
+\end{scope}
+
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [below of=filters, yshift=-0.25cm] (convolve) {\footnotesize{\texttt{convolve}}};
+\node [below of=convolve, text width=4.25em, xshift=0.375em] (convolve1d) {\footnotesize{\texttt{convolve1d}}};
+\node [below of=convolve1d, text width=4em, xshift=-0.125em] (correlate) {\footnotesize{\texttt{correlate}}};
+\node [below of=correlate, text width=4.75em, xshift=0.375em] (correlate1d) {\footnotesize{\texttt{correlate1d}}};
+\node [below of=correlate1d, text width=6.25em, xshift=0.75em] (gaussian_filter) {\footnotesize{\texttt{gaussian\_filter}}};
+\node [below of=gaussian_filter, text width=7em, xshift=0.375em] (gaussian_filter1d) {\footnotesize{\texttt{gaussian\_filter1d}}};
+\node [below of=gaussian_filter1d, text width=11.25em, xshift=2.125em] (gaussian_gradient_magnitude) {\footnotesize{\texttt{gaussian\_gradient\_magnitude}}};
+\node [below of=gaussian_gradient_magnitude, text width=6.5em, xshift=-2.375em] (gaussian_laplace) {\footnotesize{\texttt{gaussian\_laplace}}};
+\node [below of=gaussian_laplace, text width=5.75em, xshift=-0.375em] (generic_filter) {\footnotesize{\texttt{generic\_filter}}};
+\node [below of=generic_filter, text width=6.75em, xshift=0.5em] (generic_filter1d) {\footnotesize{\texttt{generic\_filter1d}}};
+\node [below of=generic_filter1d, text width=11em, xshift=2.125em] (generic_gradient_magnitude) {\footnotesize{\texttt{generic\_gradient\_magnitude}}};
+\node [below of=generic_gradient_magnitude, text width=6.25em, xshift=-2.375em] (generic_laplace) {\footnotesize{\texttt{generic\_laplace}}};
+\node [below of=generic_laplace, xshift=-1.375em] (laplace) {\footnotesize{\texttt{laplace}}};
+\node [below of=laplace, text width=6em, xshift=1.250em] (maximum_filter) {\footnotesize{\texttt{maximum\_filter}}};
+\node [below of=maximum_filter, text width=6.75em, xshift=0.375em] (maximum_filter1d) {\footnotesize{\texttt{maximum\_filter1d}}};
+\node [below of=maximum_filter1d, text width=5.5em, xshift=-0.625em] (median_filter) {\footnotesize{\texttt{median\_filter}}};
+\node [below of=median_filter, text width=5.75em, xshift=0.125em] (minimum_filter) {\footnotesize{\texttt{minimum\_filter}}};
+\node [below of=minimum_filter, text width=6.75em, xshift=0.5em] (minimum_filter1d) {\footnotesize{\texttt{minimum\_filter1d}}};
+\node [below of=minimum_filter1d, text width=7em, xshift=0.125em] (percentile_filter) {\footnotesize{\texttt{percentile\_filter}}};
+\node [below of=percentile_filter, xshift=-1.75em] (prewitt) {\footnotesize{\texttt{prewitt}}};
+\node [below of=prewitt, text width=4.5em, xshift=0.5em] (rank_filter) {\footnotesize{\texttt{rank\_filter}}};
+\node [below of=rank_filter, xshift=-0.5em] (sobel) {\footnotesize{\texttt{sobel}}};
+\node [below of=sobel, text width=5.75em, xshift=1.125em] (uniform_filter) {\footnotesize{\texttt{uniform\_filter}}};
+\node [below of=uniform_filter, text width=6.75em, xshift=0.5em] (uniform_filter1d) {\footnotesize{\texttt{uniform\_filter1d}}};
+
+\node [below of=Fourier_filters, yshift=-0.25cm, text width=7.25em, xshift=1.875em] (ellipsoid) {\footnotesize{\texttt{fourier\_ellipsoid}}};
+\node [below of=ellipsoid, text width=6.75em, xshift=-0.25em] (gaussian) {\footnotesize{\texttt{fourier\_gaussian}}};
+\node [below of=gaussian, text width=5.5em, xshift=-0.625em] (shift) {\footnotesize{\texttt{fourier\_shift}}};
+\node [below of=shift, text width=6.25em, xshift=0.375em] (uniform) {\footnotesize{\texttt{fourier\_uniform}}};
+
+\node [below of=interpolation, yshift=-0.25cm, text width=6.75em, xshift=1.625em] (affine) {\footnotesize{\texttt{affine\_transform}}};
+\node [below of=affine, text width=8em, xshift=0.625em] (geometric_transform) {\footnotesize{\texttt{geometric\_transform}}};
+\node [below of=geometric_transform, text width=6.5em, xshift=-0.75em] (map_coordinates) {\footnotesize{\texttt{map\_coordinates}}};
+\node [below of=map_coordinates, xshift=-1.5em] (rotate) {\footnotesize{\texttt{rotate}}};
+\node [below of=rotate] (shift2) {\footnotesize{\texttt{shift}}};
+\node [below of=shift2, text width=5.5em, xshift=1em] (spline_filter) {\footnotesize{\texttt{spline\_filter}}};
+\node [below of=spline_filter, text width=6.25em, xshift=0.375em] (spline_filter1d) {\footnotesize{\texttt{spline\_filter1d}}};
+\node [below of=spline_filter1d, xshift=-1.375em] (zoom) {\footnotesize{\texttt{zoom}}};
+
+\node [below of=measurements, yshift=-0.25cm, text width=5.75em, xshift=1.125em] (center_of_mass) {\footnotesize{\texttt{center\_of\_mass}}};
+\node [below of=center_of_mass, xshift=-1.125em] (extrema) {\footnotesize{\texttt{extrema}}};
+\node [below of=extrema, text width=5em, xshift=0.75em] (find_objects) {\footnotesize{\texttt{find\_objects}}};
+\node [below of=find_objects, text width=4em, xshift=-0.5em] (histogram) {\footnotesize{\texttt{histogram}}};
+\node [below of=histogram, xshift=-0.25em] (label) {\footnotesize{\texttt{label}}};
+\node [below of=label, text width=8.75em, xshift=2.625em] (labeled_comprehension) {\footnotesize{\texttt{labeled\_comprehension}}};
+\node [below of=labeled_comprehension, xshift=-2.625em] (maximum) {\footnotesize{\texttt{maximum}}};
+\node [below of=maximum, text width=6.5em, xshift=1.5em] (maximum_position) {\footnotesize{\texttt{maximum\_position}}};
+\node [below of=maximum_position, xshift=-1.5em] (mean) {\footnotesize{\texttt{mean}}};
+\node [below of=mean] (median) {\footnotesize{\texttt{median}}};
+\node [below of=median] (minimum) {\footnotesize{\texttt{minimum}}};
+\node [below of=minimum, text width=6.75em, xshift=1.625em] (minimum_position) {\footnotesize{\texttt{minimum\_position}}};
+\node [below of=minimum_position, text width=7.5em, xshift=0.375em] (standard_deviation) {\footnotesize{\texttt{standard\_deviation}}};
+\node [below of=standard_deviation, xshift=-2em] (sum) {\footnotesize{\texttt{sum}}};
+\node [below of=sum] (variance) {\footnotesize{\texttt{variance}}};
+\node [below of=variance, text width=5.75em, xshift=1.125em] (watershed_ift) {\footnotesize{\texttt{watershed\_ift}}};
+
+\node [below of=morphology, yshift=-0.25cm, text width=5.75em, xshift=1.125em] (closing) {\footnotesize{\texttt{binary\_closing}}};
+\node [below of=closing, text width=6em, xshift=0.125em] (dilation) {\footnotesize{\texttt{binary\_dilation}}};
+\node [below of=dilation, text width=5.75em, xshift=-0.125em] (erosion) {\footnotesize{\texttt{binary\_erosion}}};
+\node [below of=erosion, text width=7em, xshift=0.625em] (fill_holes) {\footnotesize{\texttt{binary\_fill\_holes}}};
+\node [below of=fill_holes, text width=7.25em, xshift=0.125em] (hit_or_miss) {\footnotesize{\texttt{binary\_hit\_or\_miss}}};
+\node [below of=hit_or_miss, text width=5.75em, xshift=-0.75em] (opening) {\footnotesize{\texttt{binary\_opening}}};
+\node [below of=opening, text width=7.5em, xshift=0.875em] (propagation) {\footnotesize{\texttt{binary\_propagation}}};
+\node [below of=propagation, text width=5em, xshift=-1.25em] (black_tophat) {\footnotesize{\texttt{black\_tophat}}};
+\node [below of=black_tophat, text width=8.75em, xshift=1.875em] (bf) {\footnotesize{\texttt{distance\_transform\_bf}}};
+\node [below of=bf, text width=9em, xshift=0.125em] (cdt) {\footnotesize{\texttt{distance\_transform\_cdt}}};
+\node [below of=cdt, text width=9em] (edt) {\footnotesize{\texttt{distance\_transform\_edt}}};
+\node [below of=edt, text width=10.25em, xshift=0.625em] (structure) {\footnotesize{\texttt{generate\_binary\_structure}}};
+\node [below of=structure, text width=5em, xshift=-2.625em] (grey_closing) {\footnotesize{\texttt{grey\_closing}}};
+\node [below of=grey_closing, text width=5.5em, xshift=0.25em] (grey_dilation) {\footnotesize{\texttt{grey\_dilation}}};
+\node [below of=grey_dilation, text width=5em, xshift=-0.25em] (grey_erosion) {\footnotesize{\texttt{grey\_erosion}}};
+\node [below of=grey_erosion, text width=5em] (grey_opening) {\footnotesize{\texttt{grey\_opening}}};
+\node [below of=grey_opening, text width=7em, xshift=1em] (iterate_structure) {\footnotesize{\texttt{iterate\_structure}}};
+\node [below of=iterate_structure, text width=9.25em, xshift=1.125em] (morphological_gradient) {\footnotesize{\texttt{moprhological\_gradient}}};
+\node [below of=morphological_gradient, text width=8.75em, xshift=-0.25em] (morphological_laplace) {\footnotesize{\texttt{morphological\_laplace}}};
+\node [below of=morphological_laplace, text width=5em, xshift=-1.875em] (white_tophat) {\footnotesize{\texttt{white\_tophat}}};
+
+\end{scope}
+
+\path [line] (spatial) -| (filters);
+
+\foreach \value in {Fourier_filters, interpolation, measurements}
+\path [line] (spatial) -- (\value);
+
+\path [line] (spatial) -| (morphology);
+
+\foreach \value in {convolve, convolve1d, correlate, correlate1d, gaussian_filter, gaussian_filter1d, gaussian_gradient_magnitude, gaussian_laplace, generic_filter, generic_filter1d, generic_gradient_magnitude, generic_laplace, laplace, maximum_filter, maximum_filter1d, median_filter, minimum_filter, minimum_filter1d, percentile_filter, prewitt, rank_filter, sobel, uniform_filter, uniform_filter1d}
+\path [line] (filters.195) |- (\value);
+
+\foreach \value in {ellipsoid, gaussian, shift, uniform}
+\path [line] (Fourier_filters.195) |- (\value);
+
+\foreach \value in {affine, geometric_transform, map_coordinates, rotate, shift2, spline_filter, spline_filter1d, zoom}
+\path [line] (interpolation.195) |- (\value);
+
+\foreach \value in {center_of_mass, extrema, find_objects, histogram, label, labeled_comprehension, maximum, maximum_position, mean, median, minimum, minimum_position, standard_deviation, sum, variance, watershed_ift}
+\path [line] (measurements.195) |- (\value);
+
+\foreach \value in {closing, dilation, erosion, fill_holes, hit_or_miss, opening, propagation, black_tophat, bf, cdt, edt, structure, grey_closing, grey_dilation, grey_erosion, grey_opening, iterate_structure, morphological_gradient, morphological_laplace, white_tophat}
+\path [line] (morphology.195) |- (\value);
+
+\end{tikzpicture}
+\end{document}
