@@ -1,0 +1,94 @@
+\documentclass[tikz]{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,trees}
+\usepackage{verbatim}
+
+\definecolor{primary_1}{HTML}{FFC553}
+\definecolor{primary_2}{HTML}{4DABCF}
+\definecolor{secondary_1}{HTML}{FF9153}
+\definecolor{secondary_2}{HTML}{4D77CF}
+\definecolor{tertiary}{HTML}{9866CF}
+
+\begin{document}
+\pagestyle{empty}
+
+\tikzstyle{block_main} = [rectangle, draw, fill=primary_1!65, 
+    text width=11em, text centered, rounded corners, minimum height=5.5em]
+\tikzstyle{block_category} = [rectangle, draw, fill=secondary_2!65, text width=9em, text centered, rounded corners, align=center, minimum height=3em]
+\tikzstyle{block_subcategory} = [rectangle, draw, fill=tertiary!65, rounded corners, align=center, thin, text width=6.5em]
+\tikzstyle{block_function} = [rectangle, draw, fill=secondary_1!65, rounded corners, align=center, thin, text width=3.5em]
+\tikzstyle{block_info} = [rectangle, draw, fil=secondary_1!65, align=center]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{line2} = [draw, densely dotted]
+    
+\begin{tikzpicture}[node distance=1.5cm, auto]
+
+\node [block_main] (sparse) {\textsc{Compressed sparse graph routines}\\\footnotesize{\texttt{scipy.sparse.csgraph}}};
+ 
+\begin{scope}[every node/.style={block_category, yshift=-3cm}]
+
+\node [xshift=-9cm] (graph_analysis) {graph analysis};
+\node [xshift=-3cm] (shortest_path) {shortest path};
+\node [xshift=3cm] (ordering) {ordering};
+\node [xshift=9cm] (graph_representation) {graph\\representation};
+
+
+\end{scope}
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [below of=graph_analysis, yshift=-0.25cm, text width=8.5em, xshift=2.5em] (connected_components) {\footnotesize{\texttt{connected\_components}}};
+\node [below of=connected_components, text width=3.75em, xshift=-2.375em] (laplacian) {\footnotesize{\texttt{laplacian}}};
+\node [below of=laplacian, text width=6.5em, xshift=1.375em] (structural_rank) {\footnotesize{\texttt{structural\_rank}}};
+\node [below of=structural_rank, text width=7.75em, xshift=0.625em] (error) {\footnotesize{\texttt{NegativeCycleError}}};
+
+\node [below of=shortest_path, yshift=-0.25cm, text width=5.5em, xshift=1em] (shortest) {\footnotesize{\texttt{shortest\_path}}};
+\node [below of=shortest, xshift=-1em] (dijkstra) {\footnotesize{\texttt{dijkstra}}};
+\node [below of=dijkstra, text width=5.75em, xshift=1.125em] (floyd_warshall) {\footnotesize{\texttt{floyd\_warshall}}};
+\node [below of=floyd_warshall, text width=5.25em, xshift=-0.25em] (bellman_ford) {\footnotesize{\texttt{bellman\_ford}}};
+\node [below of=bellman_ford, xshift=-0.875em] (johnson) {\footnotesize{\texttt{johnson}}};
+
+\node [below of=ordering, yshift=-0.25cm, text width=8em, xshift=2.25em] (breadth) {\footnotesize{\texttt{breadth\_first\_order}}};
+\node [below of=breadth, text width=7em, xshift=-0.5em] (depth) {\footnotesize{\texttt{depth\_first\_order}}};
+
+\node [below of=graph_representation, yshift=-0.25cm, text width=7.5em, xshift=2em] (breadth_tree) {\footnotesize{\texttt{breadth\_first\_tree}}};
+\node [below of=breadth_tree, text width=6.5em, xshift=-0.5em] (depth_first_tree) {\footnotesize{\texttt{depth\_first\_tree}}};
+\node [below of=depth_first_tree, text width=8.75em, xshift=1.125em] (minimum) {\footnotesize{\texttt{minimum\_spanning\_tree}}};
+\node [below of=minimum, text width=8.75em] (reverse) {\footnotesize{\texttt{reverse\_cuthill\_mckee}}};
+\node [below of=reverse, text width=10.75em, xshift=1em] (maximum) {\footnotesize{\texttt{maximum\_bipartite\_matching}}};
+\node [below of=maximum, text width=8.75em, xshift=-1em] (dist_matrix) {\footnotesize{\texttt{construct\_dist\_matrix}}};
+\node [below of=dist_matrix, text width=7.5em, xshift=-0.625em] (from_dense) {\footnotesize{\texttt{csgraph\_from\_dense}}};
+\node [below of=from_dense, text width=8em, xshift=0.25em] (csgraph_from_masked) {\footnotesize{\texttt{csgraph\_from\_masked}}};
+\node [below of=csgraph_from_masked, text width=10.25em, xshift=1.125em] (csgraph_masked_from_dense) {\footnotesize{\texttt{csgraph\_masked\_from\_dense}}};
+\node [below of=csgraph_masked_from_dense, text width=6.5em, xshift=-1.875em] (csgraph_to_dense) {\footnotesize{\texttt{csgraph\_to\_dense}}};
+\node [below of=csgraph_to_dense, text width=7em, xshift=0.25em] (csgraph_to_masked) {\footnotesize{\texttt{csgraph\_to\_masked}}};
+\node [below of=csgraph_to_masked, text width=6.75em, xshift=-0.125em] (reconstruct_path) {\footnotesize{\texttt{reconstruct\_path}}};
+
+
+\end{scope}
+
+\path [line] (sparse) -| (graph_analysis);
+
+\foreach \value in {shortest_path, ordering}
+\path [line] (sparse) -- (\value);
+
+\path [line] (sparse) -| (graph_representation);
+
+\foreach \value in {connected_components, laplacian, structural_rank, error}
+\path [line] (graph_analysis.195) |- (\value);
+
+\foreach \value in {shortest, dijkstra, floyd_warshall, bellman_ford, johnson}
+\path [line] (shortest_path.195) |- (\value);
+
+\foreach \value in {breadth, depth}
+\path [line] (ordering.195) |- (\value);
+
+\foreach \value in {breadth_tree, depth_first_tree, minimum, reverse, maximum, dist_matrix, from_dense, csgraph_from_masked, csgraph_masked_from_dense, csgraph_to_dense, csgraph_to_masked, reconstruct_path}
+\path [line] (graph_representation.195) |- (\value);
+
+
+
+\end{tikzpicture}
+\end{document}
