@@ -1,0 +1,149 @@
+\documentclass[tikz]{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,trees}
+\usepackage{verbatim}
+
+\definecolor{primary_1}{HTML}{FFC553}
+\definecolor{primary_2}{HTML}{4DABCF}
+\definecolor{secondary_1}{HTML}{FF9153}
+\definecolor{secondary_2}{HTML}{4D77CF}
+\definecolor{tertiary}{HTML}{9866CF}
+
+\begin{document}
+\pagestyle{empty}
+
+\tikzstyle{block_main} = [rectangle, draw, fill=primary_1!65, 
+    text width=12em, text centered, rounded corners, minimum height=5.75em]
+\tikzstyle{block_category} = [rectangle, draw, fill=secondary_2!65, text width=9em, text centered, rounded corners, align=center, minimum height=3em]
+\tikzstyle{block_subcategory} = [rectangle, draw, fill=tertiary!65, rounded corners, align=center, thin, text width=6.5em]
+\tikzstyle{block_function} = [rectangle, draw, fill=secondary_1!65, rounded corners, align=center, thin, text width=3.5em, text centered]
+\tikzstyle{block_info} = [rectangle, draw, fil=secondary_1!65, align=center]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{line2} = [draw, densely dotted]
+    
+\begin{tikzpicture}[node distance=1.5cm, auto]
+
+\node [block_main] (mstats) {\textsc{Statistical functions for masked arrays}\\\footnotesize{\texttt{scipy.stats.mstats}}};
+ 
+\begin{scope}[every node/.style={block_category, yshift=-3cm}]
+
+\node [xshift=-25cm] (summary_statistics) {summary statistics};
+\node [xshift=-15cm] (frequency_statistics) {frequency statistics};
+\node [xshift=-5cm] (correlation_functions) {correlation functions};
+\node [xshift=5cm] (statistical_tests) {statistical tests};
+\node [xshift=15cm] (transformations) {transformations};
+\node [xshift=25cm] (other) {other};
+
+
+\end{scope}
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [below of=summary_statistics, yshift=-0.25cm] (describe) {\footnotesize{\texttt{describe}}};
+\node [below of=describe] (gmean) {\footnotesize{\texttt{gmean}}};
+\node [below of=gmean] (hmean) {\footnotesize{\texttt{hmean}}};
+\node [below of=hmean] (kurtosis) {\footnotesize{\texttt{kurtosis}}};
+\node [below of=kurtosis] (mode) {\footnotesize{\texttt{mode}}};
+\node [below of=mode, text width=4.25em, xshift=0.375em] (mquantiles) {\footnotesize{\texttt{mquantiles}}};
+\node [below of=mquantiles, xshift=-0.375em] (hdmedian) {\footnotesize{\texttt{hdmedian}}};
+\node [below of=hdmedian, text width=4.5em, xshift=0.5em] (hdquantiles) {\footnotesize{\texttt{hdquantiles}}};
+\node [below of=hdquantiles, text width=5.75em, xshift=0.625em] (hdquantiles_sd) {\footnotesize{\texttt{hdquantiles\_sd}}};
+\node [below of=hdquantiles_sd, text width=5em, xshift=-0.375em] (idealfourths) {\footnotesize{\texttt{idealfourths}}};
+\node [below of=idealfourths, text width=7.5em, xshift=1.25em] (plotting_positions) {\footnotesize{\texttt{plotting\_positions}}};
+\node [below of=plotting_positions, xshift=-2em] (meppf) {\footnotesize{\texttt{meppf}}};
+\node [below of=meppf] (moment) {\footnotesize{\texttt{moment}}};
+\node [below of=moment] (skew) {\footnotesize{\texttt{skew}}};
+\node [below of=skew] (tmean) {\footnotesize{\texttt{tmean}}};
+\node [below of=tmean] (tvar) {\footnotesize{\texttt{tvar}}};
+\node [below of=tvar] (tmin) {\footnotesize{\texttt{tmin}}};
+\node [below of=tmin] (tmax) {\footnotesize{\texttt{tmax}}};
+\node [below of=tmax] (tsem) {\footnotesize{\texttt{tsem}}};
+\node [below of=tsem, text width=4em, xshift=0.25em] (variation) {\footnotesize{\texttt{variation}}};
+\node [below of=variation, text width=5em, xshift=0.5em] (find_repeats) {\footnotesize{\texttt{find\_repeats}}};
+\node [below of=find_repeats, xshift=-0.75em] (sem) {\footnotesize{\texttt{sem}}};
+\node [below of=sem, text width=5em, xshift=0.75em] (trimmed_mean) {\footnotesize{\texttt{trimmed\_mean}}};
+\node [below of=trimmed_mean, text width=6.25em, xshift=0.625em] (trimmed_mean_ci) {\footnotesize{\texttt{trimmed\_mean\_ci}}};
+\node [below of=trimmed_mean_ci, text width=4.75em, xshift=-0.75em] (trimmed_std) {\footnotesize{\texttt{trimmed\_std}}};
+\node [below of=trimmed_std, text width=4.75em] (trimmed_var) {\footnotesize{\texttt{trimmed\_var}}};
+
+\node [below of=frequency_statistics, yshift=-0.25cm, text width=7.25em, xshift=1.875em] (scoreatpercentile) {\footnotesize{\texttt{scoreatpercentile}}};
+
+\node [below of=correlation_functions, yshift=-0.25cm] (f_oneway) {\footnotesize{\texttt{f\_oneway}}};
+\node [below of=f_oneway] (pearsonr) {\footnotesize{\texttt{personr}}};
+\node [below of=pearsonr, text width=4em, xshift=0.25em] (spearmanr) {\footnotesize{\texttt{spearmanr}}};
+\node [below of=spearmanr, text width=6em, xshift=1em] (pointbiserialr) {\footnotesize{\texttt{pointbiserialr}}};
+\node [below of=pointbiserialr, text width=4.25em, xshift=-0.875em] (kendalltau) {\footnotesize{\texttt{kendalltau}}};
+\node [below of=kendalltau, text width=8em, xshift=1.875em] (kendalltau_seasonal) {\footnotesize{\texttt{kendalltau\_seasonal}}};
+\node [below of=kendalltau_seasonal, text width=4.25em, xshift=-1.875em] (linregress) {\footnotesize{\texttt{linregress}}};
+\node [below of=linregress, text width=5em, xshift=0.375em] (siegelslopes) {\footnotesize{\texttt{siegelslopes}}};
+\node [below of=siegelslopes, text width=4.75em, xshift=-0.125em] (theilslopes) {\footnotesize{\texttt{theilslopes}}};
+\node [below of=theilslopes, text width=7.75em, xshift=1.5em] (sen_seasonal_slopes) {\footnotesize{\texttt{sen\_seasonal\_slopes}}};
+
+\node [below of=statistical_tests, yshift=-0.25cm, text width=4.5em, xshift=0.5em] (ttest_1samp) {\footnotesize{\texttt{ttest\_1samp}}};
+\node [below of=ttest_1samp, text width=5.5em, xshift=0.5em] (ttest_onesamp) {\footnotesize{\texttt{ttest\_onesamp}}};
+\node [below of=ttest_onesamp, text width=3.75em, xshift=-0.875em] (ttest_ind) {\footnotesize{\texttt{ttest\_ind}}};
+\node [below of=ttest_ind, text width=3.75em] (ttest_rel) {\footnotesize{\texttt{ttest\_rel}}};
+\node [below of=ttest_rel, text width=4em, xshift=0.125em] (chisquare) {\footnotesize{\texttt{chisquare}}};
+\node [below of=chisquare, xshift=-0.25em] (ks_2samp) {\footnotesize{\texttt{ks\_2samp}}};
+\node [below of=ks_2samp, text width=4.25em, xshift=0.375em] (ks_twosamp) {\footnotesize{\texttt{ks\_twosamp}}};
+\node [below of=ks_twosamp, text width=5.25em, xshift=0.5em] (mannwhitneyu) {\footnotesize{\texttt{mannwhitneyu}}};
+\node [below of=mannwhitneyu, xshift=-0.875em] (rankdata) {\footnotesize{\texttt{rankdata}}};
+\node [below of=rankdata] (kruskal) {\footnotesize{\texttt{kruskal}}};
+\node [below of=kruskal, text width=5.5em, xshift=1em] (kruskalwallis) {\footnotesize{\texttt{kruskalwallis}}};
+\node [below of=kruskalwallis, text width=7.25em, xshift=0.875em] (friedmanchisquare) {\footnotesize{\texttt{friedmanchisquare}}};
+\node [below of=friedmanchisquare, text width=5.5em, xshift=-0.875em] (brunnermunzel) {\footnotesize{\texttt{brunnermunzel}}};
+\node [below of=brunnermunzel, xshift=-1em] (skewtest) {\footnotesize{\texttt{skewtest}}};
+\node [below of=skewtest, text width=5.25em, xshift=0.875em] (kurtosistest) {\footnotesize{\texttt{kurtosistest}}};
+\node [below of=kurtosistest, text width=4.25em, xshift=-0.5em] (normaltest) {\footnotesize{\texttt{normaltest}}};
+
+\node [below of=transformations, yshift=-0.25cm, text width=6.5em, xshift=1.5em] (obrientransform) {\footnotesize{\texttt{obrientransform}}};
+\node [below of=obrientransform, xshift=-1.5em] (trim) {\footnotesize{\texttt{trim}}};
+\node [below of=trim] (trima) {\footnotesize{\texttt{trima}}};
+\node [below of=trima, text width=5em, xshift=0.75em] (trimmed_stde) {\footnotesize{\texttt{trimmed\_stde}}};
+\node [below of=trimmed_stde, xshift=-0.75em] (trimr) {\footnotesize{\texttt{trimr}}};
+\node [below of=trimr] (trimtail) {\footnotesize{\texttt{trimtail}}};
+\node [below of=trimtail] (trimboth) {\footnotesize{\texttt{trimboth}}};
+\node [below of=trimboth, text width=4em, xshift=0.25em] (winsorize) {\footnotesize{\texttt{winsorize}}};
+\node [below of=winsorize, xshift=-0.25em] (zmap) {\footnotesize{\texttt{zmap}}};
+\node [below of=zmap] (zscore) {\footnotesize{\texttt{zscore}}};
+
+\node [below of=other, yshift=-0.25cm, text width=4.75em, xshift=0.625em] (argstoarray) {\footnotesize{\texttt{argstoarray}}};
+\node [below of=argstoarray, text width=7em, xshift=1.125em] (count_tied_groups) {\footnotesize{\texttt{count\_tied\_groups}}};
+\node [below of=count_tied_groups, xshift=-1.75em] (msign) {\footnotesize{\texttt{msign}}};
+\node [below of=msign, text width=7.5em, xshift=2em] (compare_medians_ms) {\footnotesize{\texttt{compare\_medians\_ms}}};
+\node [below of=compare_medians_ms, text width=4.5em, xshift=-1.5em] (median_cihs) {\footnotesize{\texttt{median\_cihs}}};
+\node [below of=median_cihs, xshift=-0.5em] (mjci) {\footnotesize{\texttt{mjci}}};
+\node [below of=mjci, text width=6.25em, xshift=1.375em] (mquantiles_cimj) {\footnotesize{\texttt{mquantiles\_cimj}}};
+\node [below of=mquantiles_cimj, xshift=-1.375em] (rsh) {\footnotesize{\texttt{rsh}}};
+
+
+\end{scope}
+
+\path [line] (mstats) -| (summary_statistics);
+
+\foreach \value in {frequency_statistics, correlation_functions, statistical_tests, transformations}
+\path [line] (mstats) -- (\value);
+
+\path [line] (mstats) -| (other);
+
+\foreach \value in {describe, gmean, hmean, kurtosis, mode, mquantiles, hdmedian, hdquantiles, hdquantiles_sd, idealfourths, plotting_positions, meppf, moment, skew, tmean, tvar, tmin, tmax, tsem, variation, find_repeats, sem, trimmed_mean, trimmed_mean_ci, trimmed_std, trimmed_var}
+\path [line] (summary_statistics.195) |- (\value);
+
+\path [line] (frequency_statistics.195) |- (scoreatpercentile); 
+
+\foreach \value in {f_oneway, pearsonr, spearmanr, pointbiserialr, kendalltau, kendalltau_seasonal, linregress, siegelslopes, theilslopes, sen_seasonal_slopes}
+\path [line] (correlation_functions.195) |- (\value);
+
+\foreach \value in {ttest_1samp, ttest_onesamp, ttest_ind, ttest_rel, chisquare, ks_2samp, ks_twosamp, mannwhitneyu, rankdata, kruskal, kruskalwallis, friedmanchisquare, brunnermunzel, skewtest, kurtosistest, normaltest}
+\path [line] (statistical_tests.195) |- (\value);
+
+\foreach \value in {obrientransform, trim, trima, trimmed_stde, trimr, trimtail, trimboth, winsorize, zmap, zscore}
+\path [line] (transformations.195) |- (\value);
+
+\foreach \value in {argstoarray, count_tied_groups, msign, compare_medians_ms, median_cihs, mjci, mquantiles_cimj, rsh}
+\path [line] (other.195) |- (\value);
+
+\end{tikzpicture}
+\end{document}
