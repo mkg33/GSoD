@@ -1,0 +1,187 @@
+\documentclass[tikz]{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,trees}
+\usepackage{verbatim}
+
+\definecolor{primary_1}{HTML}{FFC553}
+\definecolor{primary_2}{HTML}{4DABCF}
+\definecolor{secondary_1}{HTML}{FF9153}
+\definecolor{secondary_2}{HTML}{4D77CF}
+\definecolor{tertiary}{HTML}{9866CF}
+
+\begin{document}
+\pagestyle{empty}
+
+\tikzstyle{block_main} = [rectangle, draw, fill=primary_1!65, 
+    text width=12em, text centered, rounded corners, minimum height=5.25em]
+\tikzstyle{block_category} = [rectangle, draw, fill=secondary_2!65, text width=9em, text centered, rounded corners, align=center, minimum height=3em]
+\tikzstyle{block_subcategory} = [rectangle, draw, fill=tertiary!65, rounded corners, align=center, thin, text width=6.5em]
+\tikzstyle{block_function} = [rectangle, draw, fill=secondary_1!65, rounded corners, align=center, thin, text width=3.5em, text centered]
+\tikzstyle{block_info} = [rectangle, draw, fil=secondary_1!65, align=center]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{line2} = [draw, densely dotted]
+    
+\begin{tikzpicture}[node distance=1.5cm, auto]
+
+\node [block_main] (stats) {\textsc{Statistical functions}\\\footnotesize{\texttt{scipy.stats}}};
+ 
+\begin{scope}[every node/.style={block_category, yshift=-3cm}]
+
+\node [xshift=-25cm] (univariate) {univariate\\distributions};
+\node [xshift=-15cm] (multivariate) {multivariate distributions};
+\node [xshift=-5cm] (continuous) {continuous distributions};
+\node [xshift=5cm] (discrete) {discrete\\distributions};
+\node [xshift=15cm] (summary) {summary statistics};
+\node [xshift=25cm] (frequency) {frequency statistics};
+
+\end{scope}
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [below of=univariate, yshift=-0.25cm] (rv_continuous) {\footnotesize{\texttt{rv\_continuous}}};
+\node [below of=rv_continuous] (rv_discrete) {\footnotesize{\texttt{rv\_discrete}}};
+\node [below of=rv_discrete] (rv_histogram) {\footnotesize{\texttt{rv\_histogram}}};
+
+\node [below of=multivariate, yshift=-0.25cm] (multivariate_normal) {\footnotesize{\texttt{multivariate\_normal}}};
+\node [below of=multivariate_normal] (matrix_normal) {\footnotesize{\texttt{matrix\_normal}}};
+\node [below of=matrix_normal] (dirichlet) {\footnotesize{\texttt{dirichlet}}};
+\node [below of=dirichlet] (wishart) {\footnotesize{\texttt{wishart}}};
+\node [below of=wishart] (invwishart) {\footnotesize{\texttt{invwishart}}};
+\node [below of=invwishart] (multinomial) {\footnotesize{\texttt{multinomial}}};
+\node [below of=multinomial] (special_ortho_group) {\footnotesize{\texttt{special\_ortho\_group}}};
+\node [below of=special_ortho_group] (ortho_group) {\footnotesize{\texttt{ortho\_group}}};
+\node [below of=ortho_group] (unitary_group) {\footnotesize{\texttt{unitary\_group}}};
+\node [below of=unitary_group] (random_correlation) {\footnotesize{\texttt{random\_correlation}}};
+
+\node [below of=continuous, yshift=-0.25cm, xshift=-2.25cm] (alpha) {\footnotesize{\texttt{alpha}}};
+\node [below of=alpha] (anglit) {\footnotesize{\texttt{anglit}}};
+\node [below of=anglit] (arcsine) {\footnotesize{\texttt{arcsine}}};
+\node [below of=arcsine] (argus) {\footnotesize{\texttt{argus}}};
+\node [below of=argus] (beta) {\footnotesize{\texttt{beta}}};
+\node [below of=beta] (betaprime) {\footnotesize{\texttt{betaprime}}};
+\node [below of=betaprime] (bradford) {\footnotesize{\texttt{bradford}}};
+\node [below of=bradford] (burr) {\footnotesize{\texttt{burr}}};
+\node [below of=burr] (burr12) {\footnotesize{\texttt{burr12}}};
+\node [below of=burr12] (cauchy) {\footnotesize{\texttt{cauchy}}};
+\node [below of=cauchy] (chi) {\footnotesize{\texttt{chi}}};
+\node [below of=chi] (chi2) {\footnotesize{\texttt{chi2}}};
+\node [below of=chi2] (cosine) {\footnotesize{\texttt{cosine}}};
+\node [below of=cosine] (crystalball) {\footnotesize{\texttt{crystalball}}};
+\node [below of=crystalball] (dgamma) {\footnotesize{\texttt{dgamma}}};
+\node [below of=dgamma] (dweibull) {\footnotesize{\texttt{dweibull}}};
+\node [below of=dweibull] (erlang) {\footnotesize{\texttt{erlang}}};
+\node [below of=erlang] (expon) {\footnotesize{\texttt{expon}}};
+\node [below of=expon] (exponnorm) {\footnotesize{\texttt{exponnorm}}};
+\node [below of=exponnorm] (exponweib) {\footnotesize{\texttt{exponweib}}};
+\node [below of=exponweib] (exponpow) {\footnotesize{\texttt{exponpow}}};
+\node [below of=exponpow] (f) {\footnotesize{\texttt{f}}};
+\node [below of=f] (fatiguelife) {\footnotesize{\texttt{fatiguelife}}};
+\node [below of=fatiguelife] (fisk) {\footnotesize{\texttt{fisk}}};
+\node [below of=fisk] (foldcauchy) {\footnotesize{\texttt{foldcauchy}}};
+\node [below of=foldcauchy] (foldnorm) {\footnotesize{\texttt{foldnorm}}};
+\node [below of=foldnorm] (frechet_r) {\footnotesize{\texttt{frechet\_r}}};
+\node [below of=frechet_r] (frechet_l) {\footnotesize{\texttt{frechet\_l}}};
+\node [below of=frechet_l] (genlogistic) {\footnotesize{\texttt{genlogistic}}};
+\node [below of=genlogistic] (gennorm) {\footnotesize{\texttt{gennorm}}};
+\node [below of=gennorm] (genpareto) {\footnotesize{\texttt{genpareto}}};
+\node [below of=genpareto] (genexpon) {\footnotesize{\texttt{genexpon}}};
+\node [below of=genexpon] (genextreme) {\footnotesize{\texttt{genextreme}}};
+\node [below of=genextreme] (gausshyper) {\footnotesize{\texttt{gausshyper}}};
+\node [below of=gausshyper] (gamma) {\footnotesize{\texttt{gamma}}};
+\node [below of=gamma] (gengamma) {\footnotesize{\texttt{gengamma}}};
+\node [below of=gengamma] (genhalflogistic) {\footnotesize{\texttt{genhalflogistic}}};
+\node [below of=genhalflogistic] (gilbrat) {\footnotesize{\texttt{gilbrat}}};
+\node [below of=gilbrat] (gompertz) {\footnotesize{\texttt{gompertz}}};
+\node [below of=gompertz] (gumbel_r) {\footnotesize{\texttt{gumbel\_r}}};
+\node [below of=gumbel_r] (gumbel_l) {\footnotesize{\texttt{gumbel\_l}}};
+\node [below of=gumbel_l] (halfcauchy) {\footnotesize{\texttt{halfcauchy}}};
+\node [below of=halfcauchy] (halflogistic) {\footnotesize{\texttt{halflogistic}}};
+\node [below of=halflogistic] (halfnorm) {\footnotesize{\texttt{halfnorm}}};
+\node [below of=halfnorm] (halfgennorm) {\footnotesize{\texttt{halfgennorm}}};
+\node [below of=halfgennorm] (hypesecant) {\footnotesize{\texttt{hypesecant}}};
+\node [below of=hypesecant] (invgamma) {\footnotesize{\texttt{invgamma}}};
+\node [below of=invgamma] (invgauss) {\footnotesize{\texttt{invgauss}}};
+\node [below of=invgauss] (invweibull) {\footnotesize{\texttt{invweibull}}};
+
+\node [below of=continuous, yshift=-0.25cm, xshift=2.25cm] (johnsonsb) {\footnotesize{\texttt{johnsonsb}}};
+\node [below of=johnsonsb] (johnsonsu) {\footnotesize{\texttt{johnsonsu}}};
+\node [below of=johnsonsu] (kappa4) {\footnotesize{\texttt{kappa4}}};
+\node [below of=kappa4] (kappa3) {\footnotesize{\texttt{kappa3}}};
+\node [below of=kappa3] (ksone) {\footnotesize{\texttt{ksone}}};
+\node [below of=ksone] (kstwobign) {\footnotesize{\texttt{kstwobign}}};
+\node [below of=kstwobign] (laplace) {\footnotesize{\texttt{laplace}}};
+\node [below of=laplace] (levy) {\footnotesize{\texttt{levy}}};
+\node [below of=levy] (levy_l) {\footnotesize{\texttt{levy\_l}}};
+\node [below of=levy_l] (levy_stable) {\footnotesize{\texttt{levy\_stable}}};
+\node [below of=levy_stable] (logistic) {\footnotesize{\texttt{logistic}}};
+\node [below of=logistic] (loggamma) {\footnotesize{\texttt{loggamma}}};
+\node [below of=loggamma] (loglaplace) {\footnotesize{\texttt{loglaplace}}};
+\node [below of=loglaplace] (lognorm) {\footnotesize{\texttt{lognorm}}};
+\node [below of=lognorm] (lomax) {\footnotesize{\texttt{lomax}}};
+\node [below of=lomax] (maxwell) {\footnotesize{\texttt{maxwell}}};
+\node [below of=maxwell] (mielke) {\footnotesize{\texttt{mielke}}};
+\node [below of=mielke] (moyal) {\footnotesize{\texttt{moyal}}};
+\node [below of=moyal] (nakagami) {\footnotesize{\texttt{nakagami}}};
+\node [below of=nakagami] (ncx2) {\footnotesize{\texttt{ncx2}}};
+\node [below of=ncx2] (ncf) {\footnotesize{\texttt{ncf}}};
+\node [below of=ncf] (nct) {\footnotesize{\texttt{nct}}};
+\node [below of=nct] (norm) {\footnotesize{\texttt{norm}}};
+\node [below of=norm] (norminvgauss) {\footnotesize{\texttt{norminvgauss}}};
+\node [below of=norminvgauss] (pareto) {\footnotesize{\texttt{pareto}}};
+\node [below of=pareto] (pearson3) {\footnotesize{\texttt{pearson3}}};
+\node [below of=pearson3] (powerlaw) {\footnotesize{\texttt{powerlaw}}};
+\node [below of=powerlaw] (powerlognorm) {\footnotesize{\texttt{powerlognorm}}};
+\node [below of=powerlognorm] (powernorm) {\footnotesize{\texttt{powernorm}}};
+\node [below of=powernorm] (rdist) {\footnotesize{\texttt{rdist}}};
+\node [below of=rdist] (reciprocal) {\footnotesize{\texttt{reciprocal}}};
+\node [below of=reciprocal] (rayleigh) {\footnotesize{\texttt{rayleigh}}};
+\node [below of=rayleigh] (rice) {\footnotesize{\texttt{rice}}};
+\node [below of=rice] (recipinvgauss) {\footnotesize{\texttt{recipinvgauss}}};
+\node [below of=recipinvgauss] (semicircular) {\footnotesize{\texttt{semicircular}}};
+\node [below of=semicircular] (skewnorm) {\footnotesize{\texttt{skewnorm}}};
+\node [below of=skewnorm] (t) {\footnotesize{\texttt{t}}};
+\node [below of=t] (trapz) {\footnotesize{\texttt{trapz}}};
+\node [below of=trapz] (triang) {\footnotesize{\texttt{triang}}};
+\node [below of=triang] (truncexpon) {\footnotesize{\texttt{truncexpon}}};
+\node [below of=truncexpon] (truncnorm) {\footnotesize{\texttt{truncnorm}}};
+\node [below of=truncnorm] (tukeylambda) {\footnotesize{\texttt{tukeylambda}}};
+\node [below of=tukeylambda] (uniform) {\footnotesize{\texttt{uniform}}};
+\node [below of=uniform] (vonmises) {\footnotesize{\texttt{vonmises}}};
+\node [below of=vonmises] (vonmises_line) {\footnotesize{\texttt{vonmises\_line}}};
+\node [below of=vonmises_line] (wald) {\footnotesize{\texttt{wald}}};
+\node [below of=wald] (weibull_min) {\footnotesize{\texttt{weibull\_min}}};
+\node [below of=weibull_min] (weibull_max) {\footnotesize{\texttt{weibull\_max}}};
+\node [below of=weibull_max] (wrapcauchy) {\footnotesize{\texttt{wrapcauchy}}};
+
+\node [below of=discrete, yshift=-0.25cm] (bernoulli) {\footnotesize{\texttt{bernoulli}}};
+\node [below of=bernoulli] (binom) {\footnotesize{\texttt{binom}}};
+\node [below of=binom] (boltzmann) {\footnotesize{\texttt{boltzmann}}};
+\node [below of=boltzmann] (dlaplace) {\footnotesize{\texttt{dlaplace}}};
+\node [below of=dlaplace] (geom) {\footnotesize{\texttt{geom}}};
+\node [below of=geom] (hypergeom) {\footnotesize{\texttt{hypergeom}}};
+\node [below of=hypergeom] (logser) {\footnotesize{\texttt{logser}}};
+\node [below of=logser] (nbinom) {\footnotesize{\texttt{nbinom}}};
+\node [below of=nbinom] (planck) {\footnotesize{\texttt{planck}}};
+\node [below of=planck] (poisson) {\footnotesize{\texttt{poisson}}};
+\node [below of=poisson] (randint) {\footnotesize{\texttt{randint}}};
+\node [below of=randint] (skellam) {\footnotesize{\texttt{skellam}}};
+\node [below of=skellam] (zipf) {\footnotesize{\texttt{zipf}}};
+\node [below of=zipf] (yulesimon) {\footnotesize{\texttt{yulesimon}}};
+
+
+\end{scope}
+
+\foreach \value in {bernoulli}
+\path [line] (discrete.195) |- (\value);
+
+\path [line] (continuous.-180) -| (alpha);
+
+\foreach \value in {anglit}
+\path [line] (alpha) -- (\value);
+
+\path [line] (continuous) -| (johnsonsb);
+
+\end{tikzpicture}
+\end{document}
