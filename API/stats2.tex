@@ -1,0 +1,186 @@
+\documentclass[tikz]{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,trees}
+\usepackage{verbatim}
+
+\definecolor{primary_1}{HTML}{FFC553}
+\definecolor{primary_2}{HTML}{4DABCF}
+\definecolor{secondary_1}{HTML}{FF9153}
+\definecolor{secondary_2}{HTML}{4D77CF}
+\definecolor{tertiary}{HTML}{9866CF}
+
+\begin{document}
+\pagestyle{empty}
+
+\tikzstyle{block_main} = [rectangle, draw, fill=primary_1!65, 
+    text width=12em, text centered, rounded corners, minimum height=5.25em]
+\tikzstyle{block_category} = [rectangle, draw, fill=secondary_2!65, text width=9em, text centered, rounded corners, align=center, minimum height=3em]
+\tikzstyle{block_subcategory} = [rectangle, draw, fill=tertiary!65, rounded corners, align=center, thin, text width=6.5em]
+\tikzstyle{block_function} = [rectangle, draw, fill=secondary_1!65, rounded corners, align=center, thin, text width=3.5em, text centered]
+\tikzstyle{block_info} = [rectangle, draw, fil=secondary_1!65, align=center]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{line2} = [draw, densely dotted]
+    
+\begin{tikzpicture}[node distance=1.5cm, auto]
+
+\node [block_main] (stats) {\textsc{Statistical functions}\\\footnotesize{\texttt{scipy.stats}}};
+ 
+\begin{scope}[every node/.style={block_category, yshift=-3cm}]
+
+\node [xshift=-25cm] (functions) {functions};
+\node [xshift=-15cm] (statistical_tests) {statistical tests};
+\node [xshift=-5cm] (transformations) {transformations};
+\node [xshift=5cm] (statistical_distances) {statistical distances};
+\node [xshift=15cm] (plot_tests) {plot tests};
+\node [xshift=25cm] (other) {other};
+
+\end{scope}
+
+\node [block_subcategory, below of=functions, yshift=-0.25cm] (correlation_functions) {\footnotesize{correlation functions}};
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [right of=correlation_functions, xshift=0.75cm, yshift=-1cm] (f_oneway) {\footnotesize{\texttt{f\_oneway}}};
+\node [below of=f_oneway, yshift=0.25cm] (pearsonr) {\footnotesize{\texttt{pearsonr}}};
+\node [below of=pearsonr, text width=3.75em, xshift=0.125em, yshift=0.25cm] (spearmanr) {\footnotesize{\texttt{spearmanr}}};
+\node [below of=spearmanr,, text width=6em, xshift=1.125em, yshift=0.25cm] (pointbiserialr) {\footnotesize{\texttt{pointbiserialr}}};
+\node [below of=pointbiserialr, text width=4.25em, xshift=-0.875em, yshift=0.25cm] (kendalltau) {\footnotesize{\texttt{kendalltau}}};
+\node [below of=kendalltau, text width=4.75em, xshift=0.25em, yshift=0.25cm] (weightedtau) {\footnotesize{\texttt{weightedtau}}};
+\node [below of=weightedtau, text width=4.25em, xshift=-0.25em, yshift=0.25cm] (linregress) {\footnotesize{\texttt{linregress}}};
+\node [below of=linregress, text width=5em, xshift=0.375em, yshift=0.25cm] (siegelslopes) {\footnotesize{\texttt{siegelslopes}}};
+\node [below of=siegelslopes, text width=4.75em, xshift=-0.125em, yshift=0.25cm] (theilslopes) {\footnotesize{\texttt{theilslopes}}};
+
+\end{scope}
+
+\node [block_subcategory, below of=theilslopes, xshift=-7.04em, yshift=-0.25cm] (circular_statistical_functions) {\footnotesize{circular statistical functions}};
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [right of=circular_statistical_functions, xshift=0.75cm, yshift=-1cm] (circmean) {\footnotesize{\texttt{circmean}}};
+\node [below of=circmean, yshift=0.25cm] (circvar) {\footnotesize{\texttt{circvar}}};
+\node [below of=circvar, yshift=0.25cm] (circstd) {\footnotesize{\texttt{circstd}}};
+
+\end{scope}
+
+\node [block_subcategory, below of=circstd, xshift=-6.395em, yshift=-0.25cm] (contingency_table_functions) {\footnotesize{contingency table functions}};
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [right of=contingency_table_functions, text width=6.5em, xshift=3.62em, yshift=-1cm] (chi2_contingency) {\footnotesize{\texttt{chi2\_contingency}}};
+\node [below of=chi2_contingency, text width=10.5em, xshift=2em, yshift=0.25cm] (contingency_expected_freq) {\footnotesize{\texttt{contingency.expected\_freq}}};
+\node [below of=contingency_expected_freq, text width=8em, xshift=-1.25em, yshift=0.25cm] (contingency_margins) {\footnotesize{\texttt{contingency.margins}}};
+\node [below of=contingency_margins, text width=5em, xshift=-1.5em, yshift=0.25cm] (fisher_exact) {\footnotesize{\texttt{fisher\_exact}}};
+
+\node [below of=statistical_tests, text width=4.5em, xshift=0.5em, yshift=-0.25cm] (ttest_1samp) {\footnotesize{\texttt{ttest\_1samp}}};
+\node [below of=ttest_1samp, text width=3.75em, xshift=-0.375em, yshift=0.25cm] (ttest_ind) {\footnotesize{\texttt{ttest\_ind}}};
+\node [below of=ttest_ind, text width=8em, xshift=2.125em, yshift=0.25cm] (ttest_ind_from_stats) {\footnotesize{\texttt{ttest\_ind\_from\_stats}}};
+\node [below of=ttest_ind_from_stats, text width=3.75em, xshift=-2.125em, yshift=0.25cm] (ttest_rel) {\footnotesize{\texttt{ttest\_rel}}};
+\node [below of=ttest_rel, xshift=-0.125em, yshift=0.25cm] (kstest) {\footnotesize{\texttt{kstest}}};
+\node [below of=kstest, text width=3.75em, xshift=0.125em, yshift=0.25cm] (chisquare) {\footnotesize{\texttt{chisquare}}};
+\node [below of=chisquare, text width=6.5em, xshift=1.375em, yshift=0.25cm] (power_divergence) {\footnotesize{\texttt{power\_divergence}}};
+\node [below of=power_divergence, xshift=-1.5em, yshift=0.25cm] (ks_2samp) {\footnotesize{\texttt{ks\_2samp}}};
+\node [below of=ks_2samp, text width=8.25em, xshift=2.375em, yshift=0.25cm] (epps_singleton_2samp) {\footnotesize{\texttt{epps\_singleton\_2samp}}};
+\node [below of=epps_singleton_2samp, text width=5em, xshift=-1.625em, yshift=0.25cm] (mannwhitneyu) {\footnotesize{\texttt{mannwhitneyu}}};
+\node [below of=mannwhitneyu, text width=4.25em, xshift=-0.375em, yshift=0.25cm] (tiecorrect) {\footnotesize{\texttt{tiecorrect}}};
+\node [below of=tiecorrect, xshift=-0.375em, yshift=0.25cm] (rankdata) {\footnotesize{\texttt{rankdata}}};
+\node [below of=rankdata, yshift=0.25cm] (ranksums) {\footnotesize{\texttt{ranksums}}};
+\node [below of=ranksums, yshift=0.25cm] (wilcoxon) {\footnotesize{\texttt{wilcoxon}}};
+\node [below of=wilcoxon, yshift=0.25cm] (kruskal) {\footnotesize{\texttt{kruskal}}};
+\node [below of=kruskal, text width=7.25em, xshift=1.875em, yshift=0.25cm] (friedmanchisquare) {\footnotesize{\texttt{friedmanchisquare}}};
+\node [below of=friedmanchisquare, text width=5.5em, xshift=-0.875em, yshift=0.25cm] (brunnermunzel) {\footnotesize{\texttt{brunnermunzel}}};
+\node [below of=brunnermunzel, text width=6.25em, xshift=0.375em, yshift=0.25cm] (combine_pvalues) {\footnotesize{\texttt{combine\_pvalues}}};
+\node [below of=combine_pvalues, text width=4.5em, xshift=-0.875em, yshift=0.25cm] (jarque_bera) {\footnotesize{\texttt{jarque\_bera}}};
+\node [below of=jarque_bera, xshift=-0.5em, yshift=0.25cm] (ansari) {\footnotesize{\texttt{ansari}}};
+\node [below of=ansari, yshift=0.25cm] (bartlett) {\footnotesize{\texttt{bartlett}}};
+\node [below of=bartlett, yshift=0.25cm] (levene) {\footnotesize{\texttt{levene}}};
+\node [below of=levene, yshift=0.25cm] (shapiro) {\footnotesize{\texttt{shapiro}}};
+\node [below of=shapiro, yshift=0.25cm] (anderson) {\footnotesize{\texttt{anderson}}};
+\node [below of=anderson, text width=5.75em, xshift=1.125em, yshift=0.25cm] (anderson_ksamp) {\footnotesize{\texttt{anderson\_ksamp}}};
+\node [below of=anderson_ksamp, text width=4em, xshift=-0.875em, yshift=0.25cm] (binom_test) {\footnotesize{\texttt{binom\_test}}};
+\node [below of=binom_test, xshift=-0.25em, yshift=0.25cm] (fligner) {\footnotesize{\texttt{fligner}}};
+\node [below of=fligner, text width=4.5em, xshift=0.5em, yshift=0.25cm] (median_test) {\footnotesize{\texttt{median\_test}}};
+\node [below of=median_test, xshift=-0.5em, yshift=0.25cm] (mood) {\footnotesize{\texttt{mood}}};
+\node [below of=mood, yshift=0.25cm] (skewtest) {\footnotesize{\texttt{skewtest}}};
+\node [below of=skewtest, text width=5em, xshift=0.75em, yshift=0.25cm] (kurtosistest) {\footnotesize{\texttt{kurtosistest}}};
+\node [below of=kurtosistest, text width=4.25em, xshift=-0.375em, yshift=0.25cm] (normaltest) {\footnotesize{\texttt{normaltest}}};
+
+\node [below of=transformations, yshift=-0.25cm] (boxcox) {\footnotesize{\texttt{boxcox}}};
+\node [below of=boxcox, text width=5.75em, xshift=1.125em, yshift=0.25cm] (boxcox_normmax) {\footnotesize{\texttt{boxcox\_normmax}}};
+\node [below of=boxcox_normmax, text width=4em, xshift=-0.875em, yshift=0.25cm] (boxcox_llf) {\footnotesize{\texttt{boxcox\_llf}}};
+\node [below of=boxcox_llf, text width=4.25em, xshift=0.125em, yshift=0.25cm] (yeojohnson) {\footnotesize{\texttt{yeojohnson}}};
+\node [below of=yeojohnson, text width=5.75em, xshift=0.75em, yshift=0.25cm] (yeojohnson_llf) {\footnotesize{\texttt{yeojohnson\_llf}}};
+\node [below of=yeojohnson_llf, text width=6.5em, xshift=0.375em, yshift=0.25cm] (obrientransform) {\footnotesize{\texttt{obrientransform}}};
+\node [below of=obrientransform, text width=3.75em, xshift=-1.375em, yshift=0.25cm] (sigmaclip) {\footnotesize{\texttt{sigmaclip}}};
+\node [below of=sigmaclip, xshift=-0.125em, yshift=0.25cm] (trimboth) {\footnotesize{\texttt{trimboth}}};
+\node [below of=trimboth, yshift=0.25cm] (trim1) {\footnotesize{\texttt{trim1}}};
+\node [below of=trim1, yshift=0.25cm] (zmap) {\footnotesize{\texttt{zmap}}};
+\node [below of=zmap, yshift=0.25cm] (zscore) {\footnotesize{\texttt{zscore}}};
+
+\node [below of=statistical_distances, text width=8.5em, xshift=2.5em, yshift=-0.25cm] (wasserstein_distance) {\footnotesize{\texttt{wasserstein\_distance}}};
+\node [below of=wasserstein_distance, text width=6.25em, xshift=-1.125em, yshift=0.25cm] (energy_distance) {\footnotesize{\texttt{energy\_distance}}};
+
+\node [below of=plot_tests, yshift=-0.25cm] (ppcc_max) {\footnotesize{\texttt{ppcc\_max}}};
+\node [below of=ppcc_max, text width=3.6em, xshift=0.05em, yshift=0.25cm] (ppcc_plot) {\footnotesize{\texttt{ppcc\_plot}}};
+\node [below of=ppcc_plot, xshift=-0.05em, yshift=0.25cm] (probplot) {\footnotesize{\texttt{probplot}}};
+\node [below of=probplot, text width=6.15em, xshift=1.325em, yshift=0.25cm] (boxcox_normplot) {\footnotesize{\texttt{boxcox\_normplot}}};
+\node [below of=boxcox_normplot, text width=7.85em, xshift=0.85em, yshift=0.25cm] (yeojohnson_normplot) {\footnotesize{\texttt{yeojohnson\_normplot}}};
+
+\end{scope}
+
+\node [block_subcategory, below of=other, yshift=-0.25cm] (kernel_density) {\footnotesize{kernel density}};
+
+\node [block_function, right of=kernel_density, text width=4.8em, xshift=0.85cm, yshift=-1cm] (gaussian_kde) {\footnotesize{\texttt{gaussian\_kde}}};
+
+\node [block_subcategory, below of=gaussian_kde, xshift=-6.7em] (warnings) {\footnotesize{warnings}};
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [right of=warnings, text width=11.75em, xshift=2.073cm, yshift=-1cm] (pearsonRConstant) {\footnotesize{\texttt{PearsonRConstantInputWarning}}};
+
+\node [below of=pearsonRConstant, text width=13.5em, xshift=0.875em, yshift=0.25cm] (pearsonRNear) {\footnotesize{\texttt{PearsonRNearConstantInputWarning}}};
+
+\end{scope}
+
+\path [line] (stats) -| (functions);
+
+\foreach \value in {statistical_tests, transformations, statistical_distances, plot_tests}
+\path [line] (stats) -- (\value);
+
+\path [line] (stats) -| (other);
+
+\foreach \value in {correlation_functions, circular_statistical_functions, contingency_table_functions}
+\path [line] (functions.195) |- (\value);
+
+\foreach \value in {f_oneway, pearsonr, spearmanr, pointbiserialr, kendalltau, weightedtau, linregress, siegelslopes, theilslopes}
+\path [line2] (correlation_functions) |- (\value);
+
+\foreach \value in {circmean, circvar, circstd}
+\path [line2] (circular_statistical_functions) |- (\value);
+
+\foreach \value in {chi2_contingency, contingency_expected_freq, contingency_margins, fisher_exact}
+\path [line2] (contingency_table_functions) |- (\value);
+
+\foreach \value in {boxcox, boxcox_normmax, boxcox_llf, yeojohnson, yeojohnson_llf, obrientransform, sigmaclip, trimboth, trim1, zmap, zscore}
+\path [line] (transformations.195) |- (\value);
+
+\foreach \value in {ttest_1samp, ttest_ind, ttest_ind_from_stats, ttest_rel, kstest, chisquare, power_divergence, ks_2samp, epps_singleton_2samp, mannwhitneyu, tiecorrect, rankdata, ranksums, wilcoxon, kruskal, friedmanchisquare, brunnermunzel, combine_pvalues, jarque_bera, ansari, bartlett, levene, shapiro, anderson, anderson_ksamp, binom_test, fligner, median_test, mood, skewtest, kurtosistest, normaltest}
+\path [line] (statistical_tests.195) |- (\value);
+
+\foreach \value in {wasserstein_distance, energy_distance}
+\path [line] (statistical_distances.195) |- (\value);
+
+\foreach \value in {ppcc_max, ppcc_plot, probplot, boxcox_normplot, yeojohnson_normplot}
+\path [line] (plot_tests.195) |- (\value);
+
+\foreach \value in {kernel_density, warnings}
+\path [line] (other.195) |- (\value);
+
+\path [line2] (kernel_density) |- (gaussian_kde);
+
+\foreach \value in {pearsonRConstant, pearsonRNear}
+\path [line2] (warnings) |- (\value);
+
+\end{tikzpicture}
+\end{document}
