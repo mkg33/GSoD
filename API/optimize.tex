@@ -1,0 +1,278 @@
+\documentclass[tikz]{standalone}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,trees}
+\usepackage{verbatim}
+
+\definecolor{primary_1}{HTML}{FFC553}
+\definecolor{primary_2}{HTML}{4DABCF}
+\definecolor{secondary_1}{HTML}{FF9153}
+\definecolor{secondary_2}{HTML}{4D77CF}
+\definecolor{tertiary}{HTML}{9866CF}
+
+\begin{document}
+\pagestyle{empty}
+
+\tikzstyle{block_main} = [rectangle, draw, fill=primary_1!65, 
+    text width=11em, text centered, rounded corners, minimum height=5.5em]
+\tikzstyle{block_category} = [rectangle, draw, fill=secondary_2!65, text width=9em, text centered, rounded corners, align=center, minimum height=3em]
+\tikzstyle{block_subcategory} = [rectangle, draw, fill=tertiary!65, rounded corners, align=center, thin, text width=6.5em]
+\tikzstyle{block_function} = [rectangle, draw, fill=secondary_1!65, rounded corners, align=center, thin, text width=3.5em]
+\tikzstyle{block_info} = [rectangle, draw, fil=secondary_1!65, align=center]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{line2} = [draw, densely dotted]
+\tikzstyle{line3} = [draw, dotted]
+    
+\begin{tikzpicture}[node distance=1.5cm, auto]
+
+\node [block_main] (optimization_root_finding) {\textsc{Optimization\\\& root finding}\\\footnotesize{\texttt{scipy.optimize}}};
+ 
+\begin{scope}[every node/.style={block_category, yshift=-3cm}]
+
+\node [xshift=-25cm] (optimization) {optimization};
+\node [xshift=-15cm] (lst_squares) {least-square\\\& curve fitting};
+\node [xshift=-5cm] (root_finding) {root finding};
+\node [xshift=5cm] (linear_programming) {linear programming};
+\node [xshift=15cm] (utilities) {utilities};
+\node [xshift=25cm] (legacy_functions) {legacy functions};
+
+\end{scope}
+
+\begin{scope}[every node/.style={block_subcategory}]
+
+\node [below of=optimization, yshift=-0.25cm] (general) {\footnotesize{general}};
+\node [below of=general, yshift=-9em] (scalar_functions_optimization) {\footnotesize{scalar functions optimization}};
+\node [below of=scalar_functions_optimization, yshift=-12.5em] (local) {\footnotesize{local\\(multivariate) optimization}};
+\node [below of=local, yshift=-72.5em] (global) {\footnotesize{global\\optimization}};
+
+\node [below of=lst_squares, yshift=-0.46cm] (nonlinear_lst_squares) {\footnotesize{nonlinear least-squares}};
+\node [below of=nonlinear_lst_squares, yshift=-2.25em] (linear_lst_squares) {\footnotesize{linear\\least-squares}};
+\node [below of=linear_lst_squares, yshift=-5em] (curve_fitting) {\footnotesize{curve fitting}};
+
+\node [below of=root_finding, yshift=-0.22cm] (scalar_functions) {\footnotesize{scalar functions}};
+\node [below of=scalar_functions, yshift=-56em] (multidimensional) {\footnotesize{multidimensional}};
+
+\node [below of=utilities, yshift=-0.46cm] (finite-difference_approx) {\footnotesize{finite-difference approximation}};
+\node [below of=finite-difference_approx, yshift=-5em] (line_search) {\footnotesize{line search}};
+\node [below of=line_search, yshift=-5em] (hessian_approximation) {\footnotesize{Hessian approximation}};
+\node [below of=hessian_approximation, yshift=-5em] (benchmark_problems) {\footnotesize{benchmark problems}};
+
+\node [below of=legacy_functions, yshift=-0.25cm] (optimization2) {\footnotesize{optimization}};
+\node [below of=optimization2, yshift=-44em] (least-squares) {\footnotesize{least-squares}};
+\node [below of=least-squares, yshift=-1em] (root_finding2) {\footnotesize{root finding}};
+
+\end{scope}
+
+\begin{scope}[every node/.style={block_function}]
+
+\node [right of=general, xshift=1.26cm, yshift=-0.75cm, text width=5em] (show_options) {\footnotesize{\texttt{show\_options}}};
+\node [below of=show_options, xshift=0.425em, yshift=0.25cm, text width=5.85em] (OptimizeResult) {\footnotesize{\texttt{OptimizeResult}}};
+\node [below of=OptimizeResult, xshift=0.2em, yshift=0.25cm, text width=6.25em] (OptimizeWarning) {\footnotesize{\texttt{OptimizeWarning}}};
+
+\node [right of=scalar_functions_optimization, xshift=1.47cm, yshift=-0.85cm, text width=6.25em] (minimize_scalar) {\footnotesize{\texttt{minimize\_scalar}}};
+\node [right of=minimize_scalar, xshift=0.75cm, yshift=-0.75cm] (brent) {\footnotesize{\texttt{brent}}};
+\node [below of=brent, yshift=0.25cm] (bounded) {\footnotesize{\texttt{bounded}}};
+\node [below of=bounded, yshift=0.25cm] (golden) {\footnotesize{\texttt{golden}}};
+
+\node [right of=local, xshift=1cm, yshift=-1.25cm] (minimize) {\footnotesize{\texttt{minimize}}};
+\node [right of=minimize, xshift=1.43cm, yshift=-0.75cm, text width=4.75em] (Nelder-Mead) {\footnotesize{\texttt{Nelder-Mead}}};
+\node [below of=Nelder-Mead, xshift=-0.625em, yshift=0.25cm] (Powell) {\footnotesize{\texttt{Powell}}};
+\node [below of=Powell, yshift=0.25cm] (CG) {\footnotesize{\texttt{CG}}};
+\node [below of=CG, yshift=0.25cm] (BFGS) {\footnotesize{\texttt{BFGS}}};
+\node [below of=BFGS, xshift=0.25em, yshift=0.25cm, text width=4em] (Newton-CG) {\footnotesize{\texttt{Newton-CG}}};
+\node [below of=Newton-CG, xshift=-0.25em, yshift=0.25cm] (L-BFGS-B) {\footnotesize{\texttt{L-BFGS-B}}};
+\node [below of=L-BFGS-B, yshift=0.25cm] (TNC) {\footnotesize{\texttt{TNC}}};
+\node [below of=TNC, yshift=0.25cm] (COBYLA) {\footnotesize{\texttt{COBYLA}}};
+\node [below of=COBYLA, yshift=0.25cm] (SLSQP) {\footnotesize{\texttt{SLSQP}}};
+\node [below of=SLSQP, xshift=0.875em, yshift=0.25cm, text width=5.25em] (trust-constr) {\footnotesize{\texttt{trust-constr}}};
+\node [below of=trust-constr, xshift=-0.875em, yshift=0.25cm] (dogleg) {\footnotesize{\texttt{dogleg}}};
+\node [below of=dogleg, xshift=0.125em, yshift=0.25cm, text width=3.75em] (trust-ncg) {\footnotesize{\texttt{trust-ncg}}};
+\node [below of=trust-ncg, xshift=0.625em, yshift=0.25cm, text width=5em] (trust-krylov) {\footnotesize{\texttt{trust-krylov}}};
+\node [below of=trust-krylov, xshift=-0.2em, yshift=0.25cm, text width=4.6em] (trust-exact) {\footnotesize{\texttt{trust-exact}}};
+
+\node [left of=trust-exact, xshift=-0.599cm, yshift=-1.25cm, text width=8em] (NonlinearConstraint) {\footnotesize{\texttt{NonlinearConstraint}}};
+\node [below of=NonlinearConstraint, xshift=-0.625em, yshift=0.25cm, text width=6.75em] (LinearConstraint) {\footnotesize{\texttt{LinearConstraint}}};
+\node [below of=LinearConstraint, xshift=-1.625em, yshift=0.25cm] (Bounds) {\footnotesize{\texttt{Bounds}}};
+\node [below of=Bounds, xshift=2.625em, yshift=0.25cm, text width=8.75em] (HessianUpdateStrategy) {\footnotesize{\texttt{HessianUpdateStrategy}}};
+\node [below of=HessianUpdateStrategy, xshift=-2.625em, yshift=0.25cm] (BFGS2) {\footnotesize{\texttt{BFGS}}};
+\node [below of=BFGS2, yshift=0.25cm] (SR1) {\footnotesize{\texttt{SR1}}};
+
+\node [right of=global, xshift=1.27cm, yshift=-1cm, text width=5em] (basinhopping) {\footnotesize{\texttt{basinhopping}}};
+\node [below of=basinhopping, xshift=-0.75em, yshift=0.25cm] (brute) {\footnotesize{\texttt{brute}}};
+\node [below of=brute, xshift=2.875em, yshift=0.25cm, text width=9.25em] (differential_evolution) {\footnotesize{\texttt{differential\_evolution}}};
+\node [below of=differential_evolution, xshift=-2.875em, yshift=0.25cm] (shgo) {\footnotesize{\texttt{shgo}}};
+\node [below of=shgo, yshift=0.25cm, xshift=1.125em, text width=5.75em] (dual_annealing) {\footnotesize{\texttt{dual\_annealing}}};
+
+\node [right of=nonlinear_lst_squares, xshift=1.31cm, yshift=-1cm, text width=5.25em] (least_squares) {\footnotesize{\texttt{least\_squares}}};
+
+\node [right of=linear_lst_squares, xshift=1cm, yshift=-1cm] (nnls) {\footnotesize{\texttt{nnls}}};
+\node [below of=nnls, xshift=0.25em, yshift=0.25cm, text width=4em] (lsq_linear) {\footnotesize{\texttt{lsq\_linear}}};
+
+\node [right of=curve_fitting, xshift=1.03cm, yshift=-0.75cm, text width=3.65em] (curve_fit) {\footnotesize{\texttt{curve\_fit}}};
+
+\node [right of=scalar_functions, xshift=1.175cm, yshift=-0.75cm, text width=4.5em] (root_scalar) {\footnotesize{\texttt{root\_scalar}}};
+\node [below of=root_scalar, xshift=-0.168cm, yshift=-26em] (brentq) {\footnotesize{\texttt{brentq}}};
+\node [below of=brentq, yshift=0.25cm] (brenth) {\footnotesize{\texttt{brenth}}};
+\node [below of=brenth, yshift=0.25cm] (ridder) {\footnotesize{\texttt{ridder}}};
+\node [below of=ridder, yshift=0.25cm] (bisect) {\footnotesize{\texttt{bisect}}};
+\node [below of=bisect, yshift=0.25cm] (newton) {\footnotesize{\texttt{newton}}};
+\node [below of=newton, yshift=0.25cm] (toms748) {\footnotesize{\texttt{toms748}}};
+\node [below of=toms748, xshift=0.5em, yshift=0.25cm, text width=4.5em] (RootResults) {\footnotesize{\texttt{RootResults}}};
+\node [below of=RootResults, xshift=-0.025em, yshift=0.25cm, text width=4.45em] (fixed_point) {\footnotesize{\texttt{fixed\_point}}};
+
+\node [right of=root_scalar, xshift=0.33cm, yshift=-0.75cm] (brentq2) {\footnotesize{\texttt{brentq}}};
+\node [below of=brentq2, yshift=0.25cm] (brenth2) {\footnotesize{\texttt{brenth}}};
+\node [below of=brenth2, yshift=0.25cm] (bisect2) {\footnotesize{\texttt{bisect}}};
+\node [below of=bisect2, yshift=0.25cm] (ridder2) {\footnotesize{\texttt{ridder}}};
+\node [below of=ridder2, yshift=0.25cm] (newton2) {\footnotesize{\texttt{newton}}};
+\node [below of=newton2, yshift=0.25cm] (toms748_2) {\footnotesize{\texttt{toms748}}};
+\node [below of=toms748_2, yshift=0.25cm] (secant) {\footnotesize{\texttt{secant}}};
+\node [below of=secant, yshift=0.25cm] (halley) {\footnotesize{\texttt{halley}}};
+
+\node [right of=multidimensional, xshift=1cm, yshift=-0.75cm] (root) {\footnotesize{\texttt{root}}};
+\node [right of=root, xshift=0.5cm, yshift=-0.75cm] (hybr) {\footnotesize{\texttt{hybr}}};
+\node [below of=hybr, yshift=0.25cm] (lm) {\footnotesize{\texttt{lm}}};
+\node [below of=lm, yshift=0.25cm] (broyden1) {\footnotesize{\texttt{broyden1}}};
+\node [below of=broyden1, yshift=0.25cm] (broyden2) {\footnotesize{\texttt{broyden2}}};
+\node [below of=broyden2, yshift=0.25cm] (anderson) {\footnotesize{\texttt{anderson}}};
+\node [below of=anderson, xshift=0.75em, yshift=0.25cm, text width=5em] (linearmixing) {\footnotesize{\texttt{linearmixing}}};
+\node [below of=linearmixing, xshift=-0.25em, yshift=0.25cm, text width=4.5em] (diagbroyden) {\footnotesize{\texttt{diagbroyden}}};
+\node [below of=diagbroyden, xshift=0.675em, yshift=0.25cm, text width=5.85em] (excitingmixing) {\footnotesize{\texttt{excitingmixing}}};
+\node [below of=excitingmixing, xshift=-1.175em, yshift=0.25cm] (krylov) {\footnotesize{\texttt{krylov}}};
+\node [below of=krylov, yshift=0.25cm] (df-sane) {\footnotesize{\texttt{df-sane}}};
+
+\node [below of=linear_programming, yshift=-0.25cm] (linprog) {\footnotesize{\texttt{linprog}}};
+\node [below of=linprog, xshift=3.175em, yshift=-9.5em, text width=9.85em] (linprog_verbose_callback) {\footnotesize{\texttt{linprog\_verbose\_callback}}};
+\node [below of=linprog_verbose_callback, xshift=-0.6em, yshift=0.25cm, text width=8.65em] (linear_sum_assignment) {\footnotesize{\texttt{linear\_sum\_assignment}}};
+
+\node [right of=linprog, xshift=1cm, yshift=-0.75cm] (simplex) {\footnotesize{\texttt{simplex}}};
+\node [below of=simplex, xshift=1.175em, yshift=0.25cm, text width=5.85em] (interior-point) {\footnotesize{\texttt{interior-point}}};
+\node [below of=interior-point, xshift=-1.175em] (revised_simplex) {\footnotesize{\texttt{revised simplex}}};
+
+\node [right of=finite-difference_approx, xshift=1.31cm, yshift=-0.75cm, text width=5.25em] (approx_fprime) {\footnotesize{\texttt{approx\_fprime}}};
+\node [below of=approx_fprime, xshift=-0.575em, yshift=0.25cm, text width=4.1em] (check_grad) {\footnotesize{\texttt{check\_grad}}};
+
+\node [right of=line_search, xshift=1cm, yshift=-0.55cm] (bracket) {\footnotesize{\texttt{bracket}}};
+\node [below of=bracket, xshift=0.5em, yshift=0.25cm, text width=4.5em] (line_search2) {\footnotesize{\texttt{line\_search}}};
+
+\node [right of=hessian_approximation, xshift=1.79cm, yshift=-0.75cm, text width=8em] (LbfgsInvHessProduct) {\footnotesize{\texttt{LbfgsInvHessProduct}}};
+\node [below of=LbfgsInvHessProduct, xshift=0.375em, yshift=0.25cm, text width=8.75em] (HessianUpdateStrategy2) {\footnotesize{\texttt{HessianUpdateStrategy}}};
+
+\node [right of=benchmark_problems, xshift=1cm, yshift=-0.75cm] (rosen) {\footnotesize{\texttt{rosen}}};
+\node [below of=rosen, xshift=0.125em, yshift=0.25cm, text width=3.75em] (rosen_der) {\footnotesize{\texttt{rosen\_der}}};
+\node [below of=rosen_der, xshift=0.125em, yshift=0.25cm, text width=4em] (rosen_hess) {\footnotesize{\texttt{rosen\_hess}}};
+\node [below of=rosen_hess, xshift=1.125em, yshift=0.25cm, text width=6.25em] (rosen_hess_prod) {\footnotesize{\texttt{rosen\_hess\_prod}}};
+
+\node [right of=optimization2, xshift=1cm, yshift=-0.75cm] (fmin) {\footnotesize{\texttt{fmin}}};
+\node [below of=fmin, xshift=0.425em, yshift=0.25cm, text width=4.35em] (fmin_powell) {\footnotesize{\texttt{fmin\_powell}}};
+\node [below of=fmin_powell, xshift=-0.425em, yshift=0.25cm] (fmin_cg) {\footnotesize{\texttt{fmin\_cg}}};
+\node [below of=fmin_cg, yshift=0.25cm] (fmin_bfgs) {\footnotesize{\texttt{fmin\_bfgs}}};
+\node [below of=fmin_bfgs, yshift=0.25cm] (fmin_ncg) {\footnotesize{\texttt{fmin\_ncg}}};
+\node [below of=fmin_ncg, xshift=0.75em, yshift=0.25cm, text width=5em] (fmin_l_bfgs_b) {\footnotesize{\texttt{fmin\_l\_bfgs\_b}}};
+\node [below of=fmin_l_bfgs_b, xshift=-0.75em, yshift=0.25cm] (fmin_tnc) {\footnotesize{\texttt{fmin\_tnc}}};
+\node [below of=fmin_tnc, xshift=0.475em, yshift=0.25cm, text width=4.45em] (fmin_cobyla) {\footnotesize{\texttt{fmin\_cobyla}}};
+\node [below of=fmin_cobyla, xshift=-0.225em, yshift=0.25cm, text width=4em] (fmin_slsqp) {\footnotesize{\texttt{fmin\_slsqp}}};
+\node [below of=fmin_slsqp, xshift=2.625em, yshift=0.25cm, text width=9.25em] (differential_evolution2) {\footnotesize{\texttt{differential\_evolution}}};
+\node [below of=differential_evolution2, xshift=-2.75em, yshift=0.25cm, text width=3.75em] (fminbound) {\footnotesize{\texttt{fminbound}}};
+\node [below of=fminbound, xshift=-0.125em, yshift=0.25cm] (brent2) {\footnotesize{\texttt{brent}}};
+\node [below of=brent2, yshift=0.25cm] (golden2) {\footnotesize{\texttt{golden}}};
+
+\node [right of=least-squares, xshift=1cm, yshift=-0.75cm] (leastsq) {\footnotesize{\texttt{leastsq}}};
+
+\node [right of=root_finding2, xshift=1cm, yshift=-0.75cm] (fsolve) {\footnotesize{\texttt{fsolve}}};
+\node [below of=fsolve, yshift=0.25cm] (broyden1_2) {\footnotesize{\texttt{broyden1}}};
+\node [below of=broyden1_2, yshift=0.25cm] (broyden2_2) {\footnotesize{\texttt{broyden2}}};
+\node [below of=broyden2_2, xshift=0.875em, yshift=0.25cm, text width=5.25em] (newton_krylov) {\footnotesize{\texttt{newton\_krylov}}};
+\node [below of=newton_krylov, xshift=-0.875em, yshift=0.25cm] (anderson2) {\footnotesize{\texttt{anderson}}};
+\node [below of=anderson2, xshift=1.175em, yshift=0.25cm, text width=5.85em] (excitingmixing_2) {\footnotesize{\texttt{excitingmixing}}};
+\node [below of=excitingmixing_2, xshift=-0.425em, yshift=0.25cm, text width=5em] (linearmixing_2) {\footnotesize{\texttt{linearmixing}}};
+\node [below of=linearmixing_2, xshift=-0.175em, yshift=0.25cm, text width=4.65em] (diagbroyden2) {\footnotesize{\texttt{diagbroyden}}};
+
+\end{scope}
+
+\path [line] (optimization_root_finding) -| (optimization);
+
+\foreach \value in {lst_squares, root_finding, linear_programming, utilities}
+\path [line] (optimization_root_finding) -- (\value);
+
+\path [line] (optimization_root_finding) -| (legacy_functions);
+
+\foreach \value in {general, scalar_functions_optimization, local, global}
+\path [line] (optimization.195) |- (\value);
+
+\foreach \value in {minimize, NonlinearConstraint, LinearConstraint, Bounds, HessianUpdateStrategy, BFGS2, SR1}
+\path [line2] (local.250) |- (\value);
+
+\foreach \value in {Nelder-Mead, Powell, CG, BFGS, Newton-CG, L-BFGS-B, TNC, COBYLA, SLSQP, trust-constr, dogleg, trust-ncg, trust-krylov, trust-exact}
+\path [line3] (minimize.250) |- (\value);
+
+\foreach \value in {basinhopping, brute, differential_evolution, shgo, dual_annealing}
+\path [line2] (global.250) |- (\value);
+
+\foreach \value in {show_options, OptimizeResult, OptimizeWarning}
+\path [line2] (general.237) |- (\value);
+
+\path [line2] (scalar_functions_optimization.250) |- (minimize_scalar);
+
+\foreach \value in {brent, bounded, golden}
+\path [line3] (minimize_scalar.250) |- (\value);
+
+\foreach \value in {nonlinear_lst_squares, linear_lst_squares, curve_fitting}
+\path [line] (lst_squares.195) |- (\value);
+
+\path [line2] (nonlinear_lst_squares.250) |- (least_squares);
+
+\foreach \value in {nnls, lsq_linear}
+\path [line2] (linear_lst_squares.250) |- (\value);
+
+\path [line2] (curve_fitting.250) |- (curve_fit); 
+
+\foreach \value in {scalar_functions, multidimensional}
+\path [line] (root_finding.195) |- (\value);
+
+\foreach \value in {root_scalar, brentq, brenth, ridder, bisect, newton, toms748, RootResults, fixed_point}
+\path [line2] (scalar_functions.250) |- (\value);
+
+\foreach \value in {brentq2, brenth2, bisect2, ridder2, newton2, toms748_2, secant, halley}
+\path [line3] (root_scalar.250) |- (\value);
+
+\path [line2] (multidimensional.250) |- (root);
+
+\foreach \value in {hybr, lm, broyden1, broyden2, anderson, linearmixing, diagbroyden, excitingmixing, krylov, df-sane}
+\path [line3] (root.250) |- (\value);
+
+\foreach \value in {linprog, linprog_verbose_callback, linear_sum_assignment}
+\path [line] (linear_programming.195) |- (\value);
+
+\foreach \value in {simplex, interior-point, revised_simplex}
+\path [line2] (linprog.250) |- (\value);
+
+\foreach \value in {finite-difference_approx, line_search, hessian_approximation, benchmark_problems}
+\path [line] (utilities.195) |- (\value);
+
+\foreach \value in {approx_fprime, check_grad}
+\path [line2] (finite-difference_approx.250) |- (\value);
+
+\foreach \value in {bracket, line_search2}
+\path [line2] (line_search.250) |- (\value);
+
+\foreach \value in {LbfgsInvHessProduct, HessianUpdateStrategy2}
+\path [line2] (hessian_approximation.250) |- (\value);
+
+\foreach \value in {rosen, rosen_der, rosen_hess, rosen_hess_prod}
+\path [line2] (benchmark_problems.250) |- (\value);
+
+\foreach \value in {optimization2, least-squares, root_finding2}
+\path [line] (legacy_functions.195) |- (\value);
+
+\foreach \value in {fmin, fmin_powell, fmin_cg, fmin_bfgs, fmin_ncg, fmin_l_bfgs_b, fmin_tnc, fmin_cobyla, fmin_slsqp, differential_evolution2, fminbound, brent2, golden2}
+\path [line2] (optimization2.250) |- (\value);
+
+\path [line2] (least-squares.250) |- (leastsq);
+
+\foreach \value in {fsolve, broyden1_2, broyden2_2, newton_krylov, anderson2, excitingmixing_2, linearmixing_2, diagbroyden2}
+\path [line2] (root_finding2.250) |- (\value);
+
+\end{tikzpicture}
+\end{document}
