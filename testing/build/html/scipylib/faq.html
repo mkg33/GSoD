@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Frequently Asked Questions &mdash; SciPy.org</title>
+    
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    <link rel="stylesheet" href="../../_static/scipy-org.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="SciPy.org" href="../index.html" >
+    <link rel="up" title="SciPy library" href="index.html" >
+    <link rel="next" title="SciPy license" href="license.html" >
+    <link rel="prev" title="Donations" href="donations.html" > 
+  </head>
+  <body>
+<style type="text/css">
+.top-logo-header {
+  text-align: left;
+  background-color: rgb(140, 170, 230);
+  border-bottom: 8px solid rgb(0, 51, 153);
+  margin-top: 10px;
+  padding: 5px;
+  box-shadow: 0px 0px 3px rgb(136, 136, 136);
+}
+</style>
+<div class="container">
+  <div class="top-logo-header">
+    <a href="../index.html">
+      <img style="border: 0;" alt="SciPy" src="../_static/logo.png"></a>
+  </div>
+</div>
+
+    <div class="container">
+      <div class="main">
+
+
+        
+
+
+
+	<div class="row-fluid">
+          <div class="span9">
+            
+	      <div class="row-fluid">
+		<div class="span9">
+  		  <div class="spc-navbar">
+		    
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="../index.html">SciPy.org</a></li>
+	
+          <li class="active"><a href="index.html" accesskey="U">SciPy library</a></li> 
+    </ul>
+		  </div>
+		</div>
+	      </div>
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="frequently-asked-questions">
+<span id="faq-top"></span><h1>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#general-questions-about-numpy" id="id1">General questions about NumPy</a></p>
+<ul>
+<li><p><a class="reference internal" href="#what-is-numpy" id="id2">What is NumPy?</a></p></li>
+<li><p><a class="reference internal" href="#why-should-i-use-numpy-rather-than-idl-matlab-or-octave" id="id3">Why should I use NumPy rather than IDL, MATLAB, or Octave?</a></p></li>
+<li><p><a class="reference internal" href="#what-is-a-numpy-array" id="id4">What is a NumPy array?</a></p></li>
+<li><p><a class="reference internal" href="#what-advantages-do-numpy-arrays-offer-over-nested-python-lists" id="id5">What advantages do NumPy arrays offer over (nested) Python lists?</a></p></li>
+<li><p><a class="reference internal" href="#what-s-the-story-with-numeric-numarray-and-numpy" id="id6">What’s the story with Numeric, numarray, and NumPy?</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#general-questions-about-scipy" id="id7">General questions about SciPy</a></p>
+<ul>
+<li><p><a class="reference internal" href="#what-is-scipy" id="id8">What is SciPy?</a></p></li>
+<li><p><a class="reference internal" href="#how-much-does-it-cost" id="id9">How much does it cost?</a></p></li>
+<li><p><a class="reference internal" href="#what-are-scipy-s-licensing-terms" id="id10">What are SciPy’s licensing terms?</a></p></li>
+<li><p><a class="reference internal" href="#how-can-scipy-be-fast-if-it-is-written-in-an-interpreted-language-like-python" id="id11">How can SciPy be fast if it is written in an interpreted language like Python?</a></p></li>
+<li><p><a class="reference internal" href="#i-ve-found-a-bug-what-do-i-do" id="id12">I’ve found a bug.  What do I do?</a></p></li>
+<li><p><a class="reference internal" href="#how-can-i-get-involved-in-scipy" id="id13">How can I get involved in SciPy?</a></p></li>
+<li><p><a class="reference internal" href="#is-there-commercial-support-available" id="id14">Is there commercial support available?</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#numpy-vs-scipy-vs-other-packages" id="id15">NumPy vs. SciPy vs. other packages</a></p>
+<ul>
+<li><p><a class="reference internal" href="#what-is-the-difference-between-numpy-and-scipy" id="id16">What is the difference between NumPy and SciPy?</a></p></li>
+<li><p><a class="reference internal" href="#how-do-i-make-plots-using-numpy-scipy" id="id17">How do I make plots using NumPy/SciPy?</a></p></li>
+<li><p><a class="reference internal" href="#how-do-i-make-3d-plots-visualizations-using-numpy-scipy" id="id18">How do I make 3D plots/visualizations using NumPy/SciPy?</a></p></li>
+<li><p><a class="reference internal" href="#why-both-numpy-linalg-and-scipy-linalg-what-s-the-difference" id="id19">Why both <code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.linalg</span></code> and <code class="xref py py-mod docutils literal notranslate"><span class="pre">scipy.linalg</span></code>? What’s the difference?</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#python-version-support" id="id20">Python version support</a></p>
+<ul>
+<li><p><a class="reference internal" href="#do-numpy-and-scipytill-support-python-2-7" id="id21">Do NumPy and SciPytill support Python 2.7?</a></p></li>
+<li><p><a class="reference internal" href="#does-numpy-scipy-work-with-pypy" id="id22">Does NumPy/SciPy work with PyPy?</a></p></li>
+<li><p><a class="reference internal" href="#does-numpy-scipy-work-with-jython-or-c-net" id="id23">Does NumPy/SciPy work with Jython or C#/.NET?</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#basic-numpy-scipy-usage" id="id24">Basic NumPy/SciPy usage</a></p>
+<ul>
+<li><p><a class="reference internal" href="#what-is-the-preferred-way-to-check-for-an-empty-zero-element-array" id="id25">What is the preferred way to check for an empty (zero element) array?</a></p></li>
+<li><p><a class="reference internal" href="#i-want-to-load-data-from-a-text-file-how-do-i-make-this-code-more-efficient" id="id26">I want to load data from a text file. How do I make this code more efficient?</a></p></li>
+<li><p><a class="reference internal" href="#what-is-the-difference-between-matrices-and-arrays" id="id27">What is the difference between matrices and arrays?</a></p></li>
+<li><p><a class="reference internal" href="#why-not-just-have-a-separate-operator-for-matrix-multiplication" id="id28">Why not just have a separate operator for matrix multiplication?</a></p></li>
+<li><p><a class="reference internal" href="#how-do-i-find-the-indices-of-an-array-where-some-condition-is-true" id="id29">How do I find the indices of an array where some condition is true?</a></p></li>
+<li><p><a class="reference internal" href="#how-do-i-count-the-number-of-times-each-value-appears-in-an-array-of-integers" id="id30">How do I count the number of times each value appears in an array of integers?</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#advanced-numpy-usage" id="id31">Advanced NumPy usage</a></p>
+<ul>
+<li><p><a class="reference internal" href="#does-numpy-support-nan" id="id32">Does NumPy support <code class="xref py py-const docutils literal notranslate"><span class="pre">nan</span></code>?</a></p></li>
+<li><p><a class="reference internal" href="#why-doesn-t-a-0-1-1-2-1-do-what-i-think-it-should" id="id33">Why doesn’t A[[0, 1, 1, 2]] += 1 do what I think it should?</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#where-to-get-help" id="id34">Where to get help</a></p></li>
+</ul>
+</div>
+<div class="section" id="general-questions-about-numpy">
+<h2><a class="toc-backref" href="#id1">General questions about NumPy</a><a class="headerlink" href="#general-questions-about-numpy" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-is-numpy">
+<h3><a class="toc-backref" href="#id2">What is NumPy?</a><a class="headerlink" href="#what-is-numpy" title="Permalink to this headline">¶</a></h3>
+<p>NumPy is a Python extension module that provides efficient operation on arrays
+of homogeneous data.  It allows Python to serve as a high-level language for
+manipulating numerical data, much like for example IDL or MATLAB.</p>
+</div>
+<div class="section" id="why-should-i-use-numpy-rather-than-idl-matlab-or-octave">
+<h3><a class="toc-backref" href="#id3">Why should I use NumPy rather than IDL, MATLAB, or Octave?</a><a class="headerlink" href="#why-should-i-use-numpy-rather-than-idl-matlab-or-octave" title="Permalink to this headline">¶</a></h3>
+<p>As always, you should choose the programming tools that suit your problem
+and your environment. Advantages many people cite are that it is open-source,
+it doesn’t cost anything, it uses a general-purpose programming language (Python)
+which is very popular and has high-quality libraries for almost any task available,
+and it is relatively easy to connect existing C and Fortran code to the Python interpreter.</p>
+</div>
+<div class="section" id="what-is-a-numpy-array">
+<h3><a class="toc-backref" href="#id4">What is a NumPy array?</a><a class="headerlink" href="#what-is-a-numpy-array" title="Permalink to this headline">¶</a></h3>
+<p>A NumPy array is a multidimensional array of objects all of the same type.
+In memory, it is an object which points to a block of memory, keeps track
+of the type of data stored in that memory, keeps track of how many
+dimensions there are and how large each one is, and - importantly -
+the spacing between elements along each axis.</p>
+<p>For example, you might have a NumPy array that represents the numbers from
+zero to nine, stored as 32-bit integers, one right after another, in a single
+block of memory. (for comparison, each Python integer needs to have some type
+information stored alongside it). You might also have the array of even
+numbers from zero to eight, stored in the same block of memory, but with a
+gap of four bytes (one 32-bit integer) between elements. This is called
+<strong>striding</strong>, and it means that you can often create a new array referring
+to a subset of the elements in an array without copying any data. Such subsets
+are called <strong>views</strong>. This is an efficiency gain, obviously, but it also
+allows modification of selected elements of an array in various ways.</p>
+<p>An important constraint on NumPy arrays is that for a given axis, all the
+elements must be spaced by the same number of bytes in memory. NumPy cannot
+use double-indirection to access array elements, so indexing modes that would
+require this must produce copies. This constraint makes it possible for all
+the inner loops in NumPy’s internals to be written in efficient C code.</p>
+<p>NumPy arrays offer a number of other possibilities, including using a
+memory-mapped disk file as the storage space for an array, and <strong>record
+arrays</strong>, where each element can have a custom, compound data type.</p>
+</div>
+<div class="section" id="what-advantages-do-numpy-arrays-offer-over-nested-python-lists">
+<h3><a class="toc-backref" href="#id5">What advantages do NumPy arrays offer over (nested) Python lists?</a><a class="headerlink" href="#what-advantages-do-numpy-arrays-offer-over-nested-python-lists" title="Permalink to this headline">¶</a></h3>
+<p>Python’s lists are efficient general-purpose containers. They support
+(fairly) efficient insertion, deletion, appending, and concatenation,
+and Python’s list comprehensions make them easy to construct and manipulate.
+However, they have certain limitations: they don’t support “vectorized”
+operations like elementwise addition and multiplication, and the fact that
+they can contain objects of differing types mean that Python must store
+type information for every element, and must execute type dispatching
+code when operating on each element. This also means that very few list
+operations can be carried out by efficient C loops – each iteration
+would require type checks and other Python API bookkeeping.</p>
+</div>
+<div class="section" id="what-s-the-story-with-numeric-numarray-and-numpy">
+<h3><a class="toc-backref" href="#id6">What’s the story with Numeric, numarray, and NumPy?</a><a class="headerlink" href="#what-s-the-story-with-numeric-numarray-and-numpy" title="Permalink to this headline">¶</a></h3>
+<p>The short version is that Numeric was the original package that provided
+efficient homogeneous numeric arrays for Python, but some developers felt
+it lacked certain essential features, so they began developing an independent
+implementation called numarray. Having two incompatible implementations of
+array was clearly a disaster in the making, so NumPy was designed to be an
+improvement on both.</p>
+<p>Neither Numeric nor numarray is currently supported. NumPy has been the
+standard array package for a number of years now. If you use Numeric or
+numarray, you should upgrade; NumPy is explicitly designed to have all the
+capabilities of both (and already boasts new features found in neither
+of its predecessor packages). There are tools available to ease the upgrade
+process; only C code should require much modification.</p>
+</div>
+</div>
+<div class="section" id="general-questions-about-scipy">
+<h2><a class="toc-backref" href="#id7">General questions about SciPy</a><a class="headerlink" href="#general-questions-about-scipy" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-is-scipy">
+<h3><a class="toc-backref" href="#id8">What is SciPy?</a><a class="headerlink" href="#what-is-scipy" title="Permalink to this headline">¶</a></h3>
+<p>SciPy is a set of open source (BSD licensed) scientific and numerical tools
+for Python. It currently supports special functions, integration, ordinary
+differential equation (ODE) solvers, gradient optimization, parallel
+programming tools, an expression-to-C++ compiler for fast execution,
+and others. A good rule of thumb is that if it’s covered in a general textbook
+on numerical computing (for example, the well-known Numerical Recipes series),
+it’s probably implemented in SciPy.</p>
+</div>
+<div class="section" id="how-much-does-it-cost">
+<h3><a class="toc-backref" href="#id9">How much does it cost?</a><a class="headerlink" href="#how-much-does-it-cost" title="Permalink to this headline">¶</a></h3>
+<p>SciPy is freely available. It is distributed as open source software,
+meaning that you have complete access to the source code and can use it in
+any way allowed by its liberal BSD license.</p>
+</div>
+<div class="section" id="what-are-scipy-s-licensing-terms">
+<h3><a class="toc-backref" href="#id10">What are SciPy’s licensing terms?</a><a class="headerlink" href="#what-are-scipy-s-licensing-terms" title="Permalink to this headline">¶</a></h3>
+<p>SciPy’s license is free for both commercial and non-commercial use, per the terms
+of the BSD license <a class="reference external" href="https://github.com/scipy/scipy/blob/master/LICENSE.txt">here</a>.</p>
+</div>
+<div class="section" id="how-can-scipy-be-fast-if-it-is-written-in-an-interpreted-language-like-python">
+<h3><a class="toc-backref" href="#id11">How can SciPy be fast if it is written in an interpreted language like Python?</a><a class="headerlink" href="#how-can-scipy-be-fast-if-it-is-written-in-an-interpreted-language-like-python" title="Permalink to this headline">¶</a></h3>
+<p>Actually, the time-critical loops are usually implemented in C, C++ or Fortran.
+Parts of SciPy are thin layers of code on top of the scientific routines that
+are freely available at <a class="reference external" href="http://www.netlib.org/">http://www.netlib.org/</a>. Netlib is a huge repository
+of incredibly valuable and robust scientific algorithms written in C and
+Fortran. It would be silly to rewrite these algorithms and would take years
+to debug them. SciPy uses a variety of methods to generate “wrappers” around
+these algorithms so that they can be used in Python. Some wrappers were
+generated by hand coding them in C. The rest were generated using either SWIG
+or <a class="reference external" href="http://www.f2py.com">f2py</a>. Some of the newer contributions to SciPy are either written
+entirely or wrapped with <a class="reference external" href="http://cython.org/">Cython</a>.</p>
+<p>A second answer is that for difficult problems, a better algorithm can make
+a tremendous difference in the time it takes to solve a problem. So using
+SciPy’s built-in algorithms may be much faster than a simple algorithm
+coded in C.</p>
+</div>
+<div class="section" id="i-ve-found-a-bug-what-do-i-do">
+<h3><a class="toc-backref" href="#id12">I’ve found a bug.  What do I do?</a><a class="headerlink" href="#i-ve-found-a-bug-what-do-i-do" title="Permalink to this headline">¶</a></h3>
+<p>The SciPy development team works hard to make SciPy as reliable as possible,
+but, as in any software product, bugs do occur. If you find bugs that affect
+your software, please tell us by entering a ticket in the
+<a class="reference external" href="https://github.com/scipy/scipy/issues">SciPy bug tracker</a>,
+or <a class="reference external" href="https://github.com/numpy/numpy/issues">NumPy bug tracker</a>,
+as appropriate.</p>
+</div>
+<div class="section" id="how-can-i-get-involved-in-scipy">
+<h3><a class="toc-backref" href="#id13">How can I get involved in SciPy?</a><a class="headerlink" href="#how-can-i-get-involved-in-scipy" title="Permalink to this headline">¶</a></h3>
+<p>Drop us a mail on the <a class="reference internal" href="mailing-lists.html"><span class="doc">mailing lists</span></a>.  We are
+keen for more people to help out writing code, unit tests,
+documentation (including translations into other languages), and
+helping out with the website.</p>
+</div>
+<div class="section" id="is-there-commercial-support-available">
+<h3><a class="toc-backref" href="#id14">Is there commercial support available?</a><a class="headerlink" href="#is-there-commercial-support-available" title="Permalink to this headline">¶</a></h3>
+<p>Yes, commercial support is offered for SciPy by a number of companies,
+for example <a class="reference external" href="https://www.anaconda.com">Anaconda</a>, <a class="reference external" href="https://www.enthought.com">Enthought</a> and <a class="reference external" href="https://www.quansight.com">Quansight</a>.</p>
+</div>
+</div>
+<div class="section" id="numpy-vs-scipy-vs-other-packages">
+<h2><a class="toc-backref" href="#id15">NumPy vs. SciPy vs. other packages</a><a class="headerlink" href="#numpy-vs-scipy-vs-other-packages" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-is-the-difference-between-numpy-and-scipy">
+<h3><a class="toc-backref" href="#id16">What is the difference between NumPy and SciPy?</a><a class="headerlink" href="#what-is-the-difference-between-numpy-and-scipy" title="Permalink to this headline">¶</a></h3>
+<p>In an ideal world, NumPy would contain nothing but the array data type and
+the most basic operations: indexing, sorting, reshaping, basic elementwise
+functions, et cetera. All numerical code would reside in SciPy. However,
+one of NumPy’s important goals is compatibility, so NumPy tries to retain
+all features supported by either of its predecessors. Thus NumPy contains
+some linear algebra functions and Fourier transforms, even though these more
+properly belong in SciPy. In any case, SciPy contains more fully-featured
+versions of the linear algebra modules, as well as many other numerical
+algorithms. If you are doing scientific computing with Python, you should
+probably install both NumPy and SciPy. Most new features belong in SciPy
+rather than NumPy.</p>
+</div>
+<div class="section" id="how-do-i-make-plots-using-numpy-scipy">
+<h3><a class="toc-backref" href="#id17">How do I make plots using NumPy/SciPy?</a><a class="headerlink" href="#how-do-i-make-plots-using-numpy-scipy" title="Permalink to this headline">¶</a></h3>
+<p>Plotting functionality is beyond the scope of NumPy and SciPy, which focus
+on numerical objects and algorithms. Several packages exist that integrate
+closely with NumPy and Pandas to produce high quality plots, such as the
+immensely popular <a class="reference external" href="http://matplotlib.org">Matplotlib</a>. Other popular options are <a class="reference external" href="https://bokeh.pydata.org/en/latest">Bokeh</a>, <a class="reference external" href="https://plot.ly">Plotly</a>,
+<a class="reference external" href="https://altair-viz.github.io">Altair</a> and <a class="reference external" href="http://code.enthought.com/projects/chaco">Chaco</a>.</p>
+</div>
+<div class="section" id="how-do-i-make-3d-plots-visualizations-using-numpy-scipy">
+<h3><a class="toc-backref" href="#id18">How do I make 3D plots/visualizations using NumPy/SciPy?</a><a class="headerlink" href="#how-do-i-make-3d-plots-visualizations-using-numpy-scipy" title="Permalink to this headline">¶</a></h3>
+<p>Like 2D plotting, 3D graphics is beyond the scope of NumPy and SciPy, but
+just as in the 2D case, packages exist that integrate with NumPy.
+<a class="reference external" href="http://matplotlib.org">Matplotlib</a> provides basic 3D plotting in the <code class="xref py py-mod docutils literal notranslate"><span class="pre">mplot3d</span></code> subpackage, whereas
+<a class="reference external" href="http://code.enthought.com/projects/mayavi/">Mayavi</a> provides a wide range
+of high-quality 3D visualization features, utilizing the powerful
+<a class="reference external" href="http://www.vtk.org/">VTK</a> engine.</p>
+</div>
+<div class="section" id="why-both-numpy-linalg-and-scipy-linalg-what-s-the-difference">
+<h3><a class="toc-backref" href="#id19">Why both <code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.linalg</span></code> and <code class="xref py py-mod docutils literal notranslate"><span class="pre">scipy.linalg</span></code>? What’s the difference?</a><a class="headerlink" href="#why-both-numpy-linalg-and-scipy-linalg-what-s-the-difference" title="Permalink to this headline">¶</a></h3>
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">scipy.linalg</span></code> is a more complete wrapping of Fortran <a class="reference external" href="http://www.netlib.org/lapack/">LAPACK</a> using <a class="reference external" href="http://www.f2py.com">f2py</a>.</p>
+<p>One of the design goals of NumPy was to make it buildable without a Fortran
+compiler, and if  you don’t have LAPACK available NumPy will use its own
+implementation. SciPy requires a Fortran compiler to be built, and heavily
+depends on wrapped Fortran code.</p>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">linalg</span></code> modules in NumPy and SciPy have some common functions but
+with different docstrings, and <code class="xref py py-mod docutils literal notranslate"><span class="pre">scipy.linalg</span></code> contains functions not
+found in <code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.linalg</span></code>, such as functions related to
+<a class="reference external" href="https://en.wikipedia.org/wiki/LU_decomposition">LU decomposition</a> and the <a class="reference external" href="https://en.wikipedia.org/wiki/Schur_decomposition">Schur decomposition</a>, multiple ways
+of calculating the pseudoinverse, and matrix transcendentals like the <a class="reference external" href="https://en.wikipedia.org/wiki/Logarithm_of_a_matrix">matrix
+logarithm</a>. Some functions that exist in both have augmented functionality
+in <code class="xref py py-mod docutils literal notranslate"><span class="pre">scipy.linalg</span></code>; for example <code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.linalg.eig()</span></code> can take a second
+matrix argument for solving <a class="reference external" href="https://en.wikipedia.org/wiki/Generalized_eigenvalue_problem">generalized eigenvalue problems</a>.</p>
+</div>
+</div>
+<div class="section" id="python-version-support">
+<h2><a class="toc-backref" href="#id20">Python version support</a><a class="headerlink" href="#python-version-support" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="do-numpy-and-scipytill-support-python-2-7">
+<h3><a class="toc-backref" href="#id21">Do NumPy and SciPytill support Python 2.7?</a><a class="headerlink" href="#do-numpy-and-scipytill-support-python-2-7" title="Permalink to this headline">¶</a></h3>
+<p>The last version of NumPy to support Python 2.7 is numpy 1.16.x. The last SciPy version
+to do so is 1.2.x.
+The first release of NumPy to support Python 3.x was NumPy 1.5.0.
+Python 3 support in SciPy was introduced in 0.9.0.</p>
+</div>
+<div class="section" id="does-numpy-scipy-work-with-pypy">
+<h3><a class="toc-backref" href="#id22">Does NumPy/SciPy work with PyPy?</a><a class="headerlink" href="#does-numpy-scipy-work-with-pypy" title="Permalink to this headline">¶</a></h3>
+<p>In general, yes. Recent improvements in <a class="reference external" href="http://pypy.org">PyPy</a> have made the scientific Python
+stack work with PyPy. The NumPy and SciPy projects run PyPy in continuous
+integration and aim to further improve support over time.
+Since much of NumPy and SciPy is implemented as C extension
+modules, the code may not run any faster (for most cases it’s significantly
+slower still, however PyPy is actively working on improving this). As always
+when benchmarking, your experience is the best guide.</p>
+</div>
+<div class="section" id="does-numpy-scipy-work-with-jython-or-c-net">
+<h3><a class="toc-backref" href="#id23">Does NumPy/SciPy work with Jython or C#/.NET?</a><a class="headerlink" href="#does-numpy-scipy-work-with-jython-or-c-net" title="Permalink to this headline">¶</a></h3>
+<p>No, neither are supported. Jython never worked, because it runs on top of the
+Java Virtual Machine and has no way to interface with extensions written in C
+for the standard Python (CPython) interpreter.</p>
+<p>Some years ago there was an effort to make NumPy and SciPy compatible with .NET.
+Some users at the time reported success in using NumPy with <a class="reference external" href="https://code.google.com/archive/p/ironclad">Ironclad</a> on 32-bit Windows.</p>
+</div>
+</div>
+<div class="section" id="basic-numpy-scipy-usage">
+<h2><a class="toc-backref" href="#id24">Basic NumPy/SciPy usage</a><a class="headerlink" href="#basic-numpy-scipy-usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-is-the-preferred-way-to-check-for-an-empty-zero-element-array">
+<h3><a class="toc-backref" href="#id25">What is the preferred way to check for an empty (zero element) array?</a><a class="headerlink" href="#what-is-the-preferred-way-to-check-for-an-empty-zero-element-array" title="Permalink to this headline">¶</a></h3>
+<p>If you are certain a variable is an array, then use the size attribute.
+If the variable may be a list or other sequence type, use <a class="reference external" href="https://docs.python.org/3/library/functions.html#len" title="(in Python v3.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">len()</span></code></a>.
+The size attribute is preferable to len because:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">size</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<p>whereas</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="i-want-to-load-data-from-a-text-file-how-do-i-make-this-code-more-efficient">
+<h3><a class="toc-backref" href="#id26">I want to load data from a text file. How do I make this code more efficient?</a><a class="headerlink" href="#i-want-to-load-data-from-a-text-file-how-do-i-make-this-code-more-efficient" title="Permalink to this headline">¶</a></h3>
+<p>Use <code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.loadtxt()</span></code>. Even if your text file has header and footer
+lines or comments, loadtxt can almost certainly read it; it is convenient and
+efficient.</p>
+<p>If you find this still too slow, you can try Pandas (it has a faster csv
+reader for example). If that doesn’t help, you should consider changing to a
+more efficient file format than plain text. There are a large number of
+alternatives, depending on your needs (and on which version of
+NumPy/SciPy you are using):</p>
+<ul class="simple">
+<li><p>Text files: slow, huge, portable, human-readable; built into NumPy</p></li>
+<li><p>pickle: somewhat slow, somewhat portable (may be incompatible with
+different NumPy versions); built into NumPy</p></li>
+<li><p><a class="reference external" href="http://www.hdfgroup.org/">HDF5</a>: high-powered kitchen-sink format; both <a class="reference external" href="http://www.pytables.org/">PyTables</a> and <a class="reference external" href="http://www.h5py.org/">h5py</a> provide
+a NumPy friendly interface on top of the core HDF5 library written in C.</p></li>
+<li><p><a class="reference external" href="http://fits.gsfc.nasa.gov/">FITS</a>: standard kitchen-sink format in astronomy; the <a class="reference external" href="http://www.astropy.org/">astropy</a> library
+provides a convenient Python interface through its <a class="reference external" href="http://docs.astropy.org/en/stable/io/fits/index.html">io.fits</a> package.</p></li>
+<li><p><a class="reference external" href="http://docs.scipy.org/doc/numpy/neps/npy-format.html">.npy</a>: NumPy native binary data format, simple, efficient, portable;
+built into NumPy as of 1.0.5.</p></li>
+</ul>
+</div>
+<div class="section" id="what-is-the-difference-between-matrices-and-arrays">
+<h3><a class="toc-backref" href="#id27">What is the difference between matrices and arrays?</a><a class="headerlink" href="#what-is-the-difference-between-matrices-and-arrays" title="Permalink to this headline">¶</a></h3>
+<p><em>Note: NumPy matrices will be deprecated, do not use them for new code. The
+rest of the answer below is kept for historical reasons.</em></p>
+<p>NumPy’s basic data type is the multidimensional array. These can be
+one-dimensional (that is, one index, like a list or a vector),
+two-dimensional (two indices, like an image), three-dimensional, or more
+(zero-dimensional arrays exist and are a slightly strange corner case).
+They support various operations, including addition, subtraction,
+multiplication, exponentiation, and so on - but all of these are
+<em>elementwise</em> operations. If you want matrix multiplication between two
+two-dimensional arrays, the function <code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.dot()</span></code> or the built-in Python
+operator <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> do this. It also works fine for getting the matrix product of
+a two-dimensional array and a one-dimensional array, in either direction, or
+two one-dimensional arrays. If you want some kind of matrix
+multiplication-like operation on higher-dimensional arrays (tensor
+contraction), you need to think which indices you want to be contracting
+over. Some combination of <code class="xref py py-func docutils literal notranslate"><span class="pre">tensordot()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">rollaxis()</span></code> should do
+what you want.</p>
+<p>However, some users find that they are doing so many matrix multiplications
+that always having to write <code class="docutils literal notranslate"><span class="pre">dot</span></code> as a prefix is too cumbersome, or they
+really want to keep row and column vectors separate. For these users, there
+is a matrix class. This is simply a transparent wrapper around arrays that
+forces arrays to be at least two-dimensional, and that overloads the
+multiplication and exponentiation operations. Multiplication becomes matrix
+multiplication, and exponentiation becomes matrix exponentiation. If you want
+elementwise multiplication, use <code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.multiply()</span></code>.</p>
+<p>The function <code class="xref py py-func docutils literal notranslate"><span class="pre">asmatrix()</span></code> converts an array into a matrix (without ever
+copying any data); <code class="xref py py-func docutils literal notranslate"><span class="pre">asarray()</span></code> converts matrices to arrays.
+<code class="xref py py-func docutils literal notranslate"><span class="pre">asanyarray()</span></code> makes sure that the result is either a matrix or an array
+(but not, say, a list). Unfortunately, a few of NumPy’s many functions use
+<code class="xref py py-func docutils literal notranslate"><span class="pre">asarray()</span></code> when they should use <code class="xref py py-func docutils literal notranslate"><span class="pre">asanyarray()</span></code>, so from time to time
+you may find your matrices accidentally get converted into arrays. Just use
+<code class="xref py py-func docutils literal notranslate"><span class="pre">asmatrix()</span></code> on the output of these operations, and consider filing a bug.</p>
+</div>
+<div class="section" id="why-not-just-have-a-separate-operator-for-matrix-multiplication">
+<h3><a class="toc-backref" href="#id28">Why not just have a separate operator for matrix multiplication?</a><a class="headerlink" href="#why-not-just-have-a-separate-operator-for-matrix-multiplication" title="Permalink to this headline">¶</a></h3>
+<p>From Python 3.5, the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> symbol will be defined as a matrix multiplication
+operator, and Numpy and Scipy will make use of this. This addition was the
+subject of <a class="reference external" href="https://www.python.org/dev/peps/pep-0465/">PEP 465</a>. The separate
+matrix and array types exist to work around the lack of this operator in earlier
+versions of Python.</p>
+</div>
+<div class="section" id="how-do-i-find-the-indices-of-an-array-where-some-condition-is-true">
+<h3><a class="toc-backref" href="#id29">How do I find the indices of an array where some condition is true?</a><a class="headerlink" href="#how-do-i-find-the-indices-of-an-array-where-some-condition-is-true" title="Permalink to this headline">¶</a></h3>
+<p>The prefered idiom for doing this is to use the function <code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.nonzero()</span></code>
+, or the <code class="xref py py-meth docutils literal notranslate"><span class="pre">nonzero()</span></code> method of an array. Given an array <code class="docutils literal notranslate"><span class="pre">a</span></code>, the
+condition <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;</span> <span class="pre">3</span></code> returns a boolean array and since <code class="docutils literal notranslate"><span class="pre">False</span></code> is
+interpreted as 0 in Python and NumPy, <code class="docutils literal notranslate"><span class="pre">np.nonzero(a</span> <span class="pre">&gt;</span> <span class="pre">3)</span></code> yields the indices
+of <code class="docutils literal notranslate"><span class="pre">a</span></code> where the condition is true.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">3</span>
+<span class="go">array([[False, False, False],</span>
+<span class="go">       [ True,  True,  True],</span>
+<span class="go">       [ True,  True,  True]], dtype=bool)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">(array([1, 1, 1, 2, 2, 2]), array([0, 1, 2, 0, 1, 2]))</span>
+</pre></div>
+</div>
+<p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">nonzero()</span></code> method of the boolean array can also be called.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()</span>
+<span class="go">(array([1, 1, 1, 2, 2, 2]), array([0, 1, 2, 0, 1, 2]))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-do-i-count-the-number-of-times-each-value-appears-in-an-array-of-integers">
+<h3><a class="toc-backref" href="#id30">How do I count the number of times each value appears in an array of integers?</a><a class="headerlink" href="#how-do-i-count-the-number-of-times-each-value-appears-in-an-array-of-integers" title="Permalink to this headline">¶</a></h3>
+<p>Use <code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.bincount()</span></code>. The resulting array is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arr</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">numpy</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The argument to <code class="xref py py-func docutils literal notranslate"><span class="pre">bincount()</span></code> must consist of positive integers or booleans.
+Negative integers are not supported.</p>
+</div>
+</div>
+<div class="section" id="advanced-numpy-usage">
+<h2><a class="toc-backref" href="#id31">Advanced NumPy usage</a><a class="headerlink" href="#advanced-numpy-usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="does-numpy-support-nan">
+<h3><a class="toc-backref" href="#id32">Does NumPy support <code class="xref py py-const docutils literal notranslate"><span class="pre">nan</span></code>?</a><a class="headerlink" href="#does-numpy-support-nan" title="Permalink to this headline">¶</a></h3>
+<p><code class="xref py py-const docutils literal notranslate"><span class="pre">nan</span></code>, short for “not a number”, is a special floating point value
+defined by the IEEE-754 specification along with <code class="xref py py-const docutils literal notranslate"><span class="pre">inf</span></code> (infinity)
+and other  values and behaviours. In theory, IEEE <code class="xref py py-const docutils literal notranslate"><span class="pre">nan</span></code> was
+specifically designed to address the problem of missing values, but the
+reality is that different platforms behave differently, making life more
+difficult. On some platforms, the presence of <code class="xref py py-const docutils literal notranslate"><span class="pre">nan</span></code> slows calculations
+10-100 times. For integer data, no <code class="xref py py-const docutils literal notranslate"><span class="pre">nan</span></code> value exists.</p>
+<p>Despite all these issues NumPy (and SciPy) endeavor to support IEEE-754
+behaviour (based on NumPy’s predecessor numarray). The most significant
+challenge is a lack of cross-platform support within Python itself. Because
+NumPy is written to take advantage of C99, which supports IEEE-754,
+it can side-step such issues internally, but users may still face problems
+when, for example, comparing values within Python interpreter.</p>
+<p>Those wishing to avoid potential headaches will be interested in an
+alternative solution which has a long history in NumPy’s predecessors
+– <strong>masked arrays</strong>. Masked arrays are standard arrays with a second
+“mask” array of the same shape to indicate whether the value is present
+or missing. Masked arrays are the domain of the <code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.ma</span></code> module,
+and continue the cross-platform Numeric/numarray tradition. See
+“Cookbook/Matplotlib/Plotting values with masked arrays” (<em>TODO</em>) for
+example, to avoid plotting missing data in <a class="reference external" href="http://matplotlib.org">Matplotlib</a>. Despite their
+additional memory requirement, masked arrays are faster than nans on
+many floating point units. See also the <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/maskedarray.html">NumPy documentation on masked
+arrays</a>.</p>
+<p>Another good option is to use Pandas - it uses <code class="docutils literal notranslate"><span class="pre">nan</span></code> in a similar way to
+NumPy for floating point data, and since pandas 0.25.0 also supports missing
+integer values.</p>
+</div>
+<div class="section" id="why-doesn-t-a-0-1-1-2-1-do-what-i-think-it-should">
+<h3><a class="toc-backref" href="#id33">Why doesn’t A[[0, 1, 1, 2]] += 1 do what I think it should?</a><a class="headerlink" href="#why-doesn-t-a-0-1-1-2-1-do-what-i-think-it-should" title="Permalink to this headline">¶</a></h3>
+<p>This comes up from time to time on the <a class="reference internal" href="mailing-lists.html"><span class="doc">mailing list</span></a>. See <a class="reference external" href="https://mail.scipy.org/pipermail/numpy-discussion/2006-March/006877.html">here</a>
+for one extensive discussion.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span>
+<span class="go">array([ 1.,  1.,  1.])</span>
+</pre></div>
+</div>
+<p>One might, quite reasonably, have expected A to contain [1,2,1].
+Unfortunately this is not what is implemented in NumPy. Moreover, the
+<a class="reference external" href="https://docs.python.org/reference/simple_stmts.html#grammar-token-augmented_assignment_stmt">Python Reference Manual</a>
+specifies that</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>and</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">+=</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>should result in <code class="docutils literal notranslate"><span class="pre">x</span></code> having the same value (though not necessarily the same
+identity). Moreover, even if the NumPy developers wanted to modify this behaviour,
+Python does not provide an overloadable <code class="xref py py-meth docutils literal notranslate"><span class="pre">__indexed_iadd__()</span></code> function;
+the code acts like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tmp</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tmp</span><span class="o">.</span><span class="fm">__iadd__</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="n">tmp</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This leads to other peculiarities sometimes; if the indexing operation is
+actually able to provide a view rather than a copy, the <code class="xref py py-meth docutils literal notranslate"><span class="pre">__iadd__()</span></code>
+writes to the array, then the view is copied into the array, so that the
+array is written to twice.</p>
+<p>However, do not despair! NumPy does contain functionality for this type of behaviour, and it can be
+obtained by using the ufunc <code class="xref py py-meth docutils literal notranslate"><span class="pre">at()</span></code>, which is an attribute of the addition (<code class="docutils literal notranslate"><span class="pre">np.add</span></code>), subtraction
+(<code class="docutils literal notranslate"><span class="pre">np.subtract</span></code>), multiplication (<code class="docutils literal notranslate"><span class="pre">np.multiply</span></code>), and division (<code class="docutils literal notranslate"><span class="pre">np.divide</span></code>) ufuncs between a matrix
+and a scalar:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">numpy</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span>
+<span class="go">array([ 1.,  2.,  1.])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="where-to-get-help">
+<h2><a class="toc-backref" href="#id34">Where to get help</a><a class="headerlink" href="#where-to-get-help" title="Permalink to this headline">¶</a></h2>
+<p>You can ask questions with the <a class="reference external" href="http://stackoverflow.com/questions/tagged/scipy">SciPy tag on Stackoverflow</a>, or on the scipy-user
+<a class="reference internal" href="mailing-lists.html"><span class="doc">mailing list</span></a>. Search for an answer first, because someone
+may already have found a solution to your problem, and using that will save
+everyone time.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+          </div>
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+
+<style type="text/css">
+a.extlink:after {
+    margin-left: 5px;
+    content: url("../_static/external-link.png");
+}
+</style>
+
+
+
+<div class="well sidebar-nav">
+  <ul class="nav nav-list">
+    <li class="nav-header">SciPy library:</li>
+    <li >
+      <a href="index.html">SciPy (library)</a>
+    </li>
+    <li >
+      <a href="license.html">License</a></li>
+    <li><a href="http://scipy.github.io/devdocs/dev/conduct/code_of_conduct.html">Code of Conduct</a></li>
+    <li >
+      <a href="download.html">Download</a></li>
+    <li><a class="extlink" href="https://docs.scipy.org/doc/">Documentation</a></li>
+    <li><a class="extlink" href="https://docs.scipy.org/doc/scipy-dev/reference/building/">Build instructions</a></li>
+    <li >
+      <a href="mailing-lists.html">Mailing Lists</a></li>
+    <li >
+      <a href="bug-report.html">Report Bugs</a></li>
+    <li >
+      <a href="dev-zone.html">Developer Zone</a></li>
+    <li >
+      <a href="donations.html">Donations</a></li>
+    <li class="active">
+      <a href="#">FAQ</a></li>
+  </ul>
+</div>
+
+
+
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Frequently Asked Questions</a><ul>
+<li><a class="reference internal" href="#general-questions-about-numpy">General questions about NumPy</a><ul>
+<li><a class="reference internal" href="#what-is-numpy">What is NumPy?</a></li>
+<li><a class="reference internal" href="#why-should-i-use-numpy-rather-than-idl-matlab-or-octave">Why should I use NumPy rather than IDL, MATLAB, or Octave?</a></li>
+<li><a class="reference internal" href="#what-is-a-numpy-array">What is a NumPy array?</a></li>
+<li><a class="reference internal" href="#what-advantages-do-numpy-arrays-offer-over-nested-python-lists">What advantages do NumPy arrays offer over (nested) Python lists?</a></li>
+<li><a class="reference internal" href="#what-s-the-story-with-numeric-numarray-and-numpy">What’s the story with Numeric, numarray, and NumPy?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#general-questions-about-scipy">General questions about SciPy</a><ul>
+<li><a class="reference internal" href="#what-is-scipy">What is SciPy?</a></li>
+<li><a class="reference internal" href="#how-much-does-it-cost">How much does it cost?</a></li>
+<li><a class="reference internal" href="#what-are-scipy-s-licensing-terms">What are SciPy’s licensing terms?</a></li>
+<li><a class="reference internal" href="#how-can-scipy-be-fast-if-it-is-written-in-an-interpreted-language-like-python">How can SciPy be fast if it is written in an interpreted language like Python?</a></li>
+<li><a class="reference internal" href="#i-ve-found-a-bug-what-do-i-do">I’ve found a bug.  What do I do?</a></li>
+<li><a class="reference internal" href="#how-can-i-get-involved-in-scipy">How can I get involved in SciPy?</a></li>
+<li><a class="reference internal" href="#is-there-commercial-support-available">Is there commercial support available?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#numpy-vs-scipy-vs-other-packages">NumPy vs. SciPy vs. other packages</a><ul>
+<li><a class="reference internal" href="#what-is-the-difference-between-numpy-and-scipy">What is the difference between NumPy and SciPy?</a></li>
+<li><a class="reference internal" href="#how-do-i-make-plots-using-numpy-scipy">How do I make plots using NumPy/SciPy?</a></li>
+<li><a class="reference internal" href="#how-do-i-make-3d-plots-visualizations-using-numpy-scipy">How do I make 3D plots/visualizations using NumPy/SciPy?</a></li>
+<li><a class="reference internal" href="#why-both-numpy-linalg-and-scipy-linalg-what-s-the-difference">Why both <code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy.linalg</span></code> and <code class="xref py py-mod docutils literal notranslate"><span class="pre">scipy.linalg</span></code>? What’s the difference?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#python-version-support">Python version support</a><ul>
+<li><a class="reference internal" href="#do-numpy-and-scipytill-support-python-2-7">Do NumPy and SciPytill support Python 2.7?</a></li>
+<li><a class="reference internal" href="#does-numpy-scipy-work-with-pypy">Does NumPy/SciPy work with PyPy?</a></li>
+<li><a class="reference internal" href="#does-numpy-scipy-work-with-jython-or-c-net">Does NumPy/SciPy work with Jython or C#/.NET?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#basic-numpy-scipy-usage">Basic NumPy/SciPy usage</a><ul>
+<li><a class="reference internal" href="#what-is-the-preferred-way-to-check-for-an-empty-zero-element-array">What is the preferred way to check for an empty (zero element) array?</a></li>
+<li><a class="reference internal" href="#i-want-to-load-data-from-a-text-file-how-do-i-make-this-code-more-efficient">I want to load data from a text file. How do I make this code more efficient?</a></li>
+<li><a class="reference internal" href="#what-is-the-difference-between-matrices-and-arrays">What is the difference between matrices and arrays?</a></li>
+<li><a class="reference internal" href="#why-not-just-have-a-separate-operator-for-matrix-multiplication">Why not just have a separate operator for matrix multiplication?</a></li>
+<li><a class="reference internal" href="#how-do-i-find-the-indices-of-an-array-where-some-condition-is-true">How do I find the indices of an array where some condition is true?</a></li>
+<li><a class="reference internal" href="#how-do-i-count-the-number-of-times-each-value-appears-in-an-array-of-integers">How do I count the number of times each value appears in an array of integers?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#advanced-numpy-usage">Advanced NumPy usage</a><ul>
+<li><a class="reference internal" href="#does-numpy-support-nan">Does NumPy support <code class="xref py py-const docutils literal notranslate"><span class="pre">nan</span></code>?</a></li>
+<li><a class="reference internal" href="#why-doesn-t-a-0-1-1-2-1-do-what-i-think-it-should">Why doesn’t A[[0, 1, 1, 2]] += 1 do what I think it should?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#where-to-get-help">Where to get help</a></li>
+</ul>
+</li>
+</ul>
+<h3>Search</h3>
+<form class="form-search" action="http://www.google.com/search" method="get">
+  <fieldset>
+    <!-- we'll use google at least until we get everything in sphinx -->
+    <input type="text" name="q" size="18" class="input-small search-query">
+    <button type="submit" class="btn">Go</button>
+    <input type="hidden" name="as_sitesearch" value="scipy.org">
+  </fieldset>
+</form>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2019 SciPy developers.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.2.1.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

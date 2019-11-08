@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Installation &mdash; SciPy.org</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-extend.css">
+    <link rel="stylesheet" href="_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" >
+    <link rel="stylesheet" href="_static/scipy-org.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/js/copybutton.js"></script>
+    <link rel="author" title="About these documents" href="about.html" >
+    <link rel="search" title="Search" href="search.html" >
+    <link rel="top" title="SciPy.org" href="index.html" >
+    <link rel="next" title="Getting Started" href="getting-started.html" >
+    <link rel="prev" title="The SciPy Stack specification" href="stackspec.html" > 
+  </head>
+  <body>
+<style type="text/css">
+.top-logo-header {
+  text-align: left;
+  background-color: rgb(140, 170, 230);
+  border-bottom: 8px solid rgb(0, 51, 153);
+  margin-top: 10px;
+  padding: 5px;
+  box-shadow: 0px 0px 3px rgb(136, 136, 136);
+}
+</style>
+<div class="container">
+  <div class="top-logo-header">
+    <a href="index.html">
+      <img style="border: 0;" alt="SciPy" src="_static/logo.png"></a>
+  </div>
+</div>
+
+    <div class="container">
+      <div class="main">
+
+
+        
+
+
+
+	<div class="row-fluid">
+          <div class="span9">
+            
+	      <div class="row-fluid">
+		<div class="span9">
+  		  <div class="spc-navbar">
+		    
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="index.html">SciPy.org</a></li>
+	 
+    </ul>
+		  </div>
+		</div>
+	      </div>
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>Installations methods include:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#distributions"><span class="std std-ref">Distributions</span></a></p></li>
+<li><p><a class="reference internal" href="#pip-install"><span class="std std-ref">Pip</span></a></p></li>
+<li><p><a class="reference internal" href="#package-manager"><span class="std std-ref">Package Manager</span></a></p></li>
+<li><p><a class="reference internal" href="#source"><span class="std std-ref">Source</span></a></p></li>
+<li><p><a class="reference internal" href="#binaries"><span class="std std-ref">Binaries</span></a></p></li>
+</ul>
+<p>Methods differ in ease of use, coverage, maintenance of old versions, system-wide versus local environment use, and control. With pip or Anaconda’s conda, you can control the package versions for a specific project to prevent conflicts. Conda also controls non-Python packages like MKL or HDF5. System package managers, like <code class="docutils literal notranslate"><span class="pre">apt-get</span></code>, install across the entire computer, often have older versions, and don’t have as many available versions. Source compilation is much more difficult but is necessary for debugging and development. If you don’t know which installation method you need or prefer, we recommend the Scientific Python Distribution <a class="reference external" href="https://www.anaconda.com/download/">Anaconda</a> .</p>
+<div class="section" id="scientific-python-distributions-recommended">
+<span id="distributions"></span><h2>Scientific Python Distributions (Recommended)<a class="headerlink" href="#scientific-python-distributions-recommended" title="Permalink to this headline">¶</a></h2>
+<p>Python distributions provide the language itself along with the most commonly used packages and tools. These downloadable files require little configuration, work on almost all setups, and provide all the commonly used scientific python tools.</p>
+<p><a class="reference external" href="https://www.anaconda.com/download/">Anaconda</a> works on Windows, Mac, and Linux, provides over 1,500 Python/R packages, and is used by over 15 million people. Anaconda provides a lite version, <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>, which still provides access to the <em>conda</em> package manager.</p>
+<p>Other options include:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.enthought.com/products/canopy">Enthought Canopy</a>: Free and commercial versions; Supports Linux, Windows, and Mac; Includes an IDE.</p></li>
+<li><p><a class="reference external" href="https://python-xy.github.io/">Python(x,y)</a>: A free distribution including scientific packages; based around the <a class="reference external" href="https://www.spyder-ide.org/">Spyder IDE</a>; Windows and Ubuntu; Py2 only.</p></li>
+<li><p><a class="reference external" href="https://winpython.github.io">WinPython</a>: Another free distribution including scientific packages and the Spyder IDE; Windows only, but more actively maintained and supports the latest Python 3 versions.</p></li>
+<li><p><a class="reference external" href="http://www.pyzo.org/">Pyzo</a>: A free distribution based on Anaconda and the IEP interactive development environment; Supports Linux, Windows, and Mac.</p></li>
+<li><p><a class="reference external" href="http://neuro.debian.net">NeuroDebian repository</a> : Only for the Debian OS and geared toward neuroscientists.</p></li>
+</ul>
+</div>
+<div class="section" id="installing-via-pip">
+<span id="pip-install"></span><h2>Installing via Pip<a class="headerlink" href="#installing-via-pip" title="Permalink to this headline">¶</a></h2>
+<p>Python comes with an inbuilt package management system, <a class="reference external" href="https://pip.pypa.io/en/stable">pip</a>. Pip can install, update, or delete any official package.</p>
+<p>You can install packages via the command line by entering:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span> <span class="n">numpy</span> <span class="n">scipy</span> <span class="n">matplotlib</span> <span class="n">ipython</span> <span class="n">jupyter</span> <span class="n">pandas</span> <span class="n">sympy</span> <span class="n">nose</span>
+</pre></div>
+</div>
+<p>We recommend using an <em>user</em> install, sending the <code class="docutils literal notranslate"><span class="pre">--user</span></code> flag to pip. <code class="docutils literal notranslate"><span class="pre">pip</span></code> installs packages for the local user and does not write to the system directories. Preferably, do not use <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">pip</span></code>, as this combination can cause problems.</p>
+<p>Pip accesses the Python Package Index, <a class="reference external" href="https://pypi.org/">PyPI</a> , which stores almost 200,000 projects and all previous releases of said projects. Because the repository keeps previous versions, you can pin to a version and not worry about updates causing conflicts. Pip can also install packages in local <em>virtualenv</em>, or virtual environment.</p>
+</div>
+<div class="section" id="install-system-wide-via-a-package-manager">
+<span id="package-manager"></span><h2>Install System-wide via a Package Manager<a class="headerlink" href="#install-system-wide-via-a-package-manager" title="Permalink to this headline">¶</a></h2>
+<p>System package managers can install the most common python packages. They install packages for the entire computer, often use older versions, and don’t have as many available versions.</p>
+<div class="section" id="ubuntu-and-debian">
+<span id="ubuntu-debian"></span><h3>Ubuntu and Debian<a class="headerlink" href="#ubuntu-and-debian" title="Permalink to this headline">¶</a></h3>
+<p>using apt-get:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">numpy</span> <span class="n">python</span><span class="o">-</span><span class="n">scipy</span> <span class="n">python</span><span class="o">-</span><span class="n">matplotlib</span> <span class="n">ipython</span> <span class="n">ipython</span><span class="o">-</span><span class="n">notebook</span> <span class="n">python</span><span class="o">-</span><span class="n">pandas</span> <span class="n">python</span><span class="o">-</span><span class="n">sympy</span> <span class="n">python</span><span class="o">-</span><span class="n">nose</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fedora-22-and-later">
+<span id="fedora"></span><h3>Fedora 22 and later<a class="headerlink" href="#fedora-22-and-later" title="Permalink to this headline">¶</a></h3>
+<p>using dnf:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">dnf</span> <span class="n">install</span> <span class="n">numpy</span> <span class="n">scipy</span> <span class="n">python</span><span class="o">-</span><span class="n">matplotlib</span> <span class="n">ipython</span> <span class="n">python</span><span class="o">-</span><span class="n">pandas</span> <span class="n">sympy</span> <span class="n">python</span><span class="o">-</span><span class="n">nose</span> <span class="n">atlas</span><span class="o">-</span><span class="n">devel</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mac">
+<span id="id2"></span><h3>Mac<a class="headerlink" href="#mac" title="Permalink to this headline">¶</a></h3>
+<p>Mac doesn’t have a preinstalled package manager, but there are a couple of popular package managers you can install.</p>
+<p>For Python 3.5 with <a class="reference external" href="https://www.macports.org">Macports</a> , execute this command in a terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">port</span> <span class="n">install</span> <span class="n">py35</span><span class="o">-</span><span class="n">numpy</span> <span class="n">py35</span><span class="o">-</span><span class="n">scipy</span> <span class="n">py35</span><span class="o">-</span><span class="n">matplotlib</span> <span class="n">py35</span><span class="o">-</span><span class="n">ipython</span> <span class="o">+</span><span class="n">notebook</span> <span class="n">py35</span><span class="o">-</span><span class="n">pandas</span> <span class="n">py35</span><span class="o">-</span><span class="n">sympy</span> <span class="n">py35</span><span class="o">-</span><span class="n">nose</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://brew.sh/">Homebrew</a> has incomplete coverage of the scipy ecosystem, but does install these packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">numpy</span> <span class="n">scipy</span> <span class="n">ipython</span> <span class="n">jupyter</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="source-packages">
+<span id="source"></span><h2>Source packages<a class="headerlink" href="#source-packages" title="Permalink to this headline">¶</a></h2>
+<p>You can build any of the packages from source. Those involved in development may take this route to get developmental versions or alter source code. Refer to individual projects for more details.</p>
+</div>
+<div class="section" id="binaries">
+<span id="id3"></span><h2>Binaries<a class="headerlink" href="#binaries" title="Permalink to this headline">¶</a></h2>
+<p>Binary files can directly install the packages. These can either come from the direct source, like <a class="reference external" href="https://github.com/">GitHub</a> or <a class="reference external" href="https://pypi.org/">PyPI</a> , or third-party repositories. Linux operating systems, like <a class="reference external" href="https://packages.ubuntu.com/">Ubuntu</a> , have package repositories where you can search for and download individual binaries. For Windows, Christoph Gohlke provides <a class="reference external" href="http://www.lfd.uci.edu/~gohlke/pythonlibs">pre-built Windows installers</a> for many packages.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+          </div>
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+
+<style type="text/css">
+a.extlink:after {
+    margin-left: 5px;
+    content: url("_static/external-link.png");
+}
+</style>
+
+<div class="well sidebar-nav">
+  <ul class="nav nav-list">
+
+    <li >
+      <a href="about.html">About SciPy</a>
+      
+    </li>
+    <li >
+      <a href="getting-started.html">Getting Started</a></li>
+    <li >
+      <a href="docs.html">Documentation</a></li>
+    <li class="active">
+      <a href="#">Install</a></li>
+    <li >
+      <a href="bug-report.html">Bug Reports</a></li>
+    <li >
+      <a href="codes-of-conduct.html">Codes of Conduct</a></li>
+    <li><a class="extlink" href="http://conference.scipy.org">SciPy Conferences</a></li>    
+    <li >
+      <a href="topical-software.html">Topical Software</a>
+      
+    </li>
+    <li >
+      <a href="citing.html">Citing</a></li>
+    <li><a class="extlink" href="http://scipy-cookbook.readthedocs.org">Cookbook</a></li>
+    <li><a class="extlink" href="http://planet.scipy.org">Blogs</a></li>
+    <li><a class="extlink" href="http://numfocus.org">NumFOCUS</a></li>
+  </ul>
+</div>
+
+<div class="well sidebar-nav">
+  <ul class="nav nav-list">
+    <li class="nav-header">Core packages:</li>
+    <li><a class="extlink" href="http://www.numpy.org">Numpy</a> 
+    <li><a class="extlink" href="scipylib/index.html">SciPy library</a>
+    <li><a class="extlink" href="http://matplotlib.org">Matplotlib</a> 
+    <li><a class="extlink" href="http://ipython.org">IPython</a> 
+    <li><a class="extlink" href="http://sympy.org/">Sympy</a> 
+    <li><a class="extlink" href="http://pandas.pydata.org/">Pandas</a> 
+  </ul>
+</div>
+
+
+
+
+
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#scientific-python-distributions-recommended">Scientific Python Distributions (Recommended)</a></li>
+<li><a class="reference internal" href="#installing-via-pip">Installing via Pip</a></li>
+<li><a class="reference internal" href="#install-system-wide-via-a-package-manager">Install System-wide via a Package Manager</a><ul>
+<li><a class="reference internal" href="#ubuntu-and-debian">Ubuntu and Debian</a></li>
+<li><a class="reference internal" href="#fedora-22-and-later">Fedora 22 and later</a></li>
+<li><a class="reference internal" href="#mac">Mac</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#source-packages">Source packages</a></li>
+<li><a class="reference internal" href="#binaries">Binaries</a></li>
+</ul>
+</li>
+</ul>
+<h3>Search</h3>
+<form class="form-search" action="http://www.google.com/search" method="get">
+  <fieldset>
+    <!-- we'll use google at least until we get everything in sphinx -->
+    <input type="text" name="q" size="18" class="input-small search-query">
+    <button type="submit" class="btn">Go</button>
+    <input type="hidden" name="as_sitesearch" value="scipy.org">
+  </fieldset>
+</form>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2019 SciPy developers.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.2.1.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>
