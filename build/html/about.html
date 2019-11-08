@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Scientific Computing Tools for Python &mdash; SciPy.org</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-extend.css">
+    <link rel="stylesheet" href="_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" >
+    <link rel="stylesheet" href="_static/scipy-org.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/js/copybutton.js"></script>
+    <link rel="author" title="About these documents" href="#" >
+    <link rel="search" title="Search" href="search.html" >
+    <link rel="top" title="SciPy.org" href="index.html" >
+    <link rel="next" title="The SciPy Stack specification" href="stackspec.html" >
+    <link rel="prev" title="SciPy.org" href="index.html" > 
+  </head>
+  <body>
+<style type="text/css">
+.top-logo-header {
+  text-align: left;
+  background-color: rgb(140, 170, 230);
+  border-bottom: 8px solid rgb(0, 51, 153);
+  margin-top: 10px;
+  padding: 5px;
+  box-shadow: 0px 0px 3px rgb(136, 136, 136);
+}
+</style>
+<div class="container">
+  <div class="top-logo-header">
+    <a href="index.html">
+      <img style="border: 0;" alt="SciPy" src="_static/logo.png"></a>
+  </div>
+</div>
+
+    <div class="container">
+      <div class="main">
+
+
+        
+
+
+
+	<div class="row-fluid">
+          <div class="span9">
+            
+	      <div class="row-fluid">
+		<div class="span9">
+  		  <div class="spc-navbar">
+		    
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="index.html">SciPy.org</a></li>
+	 
+    </ul>
+		  </div>
+		</div>
+	      </div>
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="scientific-computing-tools-for-python">
+<span id="content"></span><h1>Scientific Computing Tools for Python<a class="headerlink" href="#scientific-computing-tools-for-python" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>SciPy refers to several related but distinct entities:</p>
+<ul class="simple">
+<li><p>The <em>SciPy ecosystem</em>, a collection of open source software for scientific
+computing in Python.</p></li>
+<li><p>The <em>community</em> of people who use and develop this stack.</p></li>
+<li><p>Several <em>conferences</em> dedicated to scientific computing in Python - SciPy,
+EuroSciPy and SciPy.in.</p></li>
+<li><p>The <a class="reference internal" href="scipylib/index.html"><span class="doc">SciPy library</span></a>, one component of the SciPy stack,
+providing many numerical routines.</p></li>
+</ul>
+<div class="section" id="the-scipy-ecosystem">
+<h2>The SciPy ecosystem<a class="headerlink" href="#the-scipy-ecosystem" title="Permalink to this headline">¶</a></h2>
+<p>Scientific computing in Python builds upon a small core of packages:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.python.org/">Python</a>, a general purpose programming language. It is interpreted and
+dynamically typed and is very suited for interactive work and quick
+prototyping, while being powerful enough to write large applications in.</p></li>
+<li><p><a class="reference external" href="http://www.numpy.org/">NumPy</a>, the fundamental package for numerical computation. It defines the
+numerical array and matrix types and basic operations on them.</p></li>
+<li><p>The <a class="reference internal" href="scipylib/index.html"><span class="doc">SciPy library</span></a>, a collection of numerical algorithms and
+domain-specific toolboxes, including signal processing, optimization,
+statistics and much more.</p></li>
+<li><p><a class="reference external" href="http://matplotlib.org/">Matplotlib</a>, a mature and popular plotting package, that provides
+publication-quality 2D plotting as well as rudimentary 3D plotting</p></li>
+</ul>
+<p>On this base, the SciPy ecosystem includes general and specialised tools for data management and computation, productive experimentation and high-performance computing. Below we overview some key packages, though there are <a class="reference internal" href="topical-software.html"><span class="doc">many more relevant packages</span></a>.</p>
+<p>Data and computation:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://pandas.pydata.org/">pandas</a>, providing high-performance, easy to use data structures.</p></li>
+<li><p><a class="reference external" href="http://www.sympy.org/">SymPy</a>, for symbolic mathematics and computer algebra.</p></li>
+<li><p><a class="reference external" href="http://scikit-image.org/">scikit-image</a> is a collection of algorithms for image processing.</p></li>
+<li><p><a class="reference external" href="http://scikit-learn.org/">scikit-learn</a> is a collection of algorithms and tools for machine learning.</p></li>
+<li><p><a class="reference external" href="http://www.h5py.org">h5py</a> and <a class="reference external" href="http://www.pytables.org">PyTables</a> can both access data stored in the HDF5 format.</p></li>
+</ul>
+<p>Productivity and high-performance computing:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://ipython.org/">IPython</a>, a rich interactive interface, letting you quickly process data and
+test ideas.</p></li>
+<li><p>The <a class="reference external" href="http://jupyter.org/">Jupyter</a> notebook provides IPython functionality and more in your web
+browser, allowing you to document your computation in an easily reproducible form.</p></li>
+<li><p><a class="reference external" href="http://cython.org/">Cython</a> extends Python syntax so that you can conveniently build C extensions,
+either to speed up critical code, or to integrate with C/C++ libraries.</p></li>
+<li><p><a class="reference external" href="https://dask.readthedocs.io/">Dask</a>, <a class="reference external" href="https://joblib.readthedocs.io/">Joblib</a> or <a class="reference external" href="https://ipyparallel.readthedocs.io/">IPyParallel</a> for distributed processing with a focus on numeric data.</p></li>
+</ul>
+<p>Quality assurance:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://nose.readthedocs.org/en/latest/">nose</a>, a framework for testing Python code, being phased out in preference for <a class="reference external" href="https://docs.pytest.org/">pytest</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/numpy/numpydoc">numpydoc</a>, a standard and library for documenting Scientific Python libraries.</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+          </div>
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+
+<style type="text/css">
+a.extlink:after {
+    margin-left: 5px;
+    content: url("_static/external-link.png");
+}
+</style>
+
+<div class="well sidebar-nav">
+  <ul class="nav nav-list">
+
+    <li class="active">
+      <a href="#">About SciPy</a>
+      <ul class="nav nav-list">
+	<li >
+	  <a href="stackspec.html">SciPy Stack</a></li>
+      </ul>
+      
+    </li>
+    <li >
+      <a href="getting-started.html">Getting Started</a></li>
+    <li >
+      <a href="docs.html">Documentation</a></li>
+    <li >
+      <a href="install.html">Install</a></li>
+    <li >
+      <a href="bug-report.html">Bug Reports</a></li>
+    <li >
+      <a href="codes-of-conduct.html">Codes of Conduct</a></li>
+    <li><a class="extlink" href="http://conference.scipy.org">SciPy Conferences</a></li>    
+    <li >
+      <a href="topical-software.html">Topical Software</a>
+      
+    </li>
+    <li >
+      <a href="citing.html">Citing</a></li>
+    <li><a class="extlink" href="http://scipy-cookbook.readthedocs.org">Cookbook</a></li>
+    <li><a class="extlink" href="http://planet.scipy.org">Blogs</a></li>
+    <li><a class="extlink" href="http://numfocus.org">NumFOCUS</a></li>
+  </ul>
+</div>
+
+<div class="well sidebar-nav">
+  <ul class="nav nav-list">
+    <li class="nav-header">Core packages:</li>
+    <li><a class="extlink" href="http://www.numpy.org">Numpy</a> 
+    <li><a class="extlink" href="scipylib/index.html">SciPy library</a>
+    <li><a class="extlink" href="http://matplotlib.org">Matplotlib</a> 
+    <li><a class="extlink" href="http://ipython.org">IPython</a> 
+    <li><a class="extlink" href="http://sympy.org/">Sympy</a> 
+    <li><a class="extlink" href="http://pandas.pydata.org/">Pandas</a> 
+  </ul>
+</div>
+
+
+
+
+
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Scientific Computing Tools for Python</a><ul>
+<li><a class="reference internal" href="#the-scipy-ecosystem">The SciPy ecosystem</a></li>
+</ul>
+</li>
+</ul>
+<h3>Search</h3>
+<form class="form-search" action="http://www.google.com/search" method="get">
+  <fieldset>
+    <!-- we'll use google at least until we get everything in sphinx -->
+    <input type="text" name="q" size="18" class="input-small search-query">
+    <button type="submit" class="btn">Go</button>
+    <input type="hidden" name="as_sitesearch" value="scipy.org">
+  </fieldset>
+</form>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2019 SciPy developers.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.2.1.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

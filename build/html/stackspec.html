@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>The SciPy Stack specification &mdash; SciPy.org</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-extend.css">
+    <link rel="stylesheet" href="_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" >
+    <link rel="stylesheet" href="_static/scipy-org.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/js/copybutton.js"></script>
+    <link rel="author" title="About these documents" href="about.html" >
+    <link rel="search" title="Search" href="search.html" >
+    <link rel="top" title="SciPy.org" href="index.html" >
+    <link rel="up" title="Scientific Computing Tools for Python" href="about.html" >
+    <link rel="next" title="Installation" href="install.html" >
+    <link rel="prev" title="Scientific Computing Tools for Python" href="about.html" > 
+  </head>
+  <body>
+<style type="text/css">
+.top-logo-header {
+  text-align: left;
+  background-color: rgb(140, 170, 230);
+  border-bottom: 8px solid rgb(0, 51, 153);
+  margin-top: 10px;
+  padding: 5px;
+  box-shadow: 0px 0px 3px rgb(136, 136, 136);
+}
+</style>
+<div class="container">
+  <div class="top-logo-header">
+    <a href="index.html">
+      <img style="border: 0;" alt="SciPy" src="_static/logo.png"></a>
+  </div>
+</div>
+
+    <div class="container">
+      <div class="main">
+
+
+        
+
+
+
+	<div class="row-fluid">
+          <div class="span9">
+            
+	      <div class="row-fluid">
+		<div class="span9">
+  		  <div class="spc-navbar">
+		    
+    <ul class="nav nav-pills pull-left">
+	
+        <li class="active"><a href="index.html">SciPy.org</a></li>
+	
+          <li class="active"><a href="about.html" accesskey="U">Scientific Computing Tools for Python</a></li> 
+    </ul>
+		  </div>
+		</div>
+	      </div>
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="the-scipy-stack-specification">
+<span id="stackspec"></span><h1>The SciPy Stack specification<a class="headerlink" href="#the-scipy-stack-specification" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The SciPy Stack Specification was developed in 2012.
+As of 2017, the SciPy Stack concept is obsolete given
+improvements in package management and distribution.</p>
+</div>
+<p>Python Distributions promoting themselves as providing the SciPy stack should
+meet the requirements listed below.</p>
+<p>This specification is versioned, so it can be updated. The current version is
+SciPy Stack 1.0.</p>
+<div class="section" id="components">
+<h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<p>Distributions should include these packages in the initial installation.
+Second-level bullet points indicate dependencies: the versions of these should
+be sufficient for the packages that require them.</p>
+<ul class="simple">
+<li><p>Python (2.x &gt;= 2.6 or 3.x &gt;= 3.2)</p></li>
+<li><p>NumPy (&gt;= 1.6)</p></li>
+<li><p>SciPy library (&gt;= 0.10)</p></li>
+<li><p>Matplotlib (&gt;= 1.1)</p>
+<ul>
+<li><p>dateutil</p></li>
+<li><p>pytz</p></li>
+<li><p>Support for at least one backend</p></li>
+</ul>
+</li>
+<li><p>IPython (&gt;= 0.13)</p>
+<ul>
+<li><p>pyzmq</p></li>
+<li><p>tornado</p></li>
+</ul>
+</li>
+<li><p>pandas (&gt;= 0.8)</p></li>
+<li><p>Sympy (&gt;= 0.7)</p></li>
+<li><p>nose (&gt;= 1.1)</p></li>
+</ul>
+</div>
+<div class="section" id="other-requirements">
+<h2>Other requirements<a class="headerlink" href="#other-requirements" title="Permalink to this headline">¶</a></h2>
+<p>After installation, entering <code class="docutils literal notranslate"><span class="pre">ipython</span></code> in a terminal/command prompt should
+start IPython, and it should be possible to import any of the packages specified
+above. Distributions are welcome to also provide other shortcuts, menu entries,
+and interfaces such as IDEs.</p>
+<p>The user should be able to install arbitrary extra Python packages into the
+distribution.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+          </div>
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+
+<style type="text/css">
+a.extlink:after {
+    margin-left: 5px;
+    content: url("_static/external-link.png");
+}
+</style>
+
+<div class="well sidebar-nav">
+  <ul class="nav nav-list">
+
+    <li >
+      <a href="about.html">About SciPy</a>
+      <ul class="nav nav-list">
+	<li class="active">
+	  <a href="#">SciPy Stack</a></li>
+      </ul>
+      
+    </li>
+    <li >
+      <a href="getting-started.html">Getting Started</a></li>
+    <li >
+      <a href="docs.html">Documentation</a></li>
+    <li >
+      <a href="install.html">Install</a></li>
+    <li >
+      <a href="bug-report.html">Bug Reports</a></li>
+    <li >
+      <a href="codes-of-conduct.html">Codes of Conduct</a></li>
+    <li><a class="extlink" href="http://conference.scipy.org">SciPy Conferences</a></li>    
+    <li >
+      <a href="topical-software.html">Topical Software</a>
+      
+    </li>
+    <li >
+      <a href="citing.html">Citing</a></li>
+    <li><a class="extlink" href="http://scipy-cookbook.readthedocs.org">Cookbook</a></li>
+    <li><a class="extlink" href="http://planet.scipy.org">Blogs</a></li>
+    <li><a class="extlink" href="http://numfocus.org">NumFOCUS</a></li>
+  </ul>
+</div>
+
+<div class="well sidebar-nav">
+  <ul class="nav nav-list">
+    <li class="nav-header">Core packages:</li>
+    <li><a class="extlink" href="http://www.numpy.org">Numpy</a> 
+    <li><a class="extlink" href="scipylib/index.html">SciPy library</a>
+    <li><a class="extlink" href="http://matplotlib.org">Matplotlib</a> 
+    <li><a class="extlink" href="http://ipython.org">IPython</a> 
+    <li><a class="extlink" href="http://sympy.org/">Sympy</a> 
+    <li><a class="extlink" href="http://pandas.pydata.org/">Pandas</a> 
+  </ul>
+</div>
+
+
+
+
+
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">The SciPy Stack specification</a><ul>
+<li><a class="reference internal" href="#components">Components</a></li>
+<li><a class="reference internal" href="#other-requirements">Other requirements</a></li>
+</ul>
+</li>
+</ul>
+<h3>Search</h3>
+<form class="form-search" action="http://www.google.com/search" method="get">
+  <fieldset>
+    <!-- we'll use google at least until we get everything in sphinx -->
+    <input type="text" name="q" size="18" class="input-small search-query">
+    <button type="submit" class="btn">Go</button>
+    <input type="hidden" name="as_sitesearch" value="scipy.org">
+  </fieldset>
+</form>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright 2019 SciPy developers.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.2.1.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>
