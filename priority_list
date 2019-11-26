@@ -7,3 +7,5 @@ Documentation priority list:
 5. check the links in 'Contributing to SciPy'; remove any outdated content
 6. check the quality of the documentation and ensure that it is consistent
 7. resolve any documentation-related issues that normally arise
+8. improve and update docs.scipy.org
+9. provide a critical comparison of the methods and functions
