@@ -3,6 +3,10 @@
 '''A simple script for inserting links to the SVG tree.
 Works on a premise that the tree boxes never equal rgb(0%,0%,0%).
 Insert filenames as needed (two files: a list with hyperlinks and the SVG file).
+Prepare the hyperlinks in a hierarchical manner (i.e., according to the box hierarchy).
+For instance, if you have 3 category boxes, the links will be inserted from left to right.
+And for subcategories, they will be inserted top to bottom.
+See the sample_links.svg file with number markings (1-33).
 No error handling, so use with care.'''
 
 import re
