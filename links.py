@@ -20,8 +20,11 @@ with open('hyper.txt', 'r') as hyper_input:
 
 with open('hyper.txt', 'w') as hyper_output:
     for line in hyper_file:
-        line=hyperlink[:15] + line[0:len(line)-1] + hyperlink[15:] + '\n'
-        hyper_output.write(line)
+        if not line.startswith('--'):
+            line=hyperlink[:15] + line[0:len(line)-1] + hyperlink[15:] + '\n'
+            hyper_output.write(line)
+        else:
+            hyper_output.write(line)
 
 with open('testing/scipy.org/www/constants.svg', 'r') as input_file, open('hyper.txt', 'r') as hyper_input:
     svg_file=input_file.readlines()
@@ -31,7 +34,8 @@ with open('testing/scipy.org/www/constants.svg', 'w') as output_file:
     counter = 0
     for line in svg_file:
         if pattern.search(line):
-            line=hyper_file[counter]+line+'</a>'+'\n'
+            if hyper_file[counter][0:2]!="--":
+                line=hyper_file[counter]+line+'</a>'+'\n'
             print(line)
             counter += 1
         output_file.write(line)
