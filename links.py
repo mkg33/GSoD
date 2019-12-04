@@ -12,7 +12,7 @@ import re, sys
 
 pattern=re.compile('rgb\([^0]')
 
-hyperlink='<a xlink:href=\"\">'
+hyperlink='<a class=\"reference internal\" href=\"\">'
 
 hyperlink_path=input('Enter the hyperlink path: ')
 
@@ -31,7 +31,7 @@ try:
     with open(hyperlink_path, 'w') as hyper_output:
         for line in hyper_file:
             if not line.startswith('--'):
-                line=hyperlink[:15] + line[0:len(line)-1] + hyperlink[15:] + '\n'
+                line=hyperlink[:36] + line[0:len(line)-1] + hyperlink[36:] + '\n'
                 hyper_output.write(line)
             else:
                 hyper_output.write(line)
