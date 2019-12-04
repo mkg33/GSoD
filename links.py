@@ -14,6 +14,8 @@ pattern=re.compile('rgb\([^0]')
 
 hyperlink='<a class=\"reference internal\" href=\"\">'
 
+hyperlink_header='<a class=\"headerlink\" href=\"\">'
+
 hyperlink_path=input('Enter the hyperlink path: ')
 
 svg_path=input('Enter the SVG path: ')
@@ -31,8 +33,12 @@ try:
     with open(hyperlink_path, 'w') as hyper_output:
         for line in hyper_file:
             if not line.startswith('--'):
-                line=hyperlink[:36] + line[0:len(line)-1] + hyperlink[36:] + '\n'
-                hyper_output.write(line)
+                if line.startswith('#scipy.'):
+                    line=hyperlink[:36] + 'generated/' + line[0:len(line)-1] + '.html' + line[0:len(line)-1] + hyperlink[36:] + '\n'
+                    hyper_output.write(line)
+                else:
+                    line=hyperlink_header[:28] + line[0:len(line)-1] + hyperlink_header[28:] + '\n'
+                    hyper_output.write(line)
             else:
                 hyper_output.write(line)
 except OSError as e:

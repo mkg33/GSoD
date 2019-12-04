@@ -24,7 +24,7 @@
 -- golden_ratio
 #scipy.constants.value
 #scipy.constants.units
-#scipt.constants.precision
+#scipy.constants.precision
 #scipy.constants.find
 #scipy.constants.ConstantWarning
 #scipy.constants.physical_constants
