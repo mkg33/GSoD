@@ -614,7 +614,7 @@
   <use xlink:href="#glyph1-3" x="131.054488" y="267.54206"/>
   <use xlink:href="#glyph1-7" x="135.285901" y="267.54206"/>
 </g>
-<a class="reference internal" href="generated/#scipy.constants.value.html#scipy.constants.value">
+<a class="reference internal" href="generated/scipy.constants.value.html#scipy.constants.value">
 <path style="fill-rule:nonzero;fill:rgb(100%,71.958923%,56.156921%);fill-opacity:1;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 80.549824 -150.150933 L 47.009634 -150.150933 C 44.808803 -150.150933 43.026248 -151.937398 43.026248 -154.138228 L 43.026248 -157.679885 C 43.026248 -159.880715 44.808803 -161.663271 47.009634 -161.663271 L 80.549824 -161.663271 C 82.750654 -161.663271 84.537119 -159.880715 84.537119 -157.679885 L 84.537119 -154.138228 C 84.537119 -151.937398 82.750654 -150.150933 80.549824 -150.150933 Z M 80.549824 -150.150933 " transform="matrix(0.999268,0,0,-0.999268,241.817764,25.224662)"/>
 </a>
 <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
@@ -624,7 +624,7 @@
   <use xlink:href="#glyph1-17" x="307.667044" y="183.449694"/>
   <use xlink:href="#glyph1-14" x="311.898456" y="183.449694"/>
 </g>
-<a class="reference internal" href="generated/#scipy.constants.units.html#scipy.constants.units">
+<a class="reference internal" href="generated/scipy.constants.units.html#scipy.constants.units">
 <path style="fill-rule:nonzero;fill:rgb(100%,71.958923%,56.156921%);fill-opacity:1;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 80.549824 -185.587042 L 47.009634 -185.587042 C 44.808803 -185.587042 43.026248 -187.369598 43.026248 -189.570429 L 43.026248 -193.112085 C 43.026248 -195.312916 44.808803 -197.095471 47.009634 -197.095471 L 80.549824 -197.095471 C 82.750654 -197.095471 84.537119 -195.312916 84.537119 -193.112085 L 84.537119 -189.570429 C 84.537119 -187.369598 82.750654 -185.587042 80.549824 -185.587042 Z M 80.549824 -185.587042 " transform="matrix(0.999268,0,0,-0.999268,241.817764,25.224662)"/>
 </a>
 <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
@@ -633,7 +633,7 @@
   <use xlink:href="#glyph1-3" x="305.55108" y="218.856743"/>
   <use xlink:href="#glyph1-9" x="309.782493" y="218.856743"/>
 </g>
-<a class="reference internal" href="generated/#scipy.constants.precision.html#scipy.constants.precision">
+<a class="reference internal" href="generated/scipy.constants.precision.html#scipy.constants.precision">
 <path style="fill-rule:nonzero;fill:rgb(100%,71.958923%,56.156921%);fill-opacity:1;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 82.930474 -220.131874 L 46.900179 -220.131874 C 44.695439 -220.131874 42.912884 -221.918339 42.912884 -224.119169 L 42.912884 -229.431654 C 42.912884 -231.632485 44.695439 -233.41504 46.900179 -233.41504 L 82.930474 -233.41504 C 85.131304 -233.41504 86.91386 -231.632485 86.91386 -229.431654 L 86.91386 -224.119169 C 86.91386 -221.918339 85.131304 -220.131874 82.930474 -220.131874 Z M 82.930474 -220.131874 " transform="matrix(0.999268,0,0,-0.999268,241.817764,25.224662)"/>
 </a>
 <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
@@ -647,7 +647,7 @@
   <use xlink:href="#glyph1-7" x="317.636793" y="253.378441"/>
   <use xlink:href="#glyph1-8" x="321.868206" y="253.378441"/>
 </g>
-<a class="reference internal" href="generated/#scipy.constants.find.html#scipy.constants.find">
+<a class="reference internal" href="generated/scipy.constants.find.html#scipy.constants.find">
 <path style="fill-rule:nonzero;fill:rgb(100%,71.958923%,56.156921%);fill-opacity:1;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 80.409096 -256.451443 L 46.868906 -256.451443 C 44.668075 -256.451443 42.881611 -258.237908 42.881611 -260.438738 L 42.881611 -263.980395 C 42.881611 -266.181225 44.668075 -267.963781 46.868906 -267.963781 L 80.409096 -267.963781 C 82.609926 -267.963781 84.392482 -266.181225 84.392482 -263.980395 L 84.392482 -260.438738 C 84.392482 -258.237908 82.609926 -256.451443 80.409096 -256.451443 Z M 80.409096 -256.451443 " transform="matrix(0.999268,0,0,-0.999268,241.817764,25.224662)"/>
 </a>
 <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
@@ -656,7 +656,7 @@
   <use xlink:href="#glyph1-8" x="305.409184" y="289.670841"/>
   <use xlink:href="#glyph1-13" x="309.640597" y="289.670841"/>
 </g>
-<a class="reference internal" href="generated/#scipy.constants.ConstantWarning.html#scipy.constants.ConstantWarning">
+<a class="reference internal" href="generated/scipy.constants.ConstantWarning.html#scipy.constants.ConstantWarning">
 <path style="fill-rule:nonzero;fill:rgb(100%,71.958923%,56.156921%);fill-opacity:1;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 107.854978 -291.000184 L 46.915815 -291.000184 C 44.714985 -291.000184 42.932429 -292.782739 42.932429 -294.98357 L 42.932429 -300.296055 C 42.932429 -302.500794 44.714985 -304.28335 46.915815 -304.28335 L 107.854978 -304.28335 C 110.055809 -304.28335 111.842273 -302.500794 111.842273 -300.296055 L 111.842273 -294.98357 C 111.842273 -292.782739 110.055809 -291.000184 107.854978 -291.000184 Z M 107.854978 -291.000184 " transform="matrix(0.999268,0,0,-0.999268,241.817764,25.224662)"/>
 </a>
 <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
@@ -678,7 +678,7 @@
   <use xlink:href="#glyph1-8" x="343.036292" y="324.193538"/>
   <use xlink:href="#glyph1-11" x="347.267704" y="324.193538"/>
 </g>
-<a class="reference internal" href="generated/#scipy.constants.physical_constants.html#scipy.constants.physical_constants">
+<a class="reference internal" href="generated/scipy.constants.physical_constants.html#scipy.constants.physical_constants">
 <path style="fill-rule:nonzero;fill:rgb(100%,71.958923%,56.156921%);fill-opacity:1;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 118.472129 -326.432384 L 47.07218 -326.432384 C 44.871349 -326.432384 43.088794 -328.218849 43.088794 -330.419679 L 43.088794 -335.732164 C 43.088794 -337.932995 44.871349 -339.71555 47.07218 -339.71555 L 118.472129 -339.71555 C 120.67296 -339.71555 122.455515 -337.932995 122.455515 -335.732164 L 122.455515 -330.419679 C 122.455515 -328.218849 120.67296 -326.432384 118.472129 -326.432384 Z M 118.472129 -326.432384 " transform="matrix(0.999268,0,0,-0.999268,241.817764,25.224662)"/>
 </a>
 <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
@@ -703,7 +703,7 @@
   <use xlink:href="#glyph1-9" x="354.706623" y="359.600587"/>
   <use xlink:href="#glyph1-1" x="358.938036" y="359.600587"/>
 </g>
-<a class="reference internal" href="generated/#scipy.constants.convert_temperature.html#scipy.constants.convert_temperature">
+<a class="reference internal" href="generated/scipy.constants.convert_temperature.html#scipy.constants.convert_temperature">
 <path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,71.958923%,56.156921%);fill-opacity:1;" d="M 562.992188 599.5 L 487.164062 599.5 C 484.964844 599.5 483.183594 601.285156 483.183594 603.484375 L 483.183594 608.335938 C 483.183594 610.535156 484.964844 612.316406 487.164062 612.316406 L 562.992188 612.316406 C 565.191406 612.316406 566.972656 610.535156 566.972656 608.335938 L 566.972656 603.484375 C 566.972656 601.285156 565.191406 599.5 562.992188 599.5 Z M 562.992188 599.5 "/>
 </a>
 <g clip-path="url(#clip3)" clip-rule="nonzero">
@@ -732,7 +732,7 @@
   <use xlink:href="#glyph1-15" x="557.244206" y="607.221098"/>
   <use xlink:href="#glyph1-14" x="561.475618" y="607.221098"/>
 </g>
-<a class="reference internal" href="generated/#scipy.constants.lambda2nu.html#scipy.constants.lambda2nu">
+<a class="reference internal" href="generated/scipy.constants.lambda2nu.html#scipy.constants.lambda2nu">
 <path style="fill-rule:nonzero;fill:rgb(100%,71.958923%,56.156921%);fill-opacity:1;stroke-width:0.3985;stroke-linecap:butt;stroke-linejoin:miter;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 281.642415 -745.434572 L 245.608212 -745.434572 C 243.407381 -745.434572 241.624825 -747.217127 241.624825 -749.417958 L 241.624825 -752.959614 C 241.624825 -755.160445 243.407381 -756.946909 245.608212 -756.946909 L 281.642415 -756.946909 C 283.843246 -756.946909 285.625802 -755.160445 285.625802 -752.959614 L 285.625802 -749.417958 C 285.625802 -747.217127 283.843246 -745.434572 281.642415 -745.434572 Z M 281.642415 -745.434572 " transform="matrix(0.999268,0,0,-0.999268,241.817764,25.224662)"/>
 </a>
 <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
@@ -747,7 +747,7 @@
   <use xlink:href="#glyph1-17" x="520.431672" y="778.288718"/>
 </g>
 <g clip-path="url(#clip4)" clip-rule="nonzero">
-<a class="reference internal" href="generated/#scipy.constants.nu2lambda.html#scipy.constants.nu2lambda">
+<a class="reference internal" href="generated/scipy.constants.nu2lambda.html#scipy.constants.nu2lambda">
 <path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,71.958923%,56.156921%);fill-opacity:1;" d="M 523.253906 805.519531 L 487.246094 805.519531 C 485.046875 805.519531 483.265625 807.304688 483.265625 809.503906 L 483.265625 813.042969 C 483.265625 815.242188 485.046875 817.023438 487.246094 817.023438 L 523.253906 817.023438 C 525.453125 817.023438 527.234375 815.242188 527.234375 813.042969 L 527.234375 809.503906 C 527.234375 807.304688 525.453125 805.519531 523.253906 805.519531 Z M 523.253906 805.519531 "/>
 </a>
 </g>

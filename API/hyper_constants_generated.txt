@@ -22,12 +22,12 @@
 <a class="headerlink" href="#optics">
 -- golden
 -- golden_ratio
-<a class="reference internal" href="generated/#scipy.constants.value.html#scipy.constants.value">
-<a class="reference internal" href="generated/#scipy.constants.units.html#scipy.constants.units">
-<a class="reference internal" href="generated/#scipy.constants.precision.html#scipy.constants.precision">
-<a class="reference internal" href="generated/#scipy.constants.find.html#scipy.constants.find">
-<a class="reference internal" href="generated/#scipy.constants.ConstantWarning.html#scipy.constants.ConstantWarning">
-<a class="reference internal" href="generated/#scipy.constants.physical_constants.html#scipy.constants.physical_constants">
-<a class="reference internal" href="generated/#scipy.constants.convert_temperature.html#scipy.constants.convert_temperature">
-<a class="reference internal" href="generated/#scipy.constants.lambda2nu.html#scipy.constants.lambda2nu">
-<a class="reference internal" href="generated/#scipy.constants.nu2lambda.html#scipy.constants.nu2lambda">
+<a class="reference internal" href="generated/scipy.constants.value.html#scipy.constants.value">
+<a class="reference internal" href="generated/scipy.constants.units.html#scipy.constants.units">
+<a class="reference internal" href="generated/scipy.constants.precision.html#scipy.constants.precision">
+<a class="reference internal" href="generated/scipy.constants.find.html#scipy.constants.find">
+<a class="reference internal" href="generated/scipy.constants.ConstantWarning.html#scipy.constants.ConstantWarning">
+<a class="reference internal" href="generated/scipy.constants.physical_constants.html#scipy.constants.physical_constants">
+<a class="reference internal" href="generated/scipy.constants.convert_temperature.html#scipy.constants.convert_temperature">
+<a class="reference internal" href="generated/scipy.constants.lambda2nu.html#scipy.constants.lambda2nu">
+<a class="reference internal" href="generated/scipy.constants.nu2lambda.html#scipy.constants.nu2lambda">
