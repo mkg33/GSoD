@@ -5,7 +5,7 @@
 
 ## User survey
 
-Check out the current SciPy [user survey](https://forms.gle/vz4Hp8ayjLyYYgUL7) and tell us how we could improve the documentation.
+Our SciPy user survey has been closed: consult the full report [here](https://github.com/mkg33/GSoD/blob/master/user_survey_summary.pdf).
 
 ## Graphical guides
 
@@ -49,4 +49,4 @@ Consult the related pull requests for more details:
 
 In case you're interested in the full project proposal, consult [this file](other/proposal.pdf).
 
-:octocat: *work in progress*
+:octocat: *the project has now been completed*
