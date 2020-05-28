@@ -5,7 +5,7 @@
 
 ## User survey
 
-:squirrel: Check out the current SciPy [user survey](https://forms.gle/vz4Hp8ayjLyYYgUL7) and tell us how we could improve the documentation.
+Check out the current SciPy [user survey](https://forms.gle/vz4Hp8ayjLyYYgUL7) and tell us how we could improve the documentation.
 
 ## Graphical guides
 
