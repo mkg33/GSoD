@@ -37,7 +37,7 @@ And here, the current WBS version:
 
 ## Revision of the current documentation
 
-I'm also working on correcting typos, stylistic inconsistencies, grammar, punctuation, etc., in the current documentation. 
+I'm also working on correcting typos, stylistic inconsistencies, grammar, punctuation, etc., in the current documentation.
 
 Consult the related pull requests for more details:
 
@@ -46,7 +46,4 @@ Consult the related pull requests for more details:
 * [#11067](https://github.com/scipy/scipy/pull/11067)
 
 ---
-
-In case you're interested in the full project proposal, consult [this file](other/proposal.pdf).
-
 :octocat: *the project has now been completed*
